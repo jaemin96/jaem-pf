@@ -1,44 +1,15 @@
 {
-  "name": "portfolio_jaem",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "packageManager": "pnpm@10.5.0",
   "engines": {
-    "node": "^22",
-    "pnpm": "^10"
+    "node": ">=22"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-router": "^7.2.0",
-    "sass": "^1.85.1"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.21.0",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.21.0",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "globals": "^15.15.0",
-    "typescript": "~5.7.3",
-    "typescript-eslint": "^8.25.0",
-    "vite": "^6.2.0"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "esbuild"
-    ],
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild"
-    ]
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
