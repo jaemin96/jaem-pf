@@ -1,10 +1,11 @@
-const App = ()  => {
+import { Router } from "./router";
 
+const App = () => {
   return (
     <>
-      <div>app</div>
+      <Router />
     </>
-  )
-}
+  );
+};
 
 export default App;
