@@ -7,6 +7,7 @@ export const store = configureStore({
     counter: counterReducer,
     theme: themeReducer,
   },
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
