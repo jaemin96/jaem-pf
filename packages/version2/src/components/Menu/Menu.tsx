@@ -2,28 +2,37 @@ import { NavLink } from "react-router";
 
 interface MenuProps {}
 
+interface MenuItem {
+  key: string;
+  to: string;
+  name: string;
+}
+
+const menuItems: MenuItem[] = [
+  { key: "Hero", to: "/", name: "Hero" },
+  { key: "AboutMe", to: "/about", name: "About me" },
+  { key: "Projects", to: "/project", name: "My Projects" },
+  { key: "Experience", to: "/experience", name: "Experience" },
+  { key: "Contact", to: "/contact", name: "Contact" },
+];
+
 export const Menu: React.FC<MenuProps> = (props) => {
   return (
     <>
       <nav>
-        <NavLink
-          to="/"
-          style={({ isActive }) => ({ color: isActive ? "green" : "blue" })}
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/intro"
-          style={({ isActive }) => ({ color: isActive ? "green" : "blue" })}
-        >
-          Intro
-        </NavLink>
-        <NavLink
-          to="/project"
-          style={({ isActive }) => ({ color: isActive ? "green" : "blue" })}
-        >
-          Project
-        </NavLink>
+        {menuItems?.map((item: MenuItem) => {
+          return (
+            <NavLink
+              key={item?.key}
+              to={item?.to}
+              style={({ isActive }) => ({
+                color: isActive ? "green" : "blue",
+              })}
+            >
+              {item?.name}
+            </NavLink>
+          );
+        })}
       </nav>
     </>
   );
