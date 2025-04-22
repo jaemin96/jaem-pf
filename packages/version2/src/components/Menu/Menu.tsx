@@ -19,7 +19,7 @@ const menuItems: MenuItem[] = [
 export const Menu: React.FC<MenuProps> = (props) => {
   return (
     <>
-      <nav>
+      <nav id="pf-nav">
         {menuItems?.map((item: MenuItem) => {
           return (
             <NavLink
