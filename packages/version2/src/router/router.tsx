@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Routes, Route } from "react-router";
+import { PFLayout } from "../components";
 import {
   HomePage,
   ErrorPage,
@@ -16,12 +17,16 @@ const Router: React.FC<RouterProps> = (props) => {
     <>
       <Suspense fallback={<div>loading...</div>}>
         <Routes>
-          <Route>
+          {/* Main Service */}
+          <Route element={<PFLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/project" element={<ProjectPage />} />
             <Route path="/experience" element={<ExperiencePage />} />
             <Route path="/contact" element={<ContactPage />} />
+          </Route>
+
+          <Route>
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>

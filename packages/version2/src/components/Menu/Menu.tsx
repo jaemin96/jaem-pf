@@ -8,6 +8,8 @@ interface MenuItem {
   name: string;
 }
 
+type MenuAlign = "left" | "right";
+
 const menuItems: MenuItem[] = [
   { key: "Hero", to: "/", name: "Hero" },
   { key: "AboutMe", to: "/about", name: "About me" },
@@ -17,9 +19,10 @@ const menuItems: MenuItem[] = [
 ];
 
 export const Menu: React.FC<MenuProps> = (props) => {
+  const menuAlign: MenuAlign = "right";
   return (
     <>
-      <nav>
+      <nav id="pf-menu" className={`${menuAlign}`}>
         {menuItems?.map((item: MenuItem) => {
           return (
             <NavLink

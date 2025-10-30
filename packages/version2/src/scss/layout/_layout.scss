@@ -1,0 +1,24 @@
+#pf-layout {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #pf-menu {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &.right {
+      right: 0;
+    }
+
+    &.left {
+      left: 0;
+    }
+  }
+
+  #pf-main {
+  }
+}
