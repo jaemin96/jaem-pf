@@ -5,8 +5,8 @@ import { Toaster } from '@shared/components';
 import { AppSidebar } from '@module/navigation/components';
 
 const visibleOption = {
-  isSidebar: false,
-  isHeader: false,
+  isSidebar: true,
+  isHeader: true,
 };
 
 export const BaseLayout = () => {
@@ -14,7 +14,14 @@ export const BaseLayout = () => {
     <>
       <SidebarProvider>
         {visibleOption?.isHeader && <Header isSearch={false} isAuth={false} isLogo={false} />}
-        {visibleOption?.isSidebar && <AppSidebar />}
+
+        {/* 모바일 전용 사이드바 */}
+        {visibleOption?.isSidebar && (
+          <div className="md:hidden">
+            <AppSidebar />
+          </div>
+        )}
+
         <main className={`w-full pt-2 overflow-y-auto ${visibleOption?.isHeader && 'max-h-[calc(100svh-64px)] mt-16'}`}>
           <Outlet />
         </main>
