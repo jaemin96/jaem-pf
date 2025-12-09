@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Header, SidebarProvider, Toaster } from "@shared/components/ui";
+import { AppSidebar } from "@module/navigation/components";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,22 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SidebarProvider>
+          {/* Header */}
+          <Header isSearch={false} isAuth={false} isLogo={false} />
+
+          {/* 모바일 전용 Sidebar */}
+          <div className="md:hidden">
+            <AppSidebar />
+          </div>
+
+          {/* 페이지 내용 */}
+          <main className="w-full pt-2 overflow-y-auto max-h-[calc(100svh-64px)] mt-16">
+            {children}
+          </main>
+
+          <Toaster position="top-right" />
+        </SidebarProvider>
       </body>
     </html>
   );
