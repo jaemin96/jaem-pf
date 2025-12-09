@@ -1,6 +1,4 @@
-"use client";
-
-import { SidebarTrigger } from "@shared/components/ui/sidebar";
+import { SidebarTrigger } from "@weaw/design";
 import Link from "next/link";
 import { useMenu } from "@module/navigation/hooks";
 

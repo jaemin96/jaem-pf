@@ -1,11 +1,6 @@
 "use client";
 
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@shared/components/ui";
-import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
@@ -17,7 +12,10 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
-} from "@shared/components/ui/sidebar";
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@weaw/design";
 import { ChevronRight } from "lucide-react";
 import { useMenu } from "../hooks";
 
