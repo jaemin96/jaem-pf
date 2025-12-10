@@ -18,9 +18,11 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@shared/*": ["./src/shared/*"],
+      "@shared/*": ["../../packages/ui/src/shared/*"],
+      "@/lib/*": ["../../packages/ui/src/lib/*"],
       "@module/*": ["./src/module/*"],
       "@weaw/design": ["../../packages/ui/src"]
     }

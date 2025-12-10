@@ -1,4 +1,4 @@
-import { Button } from "@/shared/components";
+import { Button } from "@weaw/design";
 import Image from "next/image";
 
 export default function Home() {

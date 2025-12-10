@@ -7,16 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const nextConfig = {
   reactCompiler: true,
 
-  experimental: {
-    turbo: {
-      resolveAlias: {
-        "@weaw/design": path.resolve(
-          __dirname,
-          "../../packages/weaw-design/src"
-        ),
-      },
-    },
-  },
+  // REMOVE the turbo block entirely
 };
 
 export default nextConfig;

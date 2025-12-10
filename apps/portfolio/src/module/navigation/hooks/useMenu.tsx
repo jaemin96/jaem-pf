@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { useNavOptions } from "./useNavOptions";
 import { usePathname } from "next/navigation";
