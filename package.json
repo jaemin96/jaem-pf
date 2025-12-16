@@ -1,31 +1,31 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "",
-  "engines": {
-    "node": ">=22"
-  },
+  "name": "monorepo-template",
+  "private": true,
+  "packageManager": "pnpm@10.17.1",
   "scripts": {
+    "dev": "turbo run dev --parallel",
     "build": "turbo run build",
-    "dev": "pnpm -r --parallel run dev",
     "lint": "turbo run lint",
-    "test": "turbo run test",
-    "lint:fix": "eslint packages/** --ext .ts,.tsx,.js,.jsx --fix",
-    "format": "prettier --write \"packages/**/*.{js,jsx,ts,tsx,json,md}\""
+    "lint:fix": "turbo run lint -- --fix",
+    "format": "turbo run format",
+    "graph:turbo": "node dot/scripts/gen-turbo-graph.js",
+    "graph:merge": "node dot/scripts/merge-graph.js",
+    "graph": "pnpm run graph:turbo && pnpm run graph:merge"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@eslint/js": "^9.18.0",
-    "@types/node": "^24.3.0",
-    "eslint": "^9.25.1",
-    "eslint-config-next": "^15.3.1",
-    "eslint-plugin-prettier": "^5.2.2",
-    "globals": "^16.0.0",
-    "sass": "^1.87.0",
-    "tslib": "^2.8.1",
-    "turbo": "^2.5.6",
-    "typescript-eslint": "^8.20.0"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "turbo": "latest",
+    "typescript": "^5.6.2",
+    "ts-node": "^10.9.2",
+    "eslint": "^9.14.0",
+    "prettier": "^3.2.5",
+    "@types/node": "^24.10.1",
+    "@types/react": "19.x",
+    "@types/react-dom": "19.x",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1"
+  }
 }

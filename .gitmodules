@@ -1,3 +1,3 @@
-[submodule "packages/ui"]
-	path = packages/ui
-	url = git@jm:jaemin96/weaw-design.git
+# [submodule "packages/weaw-design"]
+# 	path = packages/weaw-design
+# 	url = https://github.com/jaemin96/weaw-design.git
