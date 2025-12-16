@@ -1,3 +1,5 @@
+"use client";
+
 import { SidebarTrigger } from "@/shared/components/ui";
 import Link from "next/link";
 import { useMenu } from "@/module/navigation/hooks";
