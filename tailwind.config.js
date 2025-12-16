@@ -1,13 +1,12 @@
-
 const config = {
-    // root config는 content 비움
-    content: [],
+  // root config는 content 비움
+  content: [],
 
-    theme: {
-        extend: {},
-    },
+  theme: {
+    extend: {},
+  },
 
-    plugins: [],
-}
+  plugins: [],
+};
 
-export default config
+export default config;
