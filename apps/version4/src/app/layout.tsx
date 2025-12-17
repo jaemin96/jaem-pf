@@ -40,7 +40,7 @@ export default function RootLayout({
           </div>
 
           {/* 페이지 내용 */}
-          <main className="w-full pt-2 overflow-y-auto max-h-[calc(100svh-64px)] mt-16">
+          <main className="w-full overflow-y-auto max-h-[calc(100svh-64px)] mt-16">
             {children}
           </main>
 

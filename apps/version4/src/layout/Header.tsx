@@ -12,7 +12,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ isLogo }) => {
-  const { navMain } = useMenu({ optionType: "header" });
+  const { navMain } = useMenu({ optionType: "side" });
 
   return (
     <header className="fixed top-0 w-full bg-gray-800 z-50">
@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ isLogo }) => {
                 <span className="hover:opacity-80">{group.title}</span>
 
                 {/* Dropdown */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block bg-gray-700 rounded-md py-2 min-w-[160px] shadow-lg">
+                <div className="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block bg-gray-700 rounded-md py-2 min-w-40 shadow-lg">
                   {group.items.map((item) => (
                     <Link
                       href={item.url}
