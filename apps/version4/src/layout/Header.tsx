@@ -15,8 +15,8 @@ const Header: React.FC<HeaderProps> = ({ isLogo }) => {
   const { navMain } = useMenu({ optionType: "side" });
 
   return (
-    <header className="fixed top-0 w-full bg-gray-800 z-50">
-      <div className="grid grid-cols-3 items-center h-16 px-4 text-white">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="mx-auto grid h-16 max-w-5xl grid-cols-3 items-center px-4 text-sm text-foreground/90 md:px-6">
         {/* Left : Logo + Mobile trigger */}
         <div className="flex items-center gap-2">
           <div className="md:hidden">
@@ -24,26 +24,31 @@ const Header: React.FC<HeaderProps> = ({ isLogo }) => {
           </div>
 
           {isLogo && (
-            <Link href="/" className="text-xl">
+            <Link
+              href="/"
+              className="text-base font-semibold tracking-tight text-foreground hover:text-primary transition-colors"
+            >
               Portfolio
             </Link>
           )}
         </div>
 
         {/* Center : Navigation */}
-        <nav className="hidden md:flex justify-center gap-6 text-white">
+        <nav className="hidden items-center justify-center gap-6 md:flex">
           {navMain?.map((group) =>
             group.items?.length ? (
               <div key={group.title} className="relative group cursor-pointer">
-                <span className="hover:opacity-80">{group.title}</span>
+                <span className="text-xs font-medium uppercase tracking-[0.12em] text-foreground/70 transition-colors group-hover:text-primary">
+                  {group.title}
+                </span>
 
                 {/* Dropdown */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block bg-gray-700 rounded-md py-2 min-w-40 shadow-lg">
+                <div className="absolute left-1/2 top-full hidden min-w-40 -translate-x-1/2 rounded-md border border-border/80 bg-popover/95 py-2 text-sm shadow-lg group-hover:block">
                   {group.items.map((item) => (
                     <Link
                       href={item.url}
                       key={item.title}
-                      className="block px-4 py-1 hover:bg-gray-600"
+                      className="block px-4 py-1.5 text-foreground/80 hover:bg-accent hover:text-accent-foreground"
                     >
                       {item.title}
                     </Link>
@@ -54,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ isLogo }) => {
               <Link
                 key={group.title}
                 href={group.url}
-                className="hover:opacity-80"
+                className="text-xs font-medium uppercase tracking-[0.12em] text-foreground/70 transition-colors hover:text-primary"
               >
                 {group.title}
               </Link>
@@ -62,8 +67,8 @@ const Header: React.FC<HeaderProps> = ({ isLogo }) => {
           )}
         </nav>
 
-        {/* Right : reserved for future (Login, Profile, etc) */}
-        <div className="flex justify-end items-center">
+        {/* Right : reserved for future (Theme toggle, Search, Auth, etc.) */}
+        <div className="flex items-center justify-end gap-2">
           {/* <HeaderUserDropdown /> */}
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Home, Users } from 'lucide-react';
+import { Home, Users } from "lucide-react";
 
 type NavItem = {
   title: string;
@@ -20,17 +20,20 @@ export const useNavOptions = () => {
   return {
     navMain: [
       {
-        title: 'Home',
+        title: "Home",
         icon: Home,
-        url: '/',
+        url: "/",
       },
       {
-        title: 'test',
+        title: "test",
         icon: Users,
         collapsible: true,
         defaultOpen: false,
-        url: '#',
-        items: [{ title: 'test', url: `/test/${1}` }],
+        url: "#",
+        items: [
+          { title: "test", url: `/test` },
+          { title: "test (kr)", url: `/test/kr` },
+        ],
       },
     ] as NavMainItem[],
   };

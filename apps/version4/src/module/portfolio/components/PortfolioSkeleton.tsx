@@ -1,10 +1,10 @@
 import { Skeleton } from "@/shared/components/ui";
 
-export default function Home() {
+export function PortfolioSkeleton() {
   return (
     <div className="min-h-[calc(100svh-64px)] bg-background">
       <div className="mx-auto flex max-w-5xl flex-col gap-16 px-4 pb-16 pt-8 md:px-6 md:pb-20 md:pt-10 lg:px-0 lg:pb-24 lg:pt-12">
-        {/* Hero / Intro */}
+        {/* Hero */}
         <section className="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">
           <div className="space-y-6">
             <div className="space-y-3">
@@ -102,7 +102,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Experience / Timeline */}
+        {/* Experience */}
         <section className="space-y-6">
           <div className="space-y-2">
             <Skeleton className="h-4 w-28 rounded-full" />
