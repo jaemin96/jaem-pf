@@ -102,10 +102,7 @@ export function PortfolioPageKr() {
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {stack.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border/80 bg-secondary/40 px-2 py-1 text-[11px] font-medium text-foreground/80"
-                    >
+                    <span key={tag} className="tag-pill text-foreground/80">
                       {tag}
                     </span>
                   ))}
@@ -146,10 +143,7 @@ export function PortfolioPageKr() {
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-border/80 bg-secondary/40 px-2 py-1 text-[11px] font-medium text-foreground/80"
-                      >
+                      <span key={tag} className="tag-pill text-foreground/80">
                         {tag}
                       </span>
                     ))}
@@ -224,5 +218,3 @@ export function PortfolioPageKr() {
     </div>
   );
 }
-
-
