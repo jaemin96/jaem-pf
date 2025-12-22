@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AppSidebar } from "@/module/navigation/components";
 import { Header } from "@/layout";
-import { SidebarProvider } from "@/shared/components/ui";
+import { SidebarProvider, ScrollToTop } from "@/shared/components/ui";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -45,6 +45,9 @@ export default function RootLayout({
           </main>
 
           {/* <Toaster position="top-right" /> */}
+
+          {/* Scroll to Top 버튼 */}
+          <ScrollToTop />
         </SidebarProvider>
       </body>
     </html>
