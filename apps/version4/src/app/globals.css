@@ -122,13 +122,44 @@
   }
 }
 
+/* ============================================
+   테마 목록 (Theme Palette List)
+   ============================================
+   
+   사용 가능한 테마 클래스:
+   
+   1. :root (기본) - Modern Minimal
+      - 밝은 배경, 인디고/바이올렛 포인트
+      - 클래스명: 기본 (body에 클래스 없음)
+   
+   2. .theme-dark-pro - Dark Professional
+      - 어두운 배경, 에메랄드/시안 포인트
+      - 사용: <body className="theme-dark-pro">
+   
+   3. .theme-warm-neutral - Warm Neutral
+      - 따뜻한 앰버 배경, 앰버/핑크 포인트
+      - 사용: <body className="theme-warm-neutral">
+   
+   4. .theme-mono-paper - Mono Paper
+      - 거의 모노톤, 최소 포인트 컬러
+      - 사용: <body className="theme-mono-paper">
+   
+   5. .theme-ocean-mist - Ocean Mist
+      - 티크+샌드, 시원하지만 파스텔
+      - 사용: <body className="theme-ocean-mist">
+   
+   6. .theme-lilac-dawn - Lilac Dawn
+      - 보라+라임, 소프트한 대비
+      - 사용: <body className="theme-lilac-dawn">
+   
+   ============================================ */
+
 /* Palette overrides & tag styling */
 
+/* Option 1: Modern Minimal (기본 테마) */
 :root {
   /* Base radius */
   --radius: 0.625rem;
-
-  /* Option 1: Modern Minimal (기본 테마) */
   --background: #ffffff;
   --foreground: #0f172a; /* Slate 900 */
 
@@ -179,6 +210,39 @@
     var(--primary),
     var(--secondary)
   );
+}
+
+/* 기본 테마 스크롤바 */
+:root,
+html {
+  scrollbar-color: var(--primary) var(--background);
+}
+
+:root::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+:root::-webkit-scrollbar-track,
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+:root::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+:root::-webkit-scrollbar-thumb:hover,
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--primary) 90%, #000000 10%);
 }
 
 /* Option 2: Dark Professional */
@@ -233,6 +297,40 @@
   );
 }
 
+/* 다크 프로 테마 스크롤바 */
+.theme-dark-pro,
+.theme-dark-pro html,
+body.theme-dark-pro {
+  scrollbar-color: var(--primary) var(--background);
+}
+
+.theme-dark-pro::-webkit-scrollbar,
+.theme-dark-pro html::-webkit-scrollbar,
+body.theme-dark-pro::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.theme-dark-pro::-webkit-scrollbar-track,
+.theme-dark-pro html::-webkit-scrollbar-track,
+body.theme-dark-pro::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+.theme-dark-pro::-webkit-scrollbar-thumb,
+.theme-dark-pro html::-webkit-scrollbar-thumb,
+body.theme-dark-pro::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+.theme-dark-pro::-webkit-scrollbar-thumb:hover,
+.theme-dark-pro html::-webkit-scrollbar-thumb:hover,
+body.theme-dark-pro::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--primary) 90%, #ffffff 10%);
+}
+
 /* Option 3: Warm Neutral */
 .theme-warm-neutral {
   --background: #fffbeb; /* Amber 50 */
@@ -285,6 +383,40 @@
   );
 }
 
+/* 웜 뉴트럴 테마 스크롤바 */
+.theme-warm-neutral,
+.theme-warm-neutral html,
+body.theme-warm-neutral {
+  scrollbar-color: var(--primary) var(--background);
+}
+
+.theme-warm-neutral::-webkit-scrollbar,
+.theme-warm-neutral html::-webkit-scrollbar,
+body.theme-warm-neutral::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.theme-warm-neutral::-webkit-scrollbar-track,
+.theme-warm-neutral html::-webkit-scrollbar-track,
+body.theme-warm-neutral::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+.theme-warm-neutral::-webkit-scrollbar-thumb,
+.theme-warm-neutral html::-webkit-scrollbar-thumb,
+body.theme-warm-neutral::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+.theme-warm-neutral::-webkit-scrollbar-thumb:hover,
+.theme-warm-neutral html::-webkit-scrollbar-thumb:hover,
+body.theme-warm-neutral::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--primary) 90%, #000000 10%);
+}
+
 /* Option 4: Mono Paper (거의 모노톤, 최소 포인트 컬러) */
 .theme-mono-paper {
   --background: #fdfcfb; /* 따뜻한 오프 화이트 */
@@ -331,6 +463,40 @@
 
   --tag-bg: color-mix(in srgb, #fdfcfb 85%, #111827 15%);
   --tag-border-gradient: linear-gradient(135deg, #111827, #6b7280);
+}
+
+/* 모노 페이퍼 테마 스크롤바 */
+.theme-mono-paper,
+.theme-mono-paper html,
+body.theme-mono-paper {
+  scrollbar-color: var(--primary) var(--background);
+}
+
+.theme-mono-paper::-webkit-scrollbar,
+.theme-mono-paper html::-webkit-scrollbar,
+body.theme-mono-paper::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.theme-mono-paper::-webkit-scrollbar-track,
+.theme-mono-paper html::-webkit-scrollbar-track,
+body.theme-mono-paper::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+.theme-mono-paper::-webkit-scrollbar-thumb,
+.theme-mono-paper html::-webkit-scrollbar-thumb,
+body.theme-mono-paper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+.theme-mono-paper::-webkit-scrollbar-thumb:hover,
+.theme-mono-paper html::-webkit-scrollbar-thumb:hover,
+body.theme-mono-paper::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--primary) 80%, #ffffff 20%);
 }
 
 /* Option 5: Ocean Mist (티크+샌드, 시원하지만 파스텔) */
@@ -385,6 +551,40 @@
   );
 }
 
+/* 오션 미스트 테마 스크롤바 */
+.theme-ocean-mist,
+.theme-ocean-mist html,
+body.theme-ocean-mist {
+  scrollbar-color: var(--primary) var(--background);
+}
+
+.theme-ocean-mist::-webkit-scrollbar,
+.theme-ocean-mist html::-webkit-scrollbar,
+body.theme-ocean-mist::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.theme-ocean-mist::-webkit-scrollbar-track,
+.theme-ocean-mist html::-webkit-scrollbar-track,
+body.theme-ocean-mist::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+.theme-ocean-mist::-webkit-scrollbar-thumb,
+.theme-ocean-mist html::-webkit-scrollbar-thumb,
+body.theme-ocean-mist::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+.theme-ocean-mist::-webkit-scrollbar-thumb:hover,
+.theme-ocean-mist html::-webkit-scrollbar-thumb:hover,
+body.theme-ocean-mist::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--primary) 90%, #000000 10%);
+}
+
 /* Option 6: Lilac Dawn (보라+라임, 소프트한 대비) */
 .theme-lilac-dawn {
   --background: #f5f3ff; /* Indigo 50 */
@@ -435,6 +635,40 @@
     var(--primary),
     var(--secondary)
   );
+}
+
+/* 릴락 던 테마 스크롤바 */
+.theme-lilac-dawn,
+.theme-lilac-dawn html,
+body.theme-lilac-dawn {
+  scrollbar-color: var(--primary) var(--background);
+}
+
+.theme-lilac-dawn::-webkit-scrollbar,
+.theme-lilac-dawn html::-webkit-scrollbar,
+body.theme-lilac-dawn::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.theme-lilac-dawn::-webkit-scrollbar-track,
+.theme-lilac-dawn html::-webkit-scrollbar-track,
+body.theme-lilac-dawn::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+.theme-lilac-dawn::-webkit-scrollbar-thumb,
+.theme-lilac-dawn html::-webkit-scrollbar-thumb,
+body.theme-lilac-dawn::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+.theme-lilac-dawn::-webkit-scrollbar-thumb:hover,
+.theme-lilac-dawn html::-webkit-scrollbar-thumb:hover,
+body.theme-lilac-dawn::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--primary) 90%, #000000 10%);
 }
 
 @layer components {
