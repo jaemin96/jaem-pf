@@ -7,3 +7,4 @@ export * from "./skeleton";
 export * from "./tooltip";
 export * from "./textarea";
 export * from "./scroll-to-top";
+export * from "./icon";
