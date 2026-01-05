@@ -1,6 +1,11 @@
 "use client";
 
-import { SidebarTrigger } from "@/shared/components/ui";
+import {
+  SidebarTrigger,
+  LogoHorizontal,
+  LogoCompact,
+  Logo,
+} from "@/shared/components/ui";
 import Link from "next/link";
 import { useMenu } from "@/module/navigation/hooks";
 
@@ -26,9 +31,11 @@ const Header: React.FC<HeaderProps> = ({ isLogo }) => {
           {isLogo && (
             <Link
               href="/"
-              className="text-base font-semibold tracking-tight text-foreground hover:text-primary transition-colors"
+              className="flex items-center hover:opacity-80 transition-opacity"
             >
-              Portfolio
+              {/* <LogoHorizontal width={120} height={40} /> */}
+              {/* <LogoCompact width={120} height={40} /> */}
+              <Logo width={50} height={50} />
             </Link>
           )}
         </div>
