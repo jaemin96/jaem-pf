@@ -1,34 +1,30 @@
-import type {
-  ExperienceItem,
-  HeroData,
-  ProjectItem,
-  StackItem,
-} from "./types";
+import type { ExperienceItem, HeroData, ProjectItem, StackItem } from "./types";
 
 export const heroKr: HeroData = {
   primaryName: "김재민",
   secondaryName: "Jaemin Kim",
   role: "Frontend Engineer",
-  headline: "사용자 경험과 코드 품질을 동시에 고민하는 프론트엔드 엔지니어",
+  headline: "오늘의 편함을 위해 어제 고생하는 개발자",
   summary:
-    "4년+ 동안 React 기반 웹 프론트엔드를 중심으로 제품을 만들어 왔습니다. 디자인 시스템, 퍼포먼스, 협업 프로세스를 중요하게 생각하며, 서버 사이드(NestJS)까지 함께 다루며 도메인 이해와 엔드투엔드 흐름을 챙깁니다.",
+    "4년+ 동안 React 기반 웹 프론트엔드를 중심으로 개발해왔습니다. \n 반복 작업과 비효율적인 프로세스를 자동화와 모듈화로 해결하며 팀의 시간을 아끼고, 퍼포먼스 최적화와 원활한 협업을 위한 환경 구축에 시간을 투자합니다.\n개발 워크플로우를 지속적으로 개선하며 더 나은 개발 경험을 만들어가는 것을 중요하게 생각합니다.",
   ctas: [
-    { label: "프로젝트 살펴보기", variant: "default" },
+    {
+      label: "Blog",
+      href: "https://jaemin96.github.io",
+      variant: "default",
+    },
     {
       label: "GitHub",
       href: "https://github.com/jaemin96",
       variant: "outline",
     },
-    {
-      label: "Blog",
-      href: "https://jaemin96.github.io",
-      variant: "ghost",
-    },
   ],
   stats: [
-    { label: "경력", value: "4+년" },
-    { label: "주요 스택", value: "React / TS" },
-    { label: "서버 경험", value: "NestJS" },
+    { label: "years", value: "4+" },
+    { label: "skills", value: "React / TS" },
+    // { label: "Focus", value: "DX & Perf" },
+    { label: "projects", value: "5+" },
+    // { label: "Companies", value: "2" },
   ],
 };
 
@@ -108,5 +104,3 @@ export const experiencesKr: ExperienceItem[] = [
     ],
   },
 ];
-
-

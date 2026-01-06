@@ -2,19 +2,29 @@ import type { ExperienceItem, HeroData, ProjectItem, StackItem } from "./types";
 
 export const heroEn: HeroData = {
   primaryName: "Jaemin Kim",
+  secondaryName: "김재민",
   role: "Frontend Engineer",
-  headline: "Crafting delightful product experiences",
+  headline: "Working hard today to make tomorrow easier",
   summary:
-    "5+ years building performant, accessible web apps. Shipping fast with a strong eye for UX and component quality.",
+    "4+ years building React-based web frontends.\nI save team time by solving repetitive tasks and inefficient processes through automation and modularization, and invest in building environments for performance optimization and smooth collaboration.\nI value continuously improving development workflows and creating better developer experiences.",
   ctas: [
-    { label: "View Projects", variant: "default" },
-    { label: "Resume", variant: "outline" },
-    { label: "GitHub", variant: "ghost" },
+    {
+      label: "Blog",
+      href: "https://jaemin96.github.io",
+      variant: "default",
+    },
+    {
+      label: "GitHub",
+      href: "https://github.com/jaemin96",
+      variant: "outline",
+    },
   ],
   stats: [
-    { label: "Years", value: "5+" },
-    { label: "Core", value: "React / TS" },
-    { label: "Based", value: "Seoul" },
+    { label: "years", value: "4+" },
+    { label: "skills", value: "React / TS" },
+    // { label: "Focus", value: "DX & Perf" },
+    { label: "Projects", value: "5+" },
+    // { label: "Companies", value: "2" },
   ],
 };
 
