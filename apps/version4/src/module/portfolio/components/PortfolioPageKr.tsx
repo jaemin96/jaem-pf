@@ -1,4 +1,4 @@
-import { Button } from "@/shared/components/ui";
+import { Button, LogoHorizontal } from "@/shared/components/ui";
 import { LogoCompact } from "@/shared/components/ui/icon/LogoCompact";
 import { Github, BookOpen } from "lucide-react";
 import { experiencesKr, heroKr, projectsKr, stacksKr } from "../data/kr";
@@ -88,7 +88,7 @@ export function PortfolioPageKr() {
               <div className="relative h-28 rounded-xl bg-gradient-to-br from-primary/10 via-primary/20 to-primary/5">
                 <div className="absolute inset-0 rounded-xl bg-black/20" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <LogoCompact width={180} height={65} />
+                  <LogoHorizontal width={180} height={65} />
                 </div>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3 text-center text-sm font-medium text-foreground/80">

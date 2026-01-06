@@ -23,6 +23,9 @@ export const LogoHorizontal: React.FC<LogoHorizontalProps> = ({
           <stop offset="0%" style={{ stopColor: "var(--primary)" }} />
           <stop offset="100%" style={{ stopColor: "var(--secondary)" }} />
         </linearGradient>
+        <clipPath id="textClipPath">
+          <rect x="100" y="60" width="120" height="30" />
+        </clipPath>
       </defs>
 
       {/* 아이콘 부분 (왼쪽) */}
@@ -81,16 +84,45 @@ export const LogoHorizontal: React.FC<LogoHorizontalProps> = ({
         Jam IN
       </text>
 
-      {/* 서브 텍스트 (옵션) */}
+      {/* 서브 텍스트 (애니메이션) - 연속 흐름 */}
       <text
-        x="100"
+        x="220"
         y="75"
         fontFamily="var(--font-sans, system-ui, sans-serif)"
         fontSize="12"
         fontWeight="400"
         fill="var(--muted-foreground)"
+        opacity="0.7"
+        clipPath="url(#textClipPath)"
       >
-        Blending technologies, brewing experiences
+        Blending technologies
+        <animate
+          attributeName="x"
+          from="220"
+          to="-100"
+          dur="15s"
+          repeatCount="indefinite"
+        />
+      </text>
+      <text
+        x="220"
+        y="75"
+        fontFamily="var(--font-sans, system-ui, sans-serif)"
+        fontSize="12"
+        fontWeight="400"
+        fill="var(--muted-foreground)"
+        opacity="0.7"
+        clipPath="url(#textClipPath)"
+      >
+        brewing experiences
+        <animate
+          attributeName="x"
+          from="220"
+          to="-100"
+          dur="15s"
+          repeatCount="indefinite"
+          begin="7.5s"
+        />
       </text>
     </svg>
   );
