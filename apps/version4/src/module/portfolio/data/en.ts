@@ -31,33 +31,55 @@ export const heroEn: HeroData = {
 export const stacksEn: StackItem[] = [
   {
     title: "Frontend",
-    desc: "React, Next.js, TypeScript, Zustand, Tailwind, shadcn/ui",
-    tags: ["React", "Next", "TS", "Tailwind", "Zustand"],
+    desc: "Modern frontend stack centered on React. Prioritizing type safety and user experience.",
+    tags: [
+      { name: "React", variant: "primary" },
+      { name: "TypeScript", variant: "primary" },
+      { name: "Next.js", variant: "secondary" },
+    ],
   },
   {
-    title: "Quality",
-    desc: "Testing Library, Jest, Storybook, visual regression sanity",
-    tags: ["Jest", "RTL", "Storybook"],
+    title: "UI Styling",
+    desc: "Mixing SCSS and Tailwind CSS as needed, preferring reusable components and token-based styles.",
+    tags: [
+      { name: "SCSS", variant: "primary" },
+      { name: "Tailwind CSS", variant: "secondary" },
+    ],
   },
   {
-    title: "Performance",
-    desc: "Web vitals focus, bundle trimming, suspense & streaming",
-    tags: ["Profiling", "Code Split"],
+    title: "State & Data",
+    desc: "Managing server state and global state separately using React Query and Context API, also worked with GraphQL APIs.",
+    tags: [
+      { name: "Context API", variant: "primary" },
+      { name: "Recoil", variant: "secondary" },
+      { name: "Redux", variant: "secondary" },
+    ],
   },
   {
-    title: "Backend",
-    desc: "Node, Express/Nest basics, REST, tRPC, Prisma",
-    tags: ["Node", "tRPC", "Prisma"],
+    title: "Backend & Server",
+    desc: "Experience with NestJS-based server development, designing domain models and APIs using TypeORM.",
+    tags: [
+      { name: "NestJS", variant: "secondary" },
+      { name: "TypeORM", variant: "secondary" },
+    ],
   },
   {
-    title: "Infra/DevOps",
-    desc: "Vercel, Docker, CI/CD, feature flags, monitoring",
-    tags: ["Vercel", "Docker", "CI/CD"],
+    title: "Testing & Quality",
+    desc: "Valuing basic tests and type safety, interested in reducing regressions with lean unit tests and Storybook.",
+    tags: [
+      { name: "TypeScript", variant: "primary" },
+      { name: "Testing", variant: "secondary" },
+      { name: "Storybook", variant: "secondary" },
+    ],
   },
   {
-    title: "Collaboration",
-    desc: "Design systems, RFC culture, docs-first, async comms",
-    tags: ["DesignSys", "Docs", "RFC"],
+    title: "Experienced",
+    desc: "Introducing latest technologies in flexible projects and expanding domain through personal learning.",
+    tags: [
+      { name: "Vue", variant: "experienced" },
+      { name: "Vite", variant: "experienced" },
+      { name: "Zustand", variant: "experienced" },
+    ],
   },
 ];
 

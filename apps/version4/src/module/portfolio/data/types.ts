@@ -21,10 +21,17 @@ export interface HeroData {
   stats: HeroStat[];
 }
 
+export type TagVariant = "primary" | "secondary" | "accent" | "experienced" | "default";
+
+export interface StackTag {
+  name: string;
+  variant?: TagVariant;
+}
+
 export interface StackItem {
   title: string;
   desc: string;
-  tags: string[];
+  tags: Array<string | StackTag>;
 }
 
 export interface ProjectItem {

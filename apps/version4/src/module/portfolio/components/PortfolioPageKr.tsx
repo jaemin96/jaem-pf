@@ -133,11 +133,27 @@ export function PortfolioPageKr() {
                   {stack.desc}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {stack.tags.map((tag) => (
-                    <span key={tag} className="tag-pill text-foreground/80">
-                      {tag}
-                    </span>
-                  ))}
+                  {stack.tags.map((tag) => {
+                    const tagName = typeof tag === "string" ? tag : tag.name;
+                    const variant = typeof tag === "string" ? "default" : tag.variant || "default";
+
+                    const variantStyles = {
+                      primary: "bg-primary/20 text-primary border border-primary/30 font-medium",
+                      secondary: "bg-secondary/80 text-foreground/80 border border-border/50",
+                      accent: "bg-accent/20 text-accent-foreground border border-accent/30",
+                      experienced: "bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-500/20",
+                      default: "bg-secondary/80 text-foreground/80 border border-border/50",
+                    };
+
+                    return (
+                      <span
+                        key={tagName}
+                        className={`tag-pill ${variantStyles[variant]}`}
+                      >
+                        {tagName}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             ))}

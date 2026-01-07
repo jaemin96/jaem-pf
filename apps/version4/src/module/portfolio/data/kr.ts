@@ -31,33 +31,55 @@ export const heroKr: HeroData = {
 export const stacksKr: StackItem[] = [
   {
     title: "Frontend",
-    desc: "React를 중심으로 Next.js를 함께 사용하며, 타입스크립트 기반으로 UI를 설계합니다.",
-    tags: ["React", "Next.js", "TypeScript"],
+    desc: "React 중심의 모던 프론트엔드 스택. 타입 안정성과 사용자 경험을 우선합니다.",
+    tags: [
+      { name: "React", variant: "primary" },
+      { name: "TypeScript", variant: "primary" },
+      { name: "Next.js", variant: "secondary" },
+    ],
   },
   {
-    title: "스타일링",
+    title: "UI 스타일링",
     desc: "SCSS와 Tailwind CSS를 상황에 맞게 혼합하여 사용하고, 재사용 가능한 컴포넌트와 토큰 기반 스타일을 선호합니다.",
-    tags: ["SCSS", "Tailwind CSS", "shadcn/ui"],
+    tags: [
+      { name: "SCSS", variant: "primary" },
+      { name: "Tailwind CSS", variant: "secondary" },
+    ],
   },
   {
     title: "상태 & 데이터",
     desc: "React Query, Context API를 활용해 서버 상태와 전역 상태를 나눠 관리하며, GraphQL API도 함께 다뤄왔습니다.",
-    tags: ["React Query", "Context API", "GraphQL"],
+    tags: [
+      { name: "Context API", variant: "primary" },
+      { name: "Recoil", variant: "secondary" },
+      { name: "Redux", variant: "secondary" },
+    ],
   },
   {
     title: "Backend & 서버",
     desc: "NestJS 기반 서버 개발 경험이 있으며, TypeORM을 활용해 도메인 모델과 API를 함께 설계합니다.",
-    tags: ["NestJS", "TypeORM"],
+    tags: [
+      { name: "NestJS", variant: "secondary" },
+      { name: "TypeORM", variant: "secondary" },
+    ],
   },
   {
     title: "테스팅 & 품질",
     desc: "기본적인 테스트와 타입 안정성을 중시하며, 린한 단위 테스트와 스토리북 등으로 회귀를 줄이는 것에 관심이 있습니다.",
-    tags: ["TypeScript", "테스트", "Storybook"],
+    tags: [
+      { name: "TypeScript", variant: "primary" },
+      { name: "테스트", variant: "secondary" },
+      { name: "Storybook", variant: "secondary" },
+    ],
   },
   {
-    title: "협업",
-    desc: "디자이너, 백엔드와의 커뮤니케이션을 중요하게 생각하며, 문서화와 비동기 커뮤니케이션을 선호합니다.",
-    tags: ["문서화", "커뮤니케이션"],
+    title: "경험",
+    desc: "비교적 자유도가 높은 프로젝트에서 최신 기술들을 도입해보고 개인적인 학습으로 도메인을 넓혀가는 중입니다.",
+    tags: [
+      { name: "Vue", variant: "experienced" },
+      { name: "Vite", variant: "experienced" },
+      { name: "Zustand", variant: "experienced" },
+    ],
   },
 ];
 
