@@ -8,3 +8,5 @@ export * from "./tooltip";
 export * from "./textarea";
 export * from "./scroll-to-top";
 export * from "./icon";
+export * from "./theme-provider";
+export * from "./theme-toggle";

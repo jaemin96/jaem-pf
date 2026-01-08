@@ -1,0 +1,50 @@
+/* Dark Theme: Professional - 에메랄드/시안 */
+html.dark,
+.dark {
+  --radius: 0.625rem;
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  --primary: #10b981;
+  --primary-foreground: #022c22;
+  --secondary: #06b6d4;
+  --secondary-foreground: #022c22;
+  --muted: #020617;
+  --muted-foreground: #94a3b8;
+  --accent: #0f172a;
+  --accent-foreground: #e5e7eb;
+  --destructive: #f97373;
+  --border: #1f2937;
+  --input: #1f2937;
+  --ring: #10b981;
+  --chart-1: #10b981;
+  --chart-2: #06b6d4;
+  --chart-3: #f97316;
+  --chart-4: #6366f1;
+  --chart-5: #ec4899;
+  --sidebar: #020617;
+  --sidebar-foreground: #e5e7eb;
+  --sidebar-primary: #10b981;
+  --sidebar-primary-foreground: #022c22;
+  --sidebar-accent: #0f172a;
+  --sidebar-accent-foreground: #e5e7eb;
+  --sidebar-border: #1f2937;
+  --sidebar-ring: #10b981;
+  --tag-bg: color-mix(in srgb, #020617 70%, var(--primary) 30%);
+  --tag-border-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 20%, #020617 80%);
+  --tag-primary-text: var(--primary);
+  --tag-primary-border: color-mix(in srgb, var(--primary) 40%, transparent 60%);
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 12%, #020617 88%);
+  --tag-secondary-text: color-mix(in srgb, var(--secondary) 90%, #ffffff 10%);
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 30%, transparent 70%);
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 35%, #020617 65%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 50%, transparent 50%);
+  --tag-experienced-bg: color-mix(in srgb, #a855f7 15%, #020617 85%);
+  --tag-experienced-text: #c084fc;
+  --tag-experienced-border: color-mix(in srgb, #a855f7 35%, transparent 65%);
+}

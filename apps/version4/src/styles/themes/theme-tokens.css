@@ -1,0 +1,158 @@
+/* ============================================
+   테마 토큰 정의 (Theme Tokens)
+   ============================================
+
+   각 테마를 CSS 변수로 정의합니다.
+   필요한 테마만 import해서 사용할 수 있습니다.
+
+   ============================================ */
+
+/* Light Theme: Modern Minimal */
+.theme-light-modern {
+  --radius: 0.625rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #6366f1;
+  --primary-foreground: #ffffff;
+  --secondary: #8b5cf6;
+  --secondary-foreground: #f9fafb;
+  --muted: #f9fafb;
+  --muted-foreground: #64748b;
+  --accent: #eef2ff;
+  --accent-foreground: #111827;
+  --destructive: #ef4444;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #6366f1;
+  --chart-1: #6366f1;
+  --chart-2: #8b5cf6;
+  --chart-3: #f97316;
+  --chart-4: #22c55e;
+  --chart-5: #ec4899;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #6366f1;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef2ff;
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #6366f1;
+  --tag-bg: color-mix(in srgb, #ffffff 80%, var(--primary) 20%);
+  --tag-border-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 15%, #ffffff 85%);
+  --tag-primary-text: var(--primary);
+  --tag-primary-border: color-mix(in srgb, var(--primary) 35%, transparent 65%);
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 8%, #ffffff 92%);
+  --tag-secondary-text: color-mix(in srgb, var(--secondary) 85%, #000000 15%);
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 25%, transparent 75%);
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 50%, #ffffff 50%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 60%, transparent 40%);
+  --tag-experienced-bg: color-mix(in srgb, #8b5cf6 12%, #ffffff 88%);
+  --tag-experienced-text: #7c3aed;
+  --tag-experienced-border: color-mix(in srgb, #8b5cf6 30%, transparent 70%);
+}
+
+/* Light Theme: Warm Neutral */
+.theme-light-warm {
+  --radius: 0.625rem;
+  --background: #fffbeb;
+  --foreground: #1c1917;
+  --card: #fffbeb;
+  --card-foreground: #1c1917;
+  --popover: #fffbeb;
+  --popover-foreground: #1c1917;
+  --primary: #f59e0b;
+  --primary-foreground: #1c1917;
+  --secondary: #ec4899;
+  --secondary-foreground: #fdf2f8;
+  --muted: #f5f5f4;
+  --muted-foreground: #78716c;
+  --accent: #fef3c7;
+  --accent-foreground: #1c1917;
+  --destructive: #dc2626;
+  --border: #e7e5e4;
+  --input: #e7e5e4;
+  --ring: #f59e0b;
+  --chart-1: #f59e0b;
+  --chart-2: #ec4899;
+  --chart-3: #22c55e;
+  --chart-4: #3b82f6;
+  --chart-5: #a855f7;
+  --sidebar: #fffbeb;
+  --sidebar-foreground: #1c1917;
+  --sidebar-primary: #f59e0b;
+  --sidebar-primary-foreground: #1c1917;
+  --sidebar-accent: #fef3c7;
+  --sidebar-accent-foreground: #1c1917;
+  --sidebar-border: #e7e5e4;
+  --sidebar-ring: #f59e0b;
+  --tag-bg: color-mix(in srgb, #fffbeb 75%, var(--primary) 25%);
+  --tag-border-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 18%, #fffbeb 82%);
+  --tag-primary-text: #d97706;
+  --tag-primary-border: color-mix(in srgb, var(--primary) 40%, transparent 60%);
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 12%, #fffbeb 88%);
+  --tag-secondary-text: #db2777;
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 30%, transparent 70%);
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 55%, #fffbeb 45%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 65%, transparent 35%);
+  --tag-experienced-bg: color-mix(in srgb, #a855f7 10%, #fffbeb 90%);
+  --tag-experienced-text: #9333ea;
+  --tag-experienced-border: color-mix(in srgb, #a855f7 28%, transparent 72%);
+}
+
+/* Dark Theme: Professional */
+.theme-dark-pro {
+  --radius: 0.625rem;
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  --primary: #10b981;
+  --primary-foreground: #022c22;
+  --secondary: #06b6d4;
+  --secondary-foreground: #022c22;
+  --muted: #020617;
+  --muted-foreground: #94a3b8;
+  --accent: #0f172a;
+  --accent-foreground: #e5e7eb;
+  --destructive: #f97373;
+  --border: #1f2937;
+  --input: #1f2937;
+  --ring: #10b981;
+  --chart-1: #10b981;
+  --chart-2: #06b6d4;
+  --chart-3: #f97316;
+  --chart-4: #6366f1;
+  --chart-5: #ec4899;
+  --sidebar: #020617;
+  --sidebar-foreground: #e5e7eb;
+  --sidebar-primary: #10b981;
+  --sidebar-primary-foreground: #022c22;
+  --sidebar-accent: #0f172a;
+  --sidebar-accent-foreground: #e5e7eb;
+  --sidebar-border: #1f2937;
+  --sidebar-ring: #10b981;
+  --tag-bg: color-mix(in srgb, #020617 70%, var(--primary) 30%);
+  --tag-border-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 20%, #020617 80%);
+  --tag-primary-text: var(--primary);
+  --tag-primary-border: color-mix(in srgb, var(--primary) 40%, transparent 60%);
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 12%, #020617 88%);
+  --tag-secondary-text: color-mix(in srgb, var(--secondary) 90%, #ffffff 10%);
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 30%, transparent 70%);
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 35%, #020617 65%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 50%, transparent 50%);
+  --tag-experienced-bg: color-mix(in srgb, #a855f7 15%, #020617 85%);
+  --tag-experienced-text: #c084fc;
+  --tag-experienced-border: color-mix(in srgb, #a855f7 35%, transparent 65%);
+}

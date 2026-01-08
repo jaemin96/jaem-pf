@@ -5,6 +5,7 @@ import {
   LogoHorizontal,
   LogoCompact,
   Logo,
+  ThemeToggle,
 } from "@/shared/components/ui";
 import Link from "next/link";
 import { useMenu } from "@/module/navigation/hooks";
@@ -74,9 +75,9 @@ const Header: React.FC<HeaderProps> = ({ isLogo }) => {
           )}
         </nav>
 
-        {/* Right : reserved for future (Theme toggle, Search, Auth, etc.) */}
+        {/* Right : Theme toggle, Search, Auth, etc. */}
         <div className="flex items-center justify-end gap-2">
-          {/* <HeaderUserDropdown /> */}
+          <ThemeToggle />
         </div>
       </div>
     </header>
