@@ -33,7 +33,7 @@ export const stacksEn: StackItem[] = [
     title: "Frontend",
     desc: "Modern frontend stack centered on React. Prioritizing type safety and user experience.",
     tags: [
-      { name: "React", variant: "primary" },
+      { name: "⭐React", variant: "primary" },
       { name: "TypeScript", variant: "primary" },
       { name: "Next.js", variant: "secondary" },
     ],
@@ -48,7 +48,7 @@ export const stacksEn: StackItem[] = [
   },
   {
     title: "State & Data",
-    desc: "Managing server state and global state separately using React Query and Context API, also worked with GraphQL APIs.",
+    desc: "Separating server and global state management with Custom Hooks and Context API to minimize prop drilling.",
     tags: [
       { name: "Context API", variant: "primary" },
       { name: "Recoil", variant: "secondary" },
@@ -59,26 +59,35 @@ export const stacksEn: StackItem[] = [
     title: "Backend & Server",
     desc: "Experience with NestJS-based server development, designing domain models and APIs using TypeORM.",
     tags: [
-      { name: "NestJS", variant: "secondary" },
+      { name: "NestJS", variant: "primary" },
       { name: "TypeORM", variant: "secondary" },
+      { name: "Prisma", variant: "secondary" },
+      { name: "JWT", variant: "secondary" },
     ],
   },
   {
-    title: "Testing & Quality",
-    desc: "Valuing basic tests and type safety, interested in reducing regressions with lean unit tests and Storybook.",
+    title: "Performance",
+    desc: "Reducing repetition through modularization and automation, with keen interest in CI/CD pipelines and development environment improvements (refactoring).",
     tags: [
       { name: "TypeScript", variant: "primary" },
-      { name: "Testing", variant: "secondary" },
-      { name: "Storybook", variant: "secondary" },
+      { name: "CI/CD", variant: "secondary" },
+      { name: "Git Actions", variant: "secondary" },
     ],
   },
   {
-    title: "Experienced",
-    desc: "Introducing latest technologies in flexible projects and expanding domain through personal learning.",
+    title: "Experience",
+    desc: "Expanding technical spectrum by combining hands-on work experience with personal learning.",
     tags: [
-      { name: "Vue", variant: "experienced" },
+      { name: "GraphQL", variant: "experienced" },
       { name: "Vite", variant: "experienced" },
-      { name: "Zustand", variant: "experienced" },
+      { name: "React Query", variant: "experienced" },
+      { name: "shadcn/ui", variant: "experienced" },
+      { name: "RTK", variant: "experienced" },
+      { name: "AWS", variant: "experienced" },
+      { name: "JSP", variant: "experienced" },
+      { name: "Terraform", variant: "experienced" },
+      { name: "Storybook", variant: "experienced" },
+      { name: "Jest", variant: "experienced" },
     ],
   },
 ];

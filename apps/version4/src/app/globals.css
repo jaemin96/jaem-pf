@@ -210,6 +210,23 @@
     var(--primary),
     var(--secondary)
   );
+
+  /* Tag variants */
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 15%, #ffffff 85%);
+  --tag-primary-text: var(--primary);
+  --tag-primary-border: color-mix(in srgb, var(--primary) 35%, transparent 65%);
+
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 8%, #ffffff 92%);
+  --tag-secondary-text: color-mix(in srgb, var(--secondary) 85%, #000000 15%);
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 25%, transparent 75%);
+
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 50%, #ffffff 50%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 60%, transparent 40%);
+
+  --tag-experienced-bg: color-mix(in srgb, #8b5cf6 12%, #ffffff 88%);
+  --tag-experienced-text: #7c3aed;
+  --tag-experienced-border: color-mix(in srgb, #8b5cf6 30%, transparent 70%);
 }
 
 /* 기본 테마 스크롤바 */
@@ -295,6 +312,22 @@ body::-webkit-scrollbar-thumb:hover {
     var(--primary),
     var(--secondary)
   );
+
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 20%, #020617 80%);
+  --tag-primary-text: var(--primary);
+  --tag-primary-border: color-mix(in srgb, var(--primary) 40%, transparent 60%);
+
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 12%, #020617 88%);
+  --tag-secondary-text: color-mix(in srgb, var(--secondary) 90%, #ffffff 10%);
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 30%, transparent 70%);
+
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 35%, #020617 65%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 50%, transparent 50%);
+
+  --tag-experienced-bg: color-mix(in srgb, #a855f7 15%, #020617 85%);
+  --tag-experienced-text: #c084fc;
+  --tag-experienced-border: color-mix(in srgb, #a855f7 35%, transparent 65%);
 }
 
 /* 다크 프로 테마 스크롤바 */
@@ -381,6 +414,22 @@ body.theme-dark-pro::-webkit-scrollbar-thumb:hover {
     var(--primary),
     var(--secondary)
   );
+
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 18%, #fffbeb 82%);
+  --tag-primary-text: #d97706;
+  --tag-primary-border: color-mix(in srgb, var(--primary) 40%, transparent 60%);
+
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 12%, #fffbeb 88%);
+  --tag-secondary-text: #db2777;
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 30%, transparent 70%);
+
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 55%, #fffbeb 45%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 65%, transparent 35%);
+
+  --tag-experienced-bg: color-mix(in srgb, #a855f7 10%, #fffbeb 90%);
+  --tag-experienced-text: #9333ea;
+  --tag-experienced-border: color-mix(in srgb, #a855f7 28%, transparent 72%);
 }
 
 /* 웜 뉴트럴 테마 스크롤바 */
@@ -463,6 +512,22 @@ body.theme-warm-neutral::-webkit-scrollbar-thumb:hover {
 
   --tag-bg: color-mix(in srgb, #fdfcfb 85%, #111827 15%);
   --tag-border-gradient: linear-gradient(135deg, #111827, #6b7280);
+
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 12%, #fdfcfb 88%);
+  --tag-primary-text: #111827;
+  --tag-primary-border: color-mix(in srgb, var(--primary) 35%, transparent 65%);
+
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 8%, #fdfcfb 92%);
+  --tag-secondary-text: #6b7280;
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 25%, transparent 75%);
+
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 60%, #fdfcfb 40%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 70%, transparent 30%);
+
+  --tag-experienced-bg: color-mix(in srgb, #6366f1 10%, #fdfcfb 90%);
+  --tag-experienced-text: #4f46e5;
+  --tag-experienced-border: color-mix(in srgb, #6366f1 28%, transparent 72%);
 }
 
 /* 모노 페이퍼 테마 스크롤바 */
@@ -549,6 +614,22 @@ body.theme-mono-paper::-webkit-scrollbar-thumb:hover {
     var(--primary),
     var(--secondary)
   );
+
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 18%, #ecfeff 82%);
+  --tag-primary-text: #0284c7;
+  --tag-primary-border: color-mix(in srgb, var(--primary) 40%, transparent 60%);
+
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 12%, #ecfeff 88%);
+  --tag-secondary-text: #16a34a;
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 30%, transparent 70%);
+
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 60%, #ecfeff 40%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 70%, transparent 30%);
+
+  --tag-experienced-bg: color-mix(in srgb, #a855f7 12%, #ecfeff 88%);
+  --tag-experienced-text: #9333ea;
+  --tag-experienced-border: color-mix(in srgb, #a855f7 30%, transparent 70%);
 }
 
 /* 오션 미스트 테마 스크롤바 */
@@ -635,6 +716,22 @@ body.theme-ocean-mist::-webkit-scrollbar-thumb:hover {
     var(--primary),
     var(--secondary)
   );
+
+  --tag-primary-bg: color-mix(in srgb, var(--primary) 15%, #f5f3ff 85%);
+  --tag-primary-text: #9333ea;
+  --tag-primary-border: color-mix(in srgb, var(--primary) 38%, transparent 62%);
+
+  --tag-secondary-bg: color-mix(in srgb, var(--secondary) 12%, #f5f3ff 88%);
+  --tag-secondary-text: #16a34a;
+  --tag-secondary-border: color-mix(in srgb, var(--secondary) 30%, transparent 70%);
+
+  --tag-accent-bg: color-mix(in srgb, var(--accent) 65%, #f5f3ff 35%);
+  --tag-accent-text: var(--accent-foreground);
+  --tag-accent-border: color-mix(in srgb, var(--accent) 75%, transparent 25%);
+
+  --tag-experienced-bg: color-mix(in srgb, #f59e0b 10%, #f5f3ff 90%);
+  --tag-experienced-text: #d97706;
+  --tag-experienced-border: color-mix(in srgb, #f59e0b 28%, transparent 72%);
 }
 
 /* 릴락 던 테마 스크롤바 */
@@ -681,5 +778,33 @@ body.theme-lilac-dawn::-webkit-scrollbar-thumb:hover {
       linear-gradient(var(--tag-bg), var(--tag-bg)) padding-box,
       var(--tag-border-gradient) border-box;
     color: var(--foreground);
+  }
+
+  .tag-pill-primary {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-semibold;
+    background-color: var(--tag-primary-bg);
+    color: var(--tag-primary-text);
+    border: 1px solid var(--tag-primary-border);
+  }
+
+  .tag-pill-secondary {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-full px-2 py-1 text-[11px] font-medium;
+    background-color: var(--tag-secondary-bg);
+    color: var(--tag-secondary-text);
+    border: 1px solid var(--tag-secondary-border);
+  }
+
+  .tag-pill-accent {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-full px-2 py-1 text-[11px] font-medium;
+    background-color: var(--tag-accent-bg);
+    color: var(--tag-accent-text);
+    border: 1px solid var(--tag-accent-border);
+  }
+
+  .tag-pill-experienced {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-full px-2 py-0.5 text-[10.5px] font-medium;
+    background-color: var(--tag-experienced-bg);
+    color: var(--tag-experienced-text);
+    border: 1px solid var(--tag-experienced-border);
   }
 }

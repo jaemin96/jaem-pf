@@ -33,7 +33,7 @@ export const stacksKr: StackItem[] = [
     title: "Frontend",
     desc: "React 중심의 모던 프론트엔드 스택. 타입 안정성과 사용자 경험을 우선합니다.",
     tags: [
-      { name: "React", variant: "primary" },
+      { name: "⭐React", variant: "primary" },
       { name: "TypeScript", variant: "primary" },
       { name: "Next.js", variant: "secondary" },
     ],
@@ -48,7 +48,7 @@ export const stacksKr: StackItem[] = [
   },
   {
     title: "상태 & 데이터",
-    desc: "React Query, Context API를 활용해 서버 상태와 전역 상태를 나눠 관리하며, GraphQL API도 함께 다뤄왔습니다.",
+    desc: "Custom Hook과 Context API로 서버/전역 상태를 분리 관리하며 prop drilling을 최소화합니다.",
     tags: [
       { name: "Context API", variant: "primary" },
       { name: "Recoil", variant: "secondary" },
@@ -59,26 +59,35 @@ export const stacksKr: StackItem[] = [
     title: "Backend & 서버",
     desc: "NestJS 기반 서버 개발 경험이 있으며, TypeORM을 활용해 도메인 모델과 API를 함께 설계합니다.",
     tags: [
-      { name: "NestJS", variant: "secondary" },
+      { name: "NestJS", variant: "primary" },
       { name: "TypeORM", variant: "secondary" },
+      { name: "Prisma", variant: "secondary" },
+      { name: "JWT", variant: "secondary" },
     ],
   },
   {
-    title: "테스팅 & 품질",
-    desc: "기본적인 테스트와 타입 안정성을 중시하며, 린한 단위 테스트와 스토리북 등으로 회귀를 줄이는 것에 관심이 있습니다.",
+    title: "Performance",
+    desc: "모듈화와 자동화로 반복을 줄이고, CI/CD 파이프라인과 개발 환경 개선(리펙토링)에 관심이 많습니다.",
     tags: [
       { name: "TypeScript", variant: "primary" },
-      { name: "테스트", variant: "secondary" },
-      { name: "Storybook", variant: "secondary" },
+      { name: "CI/CD", variant: "secondary" },
+      { name: "Git Actions", variant: "secondary" },
     ],
   },
   {
     title: "경험",
-    desc: "비교적 자유도가 높은 프로젝트에서 최신 기술들을 도입해보고 개인적인 학습으로 도메인을 넓혀가는 중입니다.",
+    desc: "실무 경험과 개인 학습을 병행하며 기술 스펙트럼을 확장해나가고 있습니다.",
     tags: [
-      { name: "Vue", variant: "experienced" },
+      { name: "GraphQL", variant: "experienced" },
       { name: "Vite", variant: "experienced" },
-      { name: "Zustand", variant: "experienced" },
+      { name: "React Query", variant: "experienced" },
+      { name: "shadcn/ui", variant: "experienced" },
+      { name: "RTK", variant: "experienced" },
+      { name: "AWS", variant: "experienced" },
+      { name: "JSP", variant: "experienced" },
+      { name: "Terraform", variant: "experienced" },
+      { name: "Storybook", variant: "experienced" },
+      { name: "Jest", variant: "experienced" },
     ],
   },
 ];
