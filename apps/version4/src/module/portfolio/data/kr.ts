@@ -95,11 +95,11 @@ export const stacksKr: StackItem[] = [
 export const projectsKr: ProjectItem[] = [
   {
     name: "예산 관리 대시보드",
-    period: "2023 - 2024",
-    role: "Frontend Engineer",
+    period: "2024 - 2025",
+    role: "Frontend / Backend",
     summary:
-      "개인 및 팀 단위의 예산 관리 웹 애플리케이션을 설계·구현했습니다. 카테고리별 지출 분석, 월별 추세 차트, 예산 한도 알림 등 UX 중심으로 플로우를 구성했습니다.",
-    tags: ["React", "TypeScript", "SCSS", "React Query"],
+      "개인 예산 관리 웹 애플리케이션을 설계·구현했습니다. 카테고리별 지출 분석, 거래 내역 관리 목적으로 UX 중심으로 플로우를 구성했습니다.",
+    tags: ["React", "TypeScript", "SCSS", "Nest", "GraphQL", "Prisma"],
     meta: "개인 프로젝트 · 재무 관리",
   },
   {
