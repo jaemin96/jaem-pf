@@ -101,6 +101,7 @@ export const projectsKr: ProjectItem[] = [
       "개인 예산 관리 웹 애플리케이션을 설계·구현했습니다. 카테고리별 지출 분석, 거래 내역 관리 목적으로 UX 중심으로 플로우를 구성했습니다.",
     tags: ["React", "TypeScript", "SCSS", "Nest", "GraphQL", "Prisma"],
     meta: "개인 프로젝트 · 재무 관리",
+    thumbnail: "/projects/sample-project.svg",
   },
   {
     name: "터보레포 학습용 모노레포",
@@ -110,6 +111,7 @@ export const projectsKr: ProjectItem[] = [
       "터보레포 기반 학습용 모노레포를 운영하며, 공통 UI 패키지, 유틸 패키지를 분리하고 버전 관리, 빌드 파이프라인을 실험하고 있습니다.",
     tags: ["Turborepo", "Monorepo", "UI Library"],
     meta: "개인 레포 · 학습용",
+    thumbnail: "/projects/sample-project.svg",
   },
 ];
 

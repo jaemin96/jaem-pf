@@ -1,0 +1,35 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0A0A0A"/>
+
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A1A1A" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="400" fill="url(#grid)"/>
+
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(99,102,241);stop-opacity:0.15" />
+      <stop offset="50%" style="stop-color:rgb(99,102,241);stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:rgb(99,102,241);stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#grad1)"/>
+
+  <!-- Simple geometric shapes -->
+  <circle cx="150" cy="100" r="60" fill="#6366F1" opacity="0.1"/>
+  <rect x="600" y="250" width="120" height="120" fill="#6366F1" opacity="0.08"/>
+  <path d="M 400 200 L 450 280 L 350 280 Z" fill="#6366F1" opacity="0.12"/>
+
+  <!-- Text -->
+  <text x="400" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#6366F1" text-anchor="middle" opacity="0.4">
+    PROJECT
+  </text>
+  <text x="400" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#6366F1" text-anchor="middle" opacity="0.3">
+    THUMBNAIL
+  </text>
+</svg>

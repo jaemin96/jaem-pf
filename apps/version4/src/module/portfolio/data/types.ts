@@ -41,6 +41,7 @@ export interface ProjectItem {
   summary: string;
   tags: string[];
   meta: string;
+  thumbnail?: string;
 }
 
 export interface ExperienceItem {

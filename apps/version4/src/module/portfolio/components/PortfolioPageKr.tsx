@@ -1,6 +1,7 @@
 import { Button, LogoHorizontal } from "@/shared/components/ui";
 import { LogoCompact } from "@/shared/components/ui/icon/LogoCompact";
 import { Github, BookOpen } from "lucide-react";
+import Image from "next/image";
 import { experiencesKr, heroKr, projectsKr, stacksKr } from "../data/kr";
 
 export function PortfolioPageKr() {
@@ -199,7 +200,19 @@ export function PortfolioPageKr() {
                 </div>
 
                 <div className="space-y-3">
-                  <div className="h-28 rounded-xl bg-gradient-to-br from-primary/15 via-primary/10 to-primary/5" />
+                  <div className="relative h-28 rounded-xl bg-gradient-to-br from-primary/15 via-primary/10 to-primary/5 overflow-hidden">
+                    {project.thumbnail ? (
+                      <Image
+                        src={project.thumbnail}
+                        alt={`${project.name} 썸네일`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={100}
+                        priority={false}
+                      />
+                    ) : null}
+                  </div>
                   <div className="flex items-center justify-between gap-3 text-sm text-muted-foreground">
                     <span>{project.role}</span>
                     <span className="text-xs font-semibold uppercase tracking-[0.12em]">
