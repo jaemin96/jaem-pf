@@ -7,6 +7,7 @@ import {
   ScrollToTop,
   ThemeProvider,
 } from "@/shared/components/ui";
+import { LanguageProvider } from "@/shared/contexts";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -43,25 +44,27 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
         >
-          <SidebarProvider>
-            {/* Header */}
-            <Header isSearch={false} isAuth={false} isLogo={true} />
+          <LanguageProvider>
+            <SidebarProvider>
+              {/* Header */}
+              <Header isSearch={false} isAuth={false} isLogo={true} />
 
-            {/* 모바일 전용 Sidebar */}
-            <div className="md:hidden">
-              <AppSidebar />
-            </div>
+              {/* 모바일 전용 Sidebar */}
+              <div className="md:hidden">
+                <AppSidebar />
+              </div>
 
-            {/* 페이지 내용 */}
-            <main className="w-full overflow-y-auto max-h-[calc(100svh-64px)] mt-16">
-              {children}
-            </main>
+              {/* 페이지 내용 */}
+              <main className="w-full overflow-y-auto max-h-[calc(100svh-64px)] mt-16">
+                {children}
+              </main>
 
-            {/* <Toaster position="top-right" /> */}
+              {/* <Toaster position="top-right" /> */}
 
-            {/* Scroll to Top 버튼 */}
-            <ScrollToTop />
-          </SidebarProvider>
+              {/* Scroll to Top 버튼 */}
+              <ScrollToTop />
+            </SidebarProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
