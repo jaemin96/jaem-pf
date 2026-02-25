@@ -96,3 +96,24 @@
     border: 1px solid var(--tag-experienced-border);
   }
 }
+
+/* Print styles - PDF 출력 시 헤더와 사이드바 숨기기 */
+@media print {
+  header,
+  aside,
+  [data-sidebar],
+  .scroll-to-top {
+    display: none !important;
+  }
+
+  main {
+    margin: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

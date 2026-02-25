@@ -11,3 +11,4 @@ export * from "./icon";
 export * from "./theme-provider";
 export * from "./theme-toggle";
 export * from "./LanguageToggle";
+export * from "./pdf-download";

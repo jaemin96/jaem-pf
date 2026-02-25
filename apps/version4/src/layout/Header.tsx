@@ -7,6 +7,7 @@ import {
   Logo,
   ThemeToggle,
   LanguageToggle,
+  PdfDownload,
 } from "@/shared/components/ui";
 import Link from "next/link";
 import { useMenu } from "@/module/navigation/hooks";
@@ -76,10 +77,11 @@ const Header: React.FC<HeaderProps> = ({ isLogo }) => {
           )}
         </nav>
 
-        {/* Right : Theme toggle, Language toggle, Search, Auth, etc. */}
+        {/* Right : Theme toggle, Language toggle, PDF Download, Search, Auth, etc. */}
         <div className="flex items-center justify-end gap-2">
           <LanguageToggle />
           <ThemeToggle />
+          <PdfDownload />
         </div>
       </div>
     </header>
