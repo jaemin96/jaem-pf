@@ -1,14 +1,19 @@
+"use client";
+
 import { Button, LogoHorizontal } from "@/shared/components/ui";
-import { LogoCompact } from "@/shared/components/ui/icon/LogoCompact";
 import { Github, BookOpen } from "lucide-react";
 import Image from "next/image";
-import { experiencesKr, heroKr, projectsKr, stacksKr } from "../data/kr";
+import { useLanguage } from "@/shared/contexts";
+import { heroKr, stacksKr, projectsKr, experiencesKr } from "../data/kr";
+import { heroEn, stacksEn, projectsEn, experiencesEn } from "../data/en";
 
-export function PortfolioPageKr() {
-  const hero = heroKr;
-  const stacks = stacksKr;
-  const projects = projectsKr;
-  const experiences = experiencesKr;
+export function PortfolioPage() {
+  const { language } = useLanguage();
+
+  const hero = language === "ko" ? heroKr : heroEn;
+  const stacks = language === "ko" ? stacksKr : stacksEn;
+  const projects = language === "ko" ? projectsKr : projectsEn;
+  const experiences = language === "ko" ? experiencesKr : experiencesEn;
 
   return (
     <div className="min-h-[calc(100svh-64px)] bg-background">
@@ -118,7 +123,7 @@ export function PortfolioPageKr() {
               Skills
             </span>
             <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-              기술 스택
+              {language === "ko" ? "기술 스택" : "Tech Stack"}
             </h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
@@ -168,7 +173,7 @@ export function PortfolioPageKr() {
               Work
             </span>
             <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-              프로젝트
+              {language === "ko" ? "프로젝트" : "Selected Projects"}
             </h2>
           </div>
 
@@ -204,7 +209,7 @@ export function PortfolioPageKr() {
                     {project.thumbnail ? (
                       <Image
                         src={project.thumbnail}
-                        alt={`${project.name} 썸네일`}
+                        alt={`${project.name} thumbnail`}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -232,7 +237,7 @@ export function PortfolioPageKr() {
               Experience
             </span>
             <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-              연혁
+              {language === "ko" ? "연혁" : "Timeline"}
             </h2>
           </div>
 

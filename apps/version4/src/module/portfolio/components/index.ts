@@ -1,5 +1,4 @@
-export * from "./PortfolioPageEn";
-export * from "./PortfolioPageKr";
+export * from "./PortfolioPage";
 export * from "./PortfolioSkeleton";
 
 
