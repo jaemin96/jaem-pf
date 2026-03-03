@@ -42,6 +42,9 @@ export interface ProjectItem {
   tags: string[];
   meta: string;
   thumbnail?: string;
+  github?: string;
+  demo?: string;
+  details?: string[];
 }
 
 export interface ExperienceItem {

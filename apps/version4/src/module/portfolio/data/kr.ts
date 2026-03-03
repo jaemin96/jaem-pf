@@ -102,6 +102,13 @@ export const projectsKr: ProjectItem[] = [
     tags: ["React", "TypeScript", "SCSS", "Nest", "GraphQL", "Prisma"],
     meta: "개인 프로젝트 · 재무 관리",
     thumbnail: "/projects/sample-project.svg",
+    github: "https://github.com/jaemin96/Budget-book",
+    details: [
+      "카테고리별 지출 분석 차트 및 월간 예산 대비 실적 시각화",
+      "GraphQL 기반 API 설계 — 쿼리/뮤테이션 타입 직접 정의",
+      "Prisma ORM으로 트랜잭션 내역 스키마 모델링",
+      "SCSS 모듈로 컴포넌트 단위 스타일 격리",
+    ],
   },
   {
     name: "터보레포 학습용 모노레포",
@@ -112,6 +119,13 @@ export const projectsKr: ProjectItem[] = [
     tags: ["Turborepo", "Monorepo", "UI Library"],
     meta: "개인 레포 · 학습용",
     thumbnail: "/projects/sample-project.svg",
+    github: "https://github.com/jaemin96",
+    details: [
+      "apps / packages 분리 구조로 공통 UI·유틸 패키지 관리",
+      "Turbo 파이프라인으로 빌드·린트 태스크 캐싱 최적화",
+      "패키지 간 workspace:* 의존성 및 tsconfig path alias 설정",
+      "shadcn/ui 기반 공통 컴포넌트 라이브러리 실험 운영",
+    ],
   },
 ];
 
@@ -123,7 +137,6 @@ export const experiencesKr: ExperienceItem[] = [
     bullets: [
       "병원 병리 이미지 스캔·뷰어 및 자문 시스템의 프론트엔드를 개발하고 있습니다.",
       "대용량 이미지 뷰잉 환경에서의 성능과 사용성을 고려한 UI 플로우를 설계합니다.",
-      "NestJS 기반 서버와 함께 작업하며, API 설계와 도메인 이해를 바탕으로 FE/BE를 연결하고 있습니다.",
     ],
   },
   {

@@ -20,13 +20,13 @@ export function ExperienceSection({ experiences, heading }: ExperienceSectionPro
       <div className="space-y-6">
         {experiences.map((exp, idx) => (
           <div key={exp.org} className="grid gap-4 md:grid-cols-[auto_minmax(0,1fr)]">
-            <div className="flex flex-col items-center">
+            <div className="hidden md:flex flex-col items-center">
               <div className="h-3 w-3 rounded-full bg-primary" />
               {idx !== experiences.length - 1 && (
                 <div className="mt-1 h-16 w-px bg-border" />
               )}
             </div>
-            <div className="space-y-2 rounded-xl border border-dashed border-border/80 p-4">
+            <div className="relative space-y-2 rounded-xl border border-dashed border-border/80 p-4 before:absolute before:left-0 before:top-0 before:h-px before:w-1/4 before:rounded-tl-xl before:bg-gradient-to-r before:from-primary before:to-transparent before:content-[''] md:before:hidden">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="text-base font-semibold text-foreground">{exp.org}</div>
                 <div className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
