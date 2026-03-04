@@ -1,6 +1,4 @@
-interface ProjectPageProps {}
-
-const ProjectPage: React.FC<ProjectPageProps> = (props) => {
+const ProjectPage: React.FC = () => {
   return (
     <>
       <div>project page</div>

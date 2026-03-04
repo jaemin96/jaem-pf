@@ -1,6 +1,4 @@
-interface ContactPageProps {}
-
-const ContactPage: React.FC<ContactPageProps> = (props) => {
+const ContactPage: React.FC = () => {
   return (
     <>
       <div>Contact page</div>

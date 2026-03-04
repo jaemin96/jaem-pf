@@ -1,6 +1,4 @@
-interface ExperiencePageProps {}
-
-const ExperiencePage: React.FC<ExperiencePageProps> = (props) => {
+const ExperiencePage: React.FC = () => {
   return (
     <>
       <div>Experience page</div>

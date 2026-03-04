@@ -1,9 +1,7 @@
 import { Outlet } from "react-router";
 import { Menu } from "../Menu/Menu";
 
-interface PFLayoutProps {}
-
-const PFLayout: React.FC<PFLayoutProps> = (props) => {
+const PFLayout: React.FC = () => {
   return (
     <div id="pf-layout">
       <Menu />

@@ -1,5 +1,4 @@
 import { Router } from "./router";
-import { Menu } from "./components";
 
 const App = () => {
   return (

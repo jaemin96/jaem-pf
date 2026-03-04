@@ -1,6 +1,4 @@
-interface AboutPageProps {}
-
-const AboutPage: React.FC<AboutPageProps> = (props) => {
+const AboutPage: React.FC = () => {
   return (
     <>
       <div>about page</div>

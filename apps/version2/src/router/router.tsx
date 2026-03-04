@@ -10,9 +10,7 @@ import {
   ContactPage,
 } from "../pages";
 
-interface RouterProps {}
-
-const Router: React.FC<RouterProps> = (props) => {
+const Router: React.FC = () => {
   return (
     <>
       <Suspense fallback={<div>loading...</div>}>

@@ -1,7 +1,5 @@
 import { NavLink } from "react-router";
 
-interface MenuProps {}
-
 interface MenuItem {
   key: string;
   to: string;
@@ -18,7 +16,7 @@ const menuItems: MenuItem[] = [
   { key: "Contact", to: "/contact", name: "Contact" },
 ];
 
-export const Menu: React.FC<MenuProps> = (props) => {
+export const Menu: React.FC = () => {
   const menuAlign: MenuAlign = "right";
   return (
     <>
