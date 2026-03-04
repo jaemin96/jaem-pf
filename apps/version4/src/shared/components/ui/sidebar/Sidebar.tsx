@@ -9,7 +9,7 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@/shared/components/ui";
+} from "../sheet";
 
 const SIDEBAR_WIDTH_MOBILE = "18rem";
 

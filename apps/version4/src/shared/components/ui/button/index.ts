@@ -1,2 +1,2 @@
-export { default as Button } from './Button.tsx';
-export * from './group';
+export { default as Button } from "./Button";
+export * from "./group";
