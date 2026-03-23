@@ -1,4 +1,5 @@
 export * from "./button";
+export * from "./input";
 export * from "./collapsible";
 export * from "./separator";
 export * from "./sidebar";
