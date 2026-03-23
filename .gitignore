@@ -1,7 +1,7 @@
 node_modules
 .turbo/
 CLAUDE.md
-.claude
+.claude/settings.local.json
 
 # dot 
 dot/raw
