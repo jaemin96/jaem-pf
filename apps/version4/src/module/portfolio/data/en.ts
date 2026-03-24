@@ -31,7 +31,7 @@ export const heroEn: HeroData = {
 export const stacksEn: StackItem[] = [
   {
     title: "Frontend",
-    desc: "Modern frontend stack centered on React. Prioritizing type safety and user experience.",
+    desc: "React-centered UI development with type safety as a baseline. Comfortable with component-driven architecture, and focused on separation of concerns and clear dependency direction.",
     tags: [
       { name: "⭐React", variant: "primary" },
       { name: "TypeScript", variant: "primary" },
@@ -94,61 +94,63 @@ export const stacksEn: StackItem[] = [
 
 export const projectsEn: ProjectItem[] = [
   {
-    name: "Product Analytics Dashboard",
-    period: "2024",
-    role: "Lead FE",
+    name: "Budget Management Dashboard",
+    period: "2024 - 2025",
+    role: "Frontend / Backend",
     summary:
-      "Rebuilt the analytics UI with streaming dashboards, reducing TTI by 28% and improving retention insights.",
-    tags: ["Next.js", "React", "Tailwind", "Charts"],
-    meta: "B2B SaaS · 3 engineers",
+      "A budget management service that structures personal asset flows by account and transaction — covering transaction records, balance updates, authentication, and input UX end-to-end.",
+    tags: ["React", "TypeScript", "SCSS", "Nest", "GraphQL", "Prisma"],
+    meta: "Personal Project · Finance",
+    thumbnail: "/projects/budget-book-banner.png",
+    github: "https://github.com/jaemin96/Budget-book",
+    details: [
+      "Designed an asset management structure that goes beyond simple transaction logging — aggregating total assets, available cash, and savings/investment/pending amounts per account.",
+      "Defined Query/Mutation types and DTOs directly in a NestJS GraphQL API so the frontend and backend share the same domain language.",
+      "Modeled User, Account, and Transaction schemas with Prisma ORM and handled balance changes atomically within service-layer transactions for deposits, withdrawals, and transfers.",
+      "Implemented the full user flow using Next.js App Router and Apollo Client — including a GraphQL proxy, cookie-based JWT auth, and redirect on auth failure.",
+      "Reflected frequent-transaction presets and KakaoPay auto-charge/expense scenarios in the UX to improve input productivity; managed component-level styles with SCSS modules to avoid conflicts.",
+    ],
   },
-  {
-    name: "Design System Revamp",
-    period: "2023",
-    role: "Frontend",
-    summary:
-      "Delivered shadcn-based design system with tokens, dark mode, and documentation, cutting build time for new pages by ~35%.",
-    tags: ["shadcn/ui", "Storybook", "Tokens"],
-    meta: "Design System · Cross-team",
-  },
-  {
-    name: "Growth Landing Engine",
-    period: "2022",
-    role: "Frontend",
-    summary:
-      "Built modular landing engine with A/B infra, leading to +12% signup conversion across campaigns.",
-    tags: ["Next.js", "A/B", "Analytics"],
-    meta: "Growth · Marketing",
-  },
+  // {
+  //   name: "Turborepo Learning Monorepo",
+  //   period: "2024",
+  //   role: "Frontend / Infra",
+  //   summary:
+  //     "Running a Turborepo-based learning monorepo — separating shared UI and utility packages, and experimenting with versioning and build pipelines.",
+  //   tags: ["Turborepo", "Monorepo", "UI Library"],
+  //   meta: "Personal Repo · Learning",
+  //   thumbnail: "/projects/sample-project.svg",
+  //   github: "https://github.com/jaemin96",
+  //   details: [
+  //     "Managing shared UI and utility packages with apps/packages split structure",
+  //     "Optimizing build and lint task caching with Turbo pipelines",
+  //     "Configuring workspace:* dependencies and tsconfig path aliases across packages",
+  //     "Experimenting with a shadcn/ui-based shared component library",
+  //   ],
+  // },
 ];
 
 export const experiencesEn: ExperienceItem[] = [
   {
-    org: "Acme Corp",
-    period: "2023.04 - Present",
+    org: "Humintec",
+    period: "2023.10 - Present",
     title: "Frontend Engineer",
     bullets: [
-      "Led the analytics dashboard revamp (streaming, skeleton-first UX).",
-      "Introduced design token pipeline and Storybook docs for shared UI.",
-      "Partnered with backend to optimize data fetching and cache strategy.",
+      "Applied Tiling and Lazy Loading to render GB-scale pathology images (WSI) in the browser without latency, improving viewing performance.",
+      "Designed the frontend architecture for an Annotation tool (measurements, region marking, etc.) and a real-time video consultation system for pathologists.",
+      "Built a high-density data grid and intuitive filtering system to support medical workflows managing tens of thousands of slides.",
+      "Designed state management logic to prevent human errors during diagnosis and incorporated user feedback into iterative UI improvements.",
     ],
   },
   {
-    org: "Beta Labs",
-    period: "2021.02 - 2023.03",
-    title: "Frontend Developer",
+    org: "Harbor X",
+    period: "2021.06 - 2023.09",
+    title: "Frontend Engineer",
     bullets: [
-      "Owned growth landing engine; improved signup conversion by 12%.",
-      "Set up testing culture with RTL/Jest and visual regression smoke.",
-    ],
-  },
-  {
-    org: "Freelance",
-    period: "2019.01 - 2021.01",
-    title: "Web Developer",
-    bullets: [
-      "Delivered marketing sites and dashboards for startups (Next/React).",
-      "Focused on performance budgets and accessible UI components.",
+      "Built an onboarding process that clearly communicates blockchain-specific async flows — wallet connection, transaction signing — in a user-friendly way.",
+      "Visualized real-time asset prices and transaction history with charts and graphs; implemented WebSocket/Polling logic to reflect Pending/Success/Fail transaction states in real time.",
+      "Defined the data structures needed on the frontend and collaborated with backend engineers on RESTful API specs and DB schema design to reduce unnecessary development overhead.",
+      "Developed backoffice features as modular components to cut the cost of repetitive admin UI work.",
     ],
   },
 ];

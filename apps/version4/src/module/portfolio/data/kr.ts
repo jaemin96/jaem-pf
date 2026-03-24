@@ -31,7 +31,7 @@ export const heroKr: HeroData = {
 export const stacksKr: StackItem[] = [
   {
     title: "Frontend",
-    desc: "React 중심의 모던 프론트엔드 스택. 타입 안정성과 사용자 경험을 우선합니다.",
+    desc: "React를 중심으로 타입 안정성이 보장된 UI를 설계합니다. 재사용 가능한 컴포넌트 단위 개발에 익숙하며, 관심사 분리와 의존성 방향을 고려한 구조를 지향합니다.",
     tags: [
       { name: "⭐React", variant: "primary" },
       { name: "TypeScript", variant: "primary" },
@@ -39,55 +39,56 @@ export const stacksKr: StackItem[] = [
     ],
   },
   {
-    title: "UI 스타일링",
-    desc: "SCSS와 Tailwind CSS를 상황에 맞게 혼합하여 사용하고, 재사용 가능한 컴포넌트와 토큰 기반 스타일을 선호합니다.",
+    title: "Styling",
+    desc: "프로젝트의 규모와 목적에 맞춰 CSS-in-JS, Tailwind, SCSS를 선택하여 사용합니다.",
     tags: [
       { name: "SCSS", variant: "primary" },
-      { name: "Tailwind CSS", variant: "secondary" },
+      { name: "Tailwind CSS", variant: "primary" },
     ],
   },
   {
-    title: "상태 & 데이터",
-    desc: "Custom Hook과 Context API로 서버/전역 상태를 분리 관리하며 prop drilling을 최소화합니다.",
+    title: "State & Data",
+    desc: "GraphQL을 통한 효율적인 데이터 요청 경험이 있으며, Custom Hook을 활용해 비즈니스 로직을 분리하고 Prop Drilling을 최소화합니다.",
     tags: [
+      { name: "TanStack Query", variant: "primary" },
       { name: "Context API", variant: "primary" },
-      { name: "Recoil", variant: "secondary" },
+      { name: "GraphQL", variant: "secondary" },
       { name: "Redux", variant: "secondary" },
+      { name: "Recoil", variant: "secondary" },
     ],
   },
   {
     title: "Backend & 서버",
-    desc: "NestJS 기반 서버 개발 경험이 있으며, TypeORM을 활용해 도메인 모델과 API를 함께 설계합니다.",
+    desc: "프론트엔드와 백엔드 사이의 전체적인 데이터 흐름을 고려하여 개발합니다.",
     tags: [
       { name: "NestJS", variant: "primary" },
       { name: "TypeORM", variant: "secondary" },
       { name: "Prisma", variant: "secondary" },
+      { name: "MySQL", variant: "secondary" },
       { name: "JWT", variant: "secondary" },
     ],
   },
   {
-    title: "Performance",
-    desc: "모듈화와 자동화로 반복을 줄이고, CI/CD 파이프라인과 개발 환경 개선(리펙토링)에 관심이 많습니다.",
+    title: "Engineering",
+    desc: "단순한 기능 구현을 넘어 코드의 가독성과 재사용성을 위한 리팩토링에 관심이 많습니다. 프로세스를 자동화하고 개발 생산성을 높이는 환경을 선호합니다.",
     tags: [
-      { name: "TypeScript", variant: "primary" },
-      { name: "CI/CD", variant: "secondary" },
+      { name: "Git", variant: "primary" },
       { name: "Git Actions", variant: "secondary" },
+      { name: "Vercel", variant: "secondary" },
     ],
   },
   {
     title: "경험",
     desc: "실무 경험과 개인 학습을 병행하며 기술 스펙트럼을 확장해나가고 있습니다.",
     tags: [
-      { name: "GraphQL", variant: "experienced" },
-      { name: "Vite", variant: "experienced" },
-      { name: "React Query", variant: "experienced" },
-      { name: "shadcn/ui", variant: "experienced" },
-      { name: "RTK", variant: "experienced" },
       { name: "AWS", variant: "experienced" },
-      { name: "JSP", variant: "experienced" },
+      { name: "Shadcn/ui", variant: "experienced" },
       { name: "Terraform", variant: "experienced" },
       { name: "Storybook", variant: "experienced" },
       { name: "Jest", variant: "experienced" },
+      { name: "Docker", variant: "experienced" },
+      { name: "Jenkins", variant: "experienced" },
+      { name: "JSP", variant: "experienced" },
     ],
   },
 ];
@@ -118,23 +119,23 @@ export const projectsKr: ProjectItem[] = [
       "거래 입력 생산성을 높이기 위해 자주 쓰는 거래 프리셋과 카카오페이 자동충전/지출 시나리오를 UX에 반영했고, SCSS 모듈로 스타일 충돌 없이 컴포넌트 단위 UI를 관리했습니다.",
     ],
   },
-  {
-    name: "터보레포 학습용 모노레포",
-    period: "2024",
-    role: "Frontend / Infra",
-    summary:
-      "터보레포 기반 학습용 모노레포를 운영하며, 공통 UI 패키지, 유틸 패키지를 분리하고 버전 관리, 빌드 파이프라인을 실험하고 있습니다.",
-    tags: ["Turborepo", "Monorepo", "UI Library"],
-    meta: "개인 레포 · 학습용",
-    thumbnail: "/projects/sample-project.svg",
-    github: "https://github.com/jaemin96",
-    details: [
-      "apps / packages 분리 구조로 공통 UI·유틸 패키지 관리",
-      "Turbo 파이프라인으로 빌드·린트 태스크 캐싱 최적화",
-      "패키지 간 workspace:* 의존성 및 tsconfig path alias 설정",
-      "shadcn/ui 기반 공통 컴포넌트 라이브러리 실험 운영",
-    ],
-  },
+  // {
+  //   name: "터보레포 학습용 모노레포",
+  //   period: "2024",
+  //   role: "Frontend / Infra",
+  //   summary:
+  //     "터보레포 기반 학습용 모노레포를 운영하며, 공통 UI 패키지, 유틸 패키지를 분리하고 버전 관리, 빌드 파이프라인을 실험하고 있습니다.",
+  //   tags: ["Turborepo", "Monorepo", "UI Library"],
+  //   meta: "개인 레포 · 학습용",
+  //   thumbnail: "/projects/sample-project.svg",
+  //   github: "https://github.com/jaemin96",
+  //   details: [
+  //     "apps / packages 분리 구조로 공통 UI·유틸 패키지 관리",
+  //     "Turbo 파이프라인으로 빌드·린트 태스크 캐싱 최적화",
+  //     "패키지 간 workspace:* 의존성 및 tsconfig path alias 설정",
+  //     "shadcn/ui 기반 공통 컴포넌트 라이브러리 실험 운영",
+  //   ],
+  // },
 ];
 
 export const experiencesKr: ExperienceItem[] = [
@@ -143,8 +144,10 @@ export const experiencesKr: ExperienceItem[] = [
     period: "2023.10 - 재직 중",
     title: "Frontend Engineer",
     bullets: [
-      "병원 병리 이미지 스캔·뷰어 및 자문 시스템의 프론트엔드를 개발하고 있습니다.",
-      "대용량 이미지 뷰잉 환경에서의 성능과 사용성을 고려한 UI 플로우를 설계합니다.",
+      "GB 단위의 대용량 병리 이미지(WSI)를 웹 환경에서 지연 없이 렌더링하기 위해 Tiling 및 Lazy Loading 기법을 적용해 뷰잉 성능을 개선했습니다.",
+      "병리 전문의의 진단 편의를 위한 Annotation 도구(측정, 구역 표시 등) 및 실시간 화상 자문 시스템의 프론트엔드 아키텍처를 설계했습니다.",
+      "수만 장의 슬라이드를 관리하는 의료 현장의 특성을 반영해, 정보 밀도가 높은 데이터 그리드와 직관적인 필터링 시스템을 구현했습니다.",
+      "진단 과정의 휴먼 에러를 방지하기 위한 상태 관리 로직을 설계하고 사용자 피드백을 반영했습니다.",
     ],
   },
   {
@@ -152,9 +155,10 @@ export const experiencesKr: ExperienceItem[] = [
     period: "2021.06 - 2023.09",
     title: "Frontend Engineer",
     bullets: [
-      "블록체인 관련 도메인에서 온보딩/대시보드 등 주요 화면의 프론트엔드를 담당했습니다.",
-      "서버 개발자와 긴밀하게 협업하며, 블록체인 트랜잭션 흐름과 비즈니스 로직을 UI에 반영했습니다.",
-      "필요 시 서버 쪽 작업도 병행하며 프론트엔드 관점에서 API와 데이터 모델 설계에 참여했습니다.",
+      "가상자산 지갑 연동, 트랜잭션 서명 등 블록체인 특유의 비동기 흐름을 사용자에게 명확히 전달하는 온보딩 프로세스를 설계·구현했습니다.",
+      "실시간 시세 및 자산 변동 내역을 차트·그래프로 시각화해 데이터 가독성을 높이고, Pending/Success/Fail 트랜잭션 상태를 WebSocket/Polling으로 UI에 실시간 반영했습니다.",
+      "프론트엔드 관점에서 필요한 데이터 구조를 정의하고, 백엔드 개발자와 함께 RESTful API 규격 및 DB 스키마 설계에 참여해 불필요한 개발 리소스를 줄였습니다.",
+      "백오피스 기능을 모듈화된 컴포넌트로 개발해 반복되는 관리자 UI 개발 비용을 절감했습니다.",
     ],
   },
 ];
