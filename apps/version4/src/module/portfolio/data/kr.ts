@@ -110,8 +110,8 @@ export const projectsKr: ProjectItem[] = [
       "VibeCode",
     ],
     meta: "서비스 템플릿 분석 · 사진 분석/소셜 플랫폼",
-    thumbnail: "/projects/picvora-banner.png",
-    github: "",
+    thumbnail: "/projects/picvora-thumbnail.png",
+    github: "https://github.com/jaemin96/picvora",
     details: [
       "바이브 코딩 방식으로 빠르게 구현을 밀어가되, 단순 기능 추가보다 실제 서비스처럼 동작 흐름이 이어지도록 사용자 진입조건과 계정 상태별 접근 시나리오를 먼저 기획하고 Next.js App Router 미들웨어에 반영했습니다.",
       "사진 업로드 과정도 단순 첨부 기능이 아니라 사용 경험 중심으로 접근해 HEIC 변환, EXIF 추출, GPS 보정, 이미지 크롭 단계를 구성하고, Claude 비전 모델에 이미지와 메타데이터를 함께 전달해 태그·분위기·요약 문구·촬영 팁·주변 장소를 생성하도록 설계했습니다.",
