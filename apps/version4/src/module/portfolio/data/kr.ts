@@ -40,45 +40,49 @@ export const stacksKr: StackItem[] = [
   },
   {
     title: "Styling",
-    desc: "프로젝트의 규모와 목적에 맞춰 CSS-in-JS, Tailwind, SCSS를 선택하여 사용합니다.",
+    desc: "프로젝트의 규모와 목적에 맞춰 CSS-in-JS, Tailwind, SCSS를 선택적으로 사용합니다.",
     tags: [
       { name: "SCSS", variant: "primary" },
       { name: "Tailwind CSS", variant: "primary" },
+      { name: "Module CSS", variant: "secondary" },
     ],
   },
   {
     title: "State & Data",
-    desc: "GraphQL을 통한 효율적인 데이터 요청 경험이 있으며, Custom Hook을 활용해 비즈니스 로직을 분리하고 Prop Drilling을 최소화합니다.",
+    desc: "TanStack Query와 GraphQL을 활용해 데이터를 효율적으로 패칭합니다. Context API와 zustand로 클라이언트 상태를 역할에 맞게 분리해 관리합니다.",
     tags: [
       { name: "TanStack Query", variant: "primary" },
       { name: "Context API", variant: "primary" },
+      { name: "zustand", variant: "primary" },
       { name: "GraphQL", variant: "secondary" },
       { name: "Redux", variant: "secondary" },
       { name: "Recoil", variant: "secondary" },
     ],
   },
   {
-    title: "Backend & 서버",
+    title: "Backend",
     desc: "프론트엔드와 백엔드 사이의 전체적인 데이터 흐름을 고려하여 개발합니다.",
     tags: [
       { name: "NestJS", variant: "primary" },
-      { name: "TypeORM", variant: "secondary" },
+      { name: "TypeORM", variant: "primary" },
+      { name: "JWT", variant: "primary" },
       { name: "Prisma", variant: "secondary" },
       { name: "MySQL", variant: "secondary" },
-      { name: "JWT", variant: "secondary" },
+      { name: "PostgreSQL", variant: "secondary" },
     ],
   },
   {
     title: "Engineering",
-    desc: "단순한 기능 구현을 넘어 코드의 가독성과 재사용성을 위한 리팩토링에 관심이 많습니다. 프로세스를 자동화하고 개발 생산성을 높이는 환경을 선호합니다.",
+    desc: "단순한 기능 구현을 넘어 코드의 가독성과 재사용성을 위한 리팩토링과 아키텍처 구조에 관심이 많습니다. 프로세스를 자동화하고 개발 생산성을 높이는 환경을 선호합니다.",
     tags: [
       { name: "Git", variant: "primary" },
+      { name: "monorepo", variant: "primary" },
       { name: "Git Actions", variant: "secondary" },
       { name: "Vercel", variant: "secondary" },
     ],
   },
   {
-    title: "경험",
+    title: "Experience",
     desc: "실무 경험과 개인 학습을 병행하며 기술 스펙트럼을 확장해나가고 있습니다.",
     tags: [
       { name: "AWS", variant: "experienced" },
@@ -89,6 +93,7 @@ export const stacksKr: StackItem[] = [
       { name: "Docker", variant: "experienced" },
       { name: "Jenkins", variant: "experienced" },
       { name: "JSP", variant: "experienced" },
+      { name: "antd", variant: "experienced" },
     ],
   },
 ];
@@ -126,18 +131,11 @@ export const projectsKr: ProjectItem[] = [
     period: "2024 - 2025",
     role: "Frontend / Backend",
     summary:
-      // "개인 예산 관리 웹 애플리케이션을 설계·구현했습니다. 카테고리별 지출 분석, 거래 내역 관리 목적으로 UX 중심으로 플로우를 구성했습니다.",
       "개인 자산 흐름을 계좌·거래 단위로 구조화하고 거래 기록, 잔액 반영, 인증, 입력 UX까지 전반을 설계한 예산 관리 서비스입니다.",
     tags: ["React", "TypeScript", "SCSS", "Nest", "GraphQL", "Prisma"],
     meta: "개인 프로젝트 · 재무 관리",
     thumbnail: "/projects/budget-book-banner.png",
     github: "https://github.com/jaemin96/Budget-book",
-    // details: [
-    //   "카테고리별 지출 분석 차트 및 월간 예산 대비 실적 시각화",
-    //   "GraphQL 기반 API 설계 — 쿼리/뮤테이션 타입 직접 정의",
-    //   "Prisma ORM으로 트랜잭션 내역 스키마 모델링",
-    //   "SCSS 모듈로 컴포넌트 단위 스타일 격리",
-    // ],
     details: [
       "단순 거래 기록을 넘어 계좌별 총자산, 가용 현금, 저축·투자·보류 금액까지 분리 집계하는 자산 관리 구조를 설계했습니다.",
       "NestJS 기반 GraphQL API에서 Query/Mutation 타입과 DTO를 직접 정의해 프론트엔드와 백엔드가 같은 도메인 언어로 통신하도록 구성했습니다.",
@@ -146,29 +144,12 @@ export const projectsKr: ProjectItem[] = [
       "거래 입력 생산성을 높이기 위해 자주 쓰는 거래 프리셋과 카카오페이 자동충전/지출 시나리오를 UX에 반영했고, SCSS 모듈로 스타일 충돌 없이 컴포넌트 단위 UI를 관리했습니다.",
     ],
   },
-  // {
-  //   name: "터보레포 학습용 모노레포",
-  //   period: "2024",
-  //   role: "Frontend / Infra",
-  //   summary:
-  //     "터보레포 기반 학습용 모노레포를 운영하며, 공통 UI 패키지, 유틸 패키지를 분리하고 버전 관리, 빌드 파이프라인을 실험하고 있습니다.",
-  //   tags: ["Turborepo", "Monorepo", "UI Library"],
-  //   meta: "개인 레포 · 학습용",
-  //   thumbnail: "/projects/sample-project.svg",
-  //   github: "https://github.com/jaemin96",
-  //   details: [
-  //     "apps / packages 분리 구조로 공통 UI·유틸 패키지 관리",
-  //     "Turbo 파이프라인으로 빌드·린트 태스크 캐싱 최적화",
-  //     "패키지 간 workspace:* 의존성 및 tsconfig path alias 설정",
-  //     "shadcn/ui 기반 공통 컴포넌트 라이브러리 실험 운영",
-  //   ],
-  // },
 ];
 
 export const experiencesKr: ExperienceItem[] = [
   {
     org: "Humintec",
-    period: "2023.10 - 재직 중",
+    period: "2024.08 - 재직 중",
     title: "Frontend Engineer",
     bullets: [
       "GB 단위의 대용량 병리 이미지(WSI)를 웹 환경에서 지연 없이 렌더링하기 위해 Tiling 및 Lazy Loading 기법을 적용해 뷰잉 성능을 개선했습니다.",

@@ -133,7 +133,7 @@ export const projectsEn: ProjectItem[] = [
 export const experiencesEn: ExperienceItem[] = [
   {
     org: "Humintec",
-    period: "2023.10 - Present",
+    period: "2024.8 - Present",
     title: "Frontend Engineer",
     bullets: [
       "Applied Tiling and Lazy Loading to render GB-scale pathology images (WSI) in the browser without latency, improving viewing performance.",
