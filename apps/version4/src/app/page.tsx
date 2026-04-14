@@ -31,7 +31,7 @@ export default function Home() {
       <div className="mx-auto flex max-w-5xl flex-col gap-16 px-4 pb-16 pt-8 md:px-6 md:pb-20 md:pt-10 lg:px-0 lg:pb-24 lg:pt-12">
         <HeroSection hero={hero} />
         <StackSection stacks={stacks} heading={isKo ? "기술 스택" : "Tech Stack"} />
-        <ProjectsSection projects={projects} heading={isKo ? "프로젝트" : "Selected Projects"} />
+        <ProjectsSection projects={projects} heading={isKo ? "프로젝트" : "Selected Projects"} isKo={isKo} />
         <ExperienceSection experiences={experiences} heading={isKo ? "연혁" : "Timeline"} />
       </div>
     </div>

@@ -23,7 +23,7 @@ export const heroEn: HeroData = {
     { label: "years", value: "4+" },
     { label: "skills", value: "React / TS" },
     // { label: "Focus", value: "DX & Perf" },
-    { label: "Projects", value: "5+" },
+    { label: "projects", value: "5+" },
     // { label: "Companies", value: "2" },
   ],
 };
@@ -39,60 +39,93 @@ export const stacksEn: StackItem[] = [
     ],
   },
   {
-    title: "UI Styling",
-    desc: "Mixing SCSS and Tailwind CSS as needed, preferring reusable components and token-based styles.",
+    title: "Styling",
+    desc: "Selecting CSS-in-JS, Tailwind, or SCSS based on the scale and purpose of each project.",
     tags: [
       { name: "SCSS", variant: "primary" },
-      { name: "Tailwind CSS", variant: "secondary" },
+      { name: "Tailwind CSS", variant: "primary" },
+      { name: "Module CSS", variant: "secondary" },
     ],
   },
   {
     title: "State & Data",
-    desc: "Separating server and global state management with Custom Hooks and Context API to minimize prop drilling.",
+    desc: "Efficient data fetching with TanStack Query and GraphQL. Separating client state by role using Context API and zustand to minimize coupling.",
     tags: [
+      { name: "TanStack Query", variant: "primary" },
       { name: "Context API", variant: "primary" },
-      { name: "Recoil", variant: "secondary" },
+      { name: "zustand", variant: "primary" },
+      { name: "GraphQL", variant: "secondary" },
       { name: "Redux", variant: "secondary" },
+      { name: "Recoil", variant: "secondary" },
     ],
   },
   {
-    title: "Backend & Server",
-    desc: "Experience with NestJS-based server development, designing domain models and APIs using TypeORM.",
+    title: "Backend",
+    desc: "Developing with consideration for the overall data flow between frontend and backend.",
     tags: [
       { name: "NestJS", variant: "primary" },
-      { name: "TypeORM", variant: "secondary" },
+      { name: "TypeORM", variant: "primary" },
+      { name: "JWT", variant: "primary" },
       { name: "Prisma", variant: "secondary" },
-      { name: "JWT", variant: "secondary" },
+      { name: "MySQL", variant: "secondary" },
+      { name: "PostgreSQL", variant: "secondary" },
     ],
   },
   {
-    title: "Performance",
-    desc: "Reducing repetition through modularization and automation, with keen interest in CI/CD pipelines and development environment improvements (refactoring).",
+    title: "Engineering",
+    desc: "Beyond feature implementation, I have a strong interest in refactoring and architecture for code readability and reusability. I prefer environments that automate processes and improve development productivity.",
     tags: [
-      { name: "TypeScript", variant: "primary" },
-      { name: "CI/CD", variant: "secondary" },
+      { name: "Git", variant: "primary" },
+      { name: "monorepo", variant: "primary" },
       { name: "Git Actions", variant: "secondary" },
+      { name: "Vercel", variant: "secondary" },
     ],
   },
   {
     title: "Experience",
     desc: "Expanding technical spectrum by combining hands-on work experience with personal learning.",
     tags: [
-      { name: "GraphQL", variant: "experienced" },
-      { name: "Vite", variant: "experienced" },
-      { name: "React Query", variant: "experienced" },
-      { name: "shadcn/ui", variant: "experienced" },
-      { name: "RTK", variant: "experienced" },
       { name: "AWS", variant: "experienced" },
-      { name: "JSP", variant: "experienced" },
+      { name: "Shadcn/ui", variant: "experienced" },
       { name: "Terraform", variant: "experienced" },
       { name: "Storybook", variant: "experienced" },
       { name: "Jest", variant: "experienced" },
+      { name: "Docker", variant: "experienced" },
+      { name: "Jenkins", variant: "experienced" },
+      { name: "JSP", variant: "experienced" },
+      { name: "antd", variant: "experienced" },
     ],
   },
 ];
 
 export const projectsEn: ProjectItem[] = [
+  {
+    name: "Picvora",
+    period: "2026.01 - 2026.03",
+    role: "Frontend / Backend",
+    summary:
+      "A full-stack web application combining AI-based photo analysis with a social feed — covering everything from image upload, EXIF/GPS enrichment, analysis editing, visibility control, to feed, comments, likes, notifications, and admin operations.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "Anthropic Claude",
+      "Framer Motion",
+      "VibeCode",
+    ],
+    meta: "Service Template Analysis · Photo Analysis / Social Platform",
+    thumbnail: "/projects/picvora-thumbnail.png",
+    github: "https://github.com/jaemin96/picvora",
+    details: [
+      "Used a vibe-coding approach to move fast, but planned user entry conditions and account-state access scenarios upfront — rather than just adding features — and reflected them in Next.js App Router middleware to ensure the app flows like a real service.",
+      "Approached photo upload as a user-experience problem, not just a file attachment: structured HEIC conversion, EXIF extraction, GPS enrichment, and image cropping steps, then sent the image and metadata together to Claude's vision model to generate tags, mood, summary, shooting tips, and nearby places.",
+      "Treated each post as a content unit rather than a single image record — connected Supabase Storage and DB to define a full lifecycle: upload, visibility control (public / followers / private), view count, soft delete/restore, and permanent deletion.",
+      "Designed the main feed and detail view around the photo consumption experience — placing region filters, following feed, infinite scroll, likes, nested comments, link sharing, and download features so the flow from browsing to interaction feels natural.",
+      "Kept social reactions connected by wiring follow, comment, like, and comment-like events into a Supabase trigger-based notification system, and completed the loop with a user notification inbox and read-status API.",
+      "Extended beyond core user features to include profile editing, avatar upload/crop, liked photos collection, inquiry submission/response, admin approval, and account moderation — building out the structure needed from a service operations perspective.",
+    ],
+  },
   {
     name: "Budget Management Dashboard",
     period: "2024 - 2025",
@@ -111,29 +144,12 @@ export const projectsEn: ProjectItem[] = [
       "Reflected frequent-transaction presets and KakaoPay auto-charge/expense scenarios in the UX to improve input productivity; managed component-level styles with SCSS modules to avoid conflicts.",
     ],
   },
-  // {
-  //   name: "Turborepo Learning Monorepo",
-  //   period: "2024",
-  //   role: "Frontend / Infra",
-  //   summary:
-  //     "Running a Turborepo-based learning monorepo — separating shared UI and utility packages, and experimenting with versioning and build pipelines.",
-  //   tags: ["Turborepo", "Monorepo", "UI Library"],
-  //   meta: "Personal Repo · Learning",
-  //   thumbnail: "/projects/sample-project.svg",
-  //   github: "https://github.com/jaemin96",
-  //   details: [
-  //     "Managing shared UI and utility packages with apps/packages split structure",
-  //     "Optimizing build and lint task caching with Turbo pipelines",
-  //     "Configuring workspace:* dependencies and tsconfig path aliases across packages",
-  //     "Experimenting with a shadcn/ui-based shared component library",
-  //   ],
-  // },
 ];
 
 export const experiencesEn: ExperienceItem[] = [
   {
     org: "Humintec",
-    period: "2024.8 - Present",
+    period: "2024.08 - Present",
     title: "Frontend Engineer",
     bullets: [
       "Applied Tiling and Lazy Loading to render GB-scale pathology images (WSI) in the browser without latency, improving viewing performance.",

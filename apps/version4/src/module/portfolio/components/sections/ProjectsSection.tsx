@@ -15,15 +15,17 @@ import {
 interface ProjectsSectionProps {
   projects: ProjectItem[];
   heading: string;
+  isKo?: boolean;
 }
 
 interface ProjectDetailSheetProps {
   project: ProjectItem | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  isKo?: boolean;
 }
 
-function ProjectDetailSheet({ project, open, onOpenChange }: ProjectDetailSheetProps) {
+function ProjectDetailSheet({ project, open, onOpenChange, isKo }: ProjectDetailSheetProps) {
   if (!project) return null;
 
   return (
@@ -62,7 +64,7 @@ function ProjectDetailSheet({ project, open, onOpenChange }: ProjectDetailSheetP
           {project.details && project.details.length > 0 && (
             <div className="space-y-2">
               <h3 className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                주요 내용
+                {isKo ? "주요 내용" : "Key Highlights"}
               </h3>
               <ul className="space-y-1.5">
                 {project.details.map((item, i) => (
@@ -118,7 +120,7 @@ function ProjectDetailSheet({ project, open, onOpenChange }: ProjectDetailSheetP
   );
 }
 
-export function ProjectsSection({ projects, heading }: ProjectsSectionProps) {
+export function ProjectsSection({ projects, heading, isKo }: ProjectsSectionProps) {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
 
@@ -216,6 +218,7 @@ export function ProjectsSection({ projects, heading }: ProjectsSectionProps) {
         project={selectedProject}
         open={sheetOpen}
         onOpenChange={setSheetOpen}
+        isKo={isKo}
       />
     </section>
   );
