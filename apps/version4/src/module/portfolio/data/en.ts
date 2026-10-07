@@ -7,6 +7,14 @@ export const heroEn: HeroData = {
   headline: "Working hard today to make tomorrow easier",
   summary:
     "4+ years building React-based web frontends.\nI save team time by solving repetitive tasks and inefficient processes through automation and modularization, and invest in building environments for performance optimization and smooth collaboration.\nI value continuously improving development workflows and creating better developer experiences.",
+  bioShort: [
+    "Frontend Engineer. Working hard today to make tomorrow easier.",
+    "4+ years building React · TypeScript web frontends. Currently at Humintec, bringing GB-scale pathology images (WSI) to the browser.",
+  ],
+  bioLong: [
+    "I save team time by solving repetitive tasks and inefficient processes through automation and modularization, and invest in building environments for performance optimization and smooth collaboration.",
+    "I value continuously improving development workflows and creating better developer experiences. Previously at Harbor X, I owned async transaction UX and backoffice modularization for a crypto-asset service.",
+  ],
   ctas: [
     {
       label: "Blog",
@@ -104,26 +112,20 @@ export const projectsEn: ProjectItem[] = [
     period: "2026.01 - 2026.03",
     role: "Frontend / Backend",
     summary:
-      "A full-stack web application combining AI-based photo analysis with a social feed — covering everything from image upload, EXIF/GPS enrichment, analysis editing, visibility control, to feed, comments, likes, notifications, and admin operations.",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Supabase",
-      "Anthropic Claude",
-      "Framer Motion",
-      "VibeCode",
-    ],
-    meta: "Service Template Analysis · Photo Analysis / Social Platform",
+      "A photo-sharing service where uploads are enriched with shooting info and analysis results.",
+    outcome: "A full-stack service I designed and built alone, from upload and analysis to feed, notifications, and admin tools",
+    stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Framer Motion"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Framer Motion"],
+    meta: "Photo sharing",
     thumbnail: "/projects/picvora-thumbnail.png",
     github: "https://github.com/jaemin96/picvora",
     details: [
-      "Used a vibe-coding approach to move fast, but planned user entry conditions and account-state access scenarios upfront — rather than just adding features — and reflected them in Next.js App Router middleware to ensure the app flows like a real service.",
-      "Approached photo upload as a user-experience problem, not just a file attachment: structured HEIC conversion, EXIF extraction, GPS enrichment, and image cropping steps, then sent the image and metadata together to Claude's vision model to generate tags, mood, summary, shooting tips, and nearby places.",
-      "Treated each post as a content unit rather than a single image record — connected Supabase Storage and DB to define a full lifecycle: upload, visibility control (public / followers / private), view count, soft delete/restore, and permanent deletion.",
-      "Designed the main feed and detail view around the photo consumption experience — placing region filters, following feed, infinite scroll, likes, nested comments, link sharing, and download features so the flow from browsing to interaction feels natural.",
-      "Kept social reactions connected by wiring follow, comment, like, and comment-like events into a Supabase trigger-based notification system, and completed the loop with a user notification inbox and read-status API.",
-      "Extended beyond core user features to include profile editing, avatar upload/crop, liked photos collection, inquiry submission/response, admin approval, and account moderation — building out the structure needed from a service operations perspective.",
+      "Defined access rules per account state up front and enforced them in Next.js App Router middleware.",
+      "Uploads go through HEIC conversion, EXIF extraction, GPS correction, and cropping; the image and metadata then produce tags, mood, and shooting tips.",
+      "Each post has one lifecycle: visibility (public / followers / private), view count, delete and restore.",
+      "Built the feed and detail views with region filters, following feed, infinite scroll, likes, nested comments, sharing, and download.",
+      "Follow, comment, and like events feed notifications through Supabase triggers, with an inbox and read status.",
+      "Included what operating the service needs: profile editing, inquiries, admin approval, and account moderation.",
     ],
   },
   {
@@ -131,17 +133,38 @@ export const projectsEn: ProjectItem[] = [
     period: "2024 - 2025",
     role: "Frontend / Backend",
     summary:
-      "A budget management service that structures personal asset flows by account and transaction — covering transaction records, balance updates, authentication, and input UX end-to-end.",
+      "A service for recording and managing personal finances by account and transaction.",
+    outcome: "A personal finance service where balances update together with each deposit, expense, and transfer",
+    stack: ["React", "TypeScript", "NestJS", "GraphQL", "Prisma"],
     tags: ["React", "TypeScript", "SCSS", "Nest", "GraphQL", "Prisma"],
-    meta: "Personal Project · Finance",
+    meta: "Personal project",
     thumbnail: "/projects/budget-book-banner.png",
     github: "https://github.com/jaemin96/Budget-book",
     details: [
-      "Designed an asset management structure that goes beyond simple transaction logging — aggregating total assets, available cash, and savings/investment/pending amounts per account.",
-      "Defined Query/Mutation types and DTOs directly in a NestJS GraphQL API so the frontend and backend share the same domain language.",
-      "Modeled User, Account, and Transaction schemas with Prisma ORM and handled balance changes atomically within service-layer transactions for deposits, withdrawals, and transfers.",
-      "Implemented the full user flow using Next.js App Router and Apollo Client — including a GraphQL proxy, cookie-based JWT auth, and redirect on auth failure.",
-      "Reflected frequent-transaction presets and KakaoPay auto-charge/expense scenarios in the UX to improve input productivity; managed component-level styles with SCSS modules to avoid conflicts.",
+      "Aggregates total assets, available cash, and savings, investment, and pending amounts per account.",
+      "Defined the NestJS GraphQL types and DTOs myself so the frontend shares the same domain terms.",
+      "Modeled User, Account, and Transaction with Prisma and applied balance changes per transaction.",
+      "Implemented cookie-based JWT auth with redirect on auth failure.",
+      "Cut input effort with frequent-transaction presets and auto-charge and expense scenarios.",
+    ],
+  },
+  {
+    // Shown in the bottom (deferred) area. To be replaced by a per-company detail UI.
+    // TODO: fill in a measurable outcome, the libraries actually used, and a loop video.
+    name: "Pathology Image Viewer",
+    period: "2024.08 - Present",
+    role: "Frontend",
+    summary:
+      "A diagnostic-support screen for viewing GB-scale pathology images (WSI) in the browser, annotating them, and consulting in real time.",
+    outcome: "Shows GB-scale slides in the browser without stutter using tiling and lazy loading",
+    stack: ["React", "TypeScript"],
+    tags: ["React", "TypeScript"],
+    meta: "Humintec",
+    deferred: true,
+    details: [
+      "Designed the frontend structure for annotation tools (measurement, region marking) and the video consultation screen.",
+      "Built a data grid and filtering for workflows handling tens of thousands of slides.",
+      "Designed state management to reduce mistakes during diagnosis.",
     ],
   },
 ];

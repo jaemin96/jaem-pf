@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { AppSidebar } from "@/module/navigation/components";
-import { Header } from "@/layout";
-import {
-  SidebarProvider,
-  ScrollToTop,
-  ThemeProvider,
-} from "@/shared/components/ui";
+import { JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/shared/components/ui";
 import { LanguageProvider } from "@/shared/contexts";
 import "./globals.css";
 
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Jam IN",
-  description: "Blending technologies, brewing experiences",
+  title: "Jaemin Kim — Frontend Engineer",
+  description: "Frontend engineer building fast, quiet interfaces. React, TypeScript, large-image rendering.",
   icons: {
     icon: "/favicon.svg",
     apple: "/icon.svg",
@@ -24,34 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="antialiased theme-mono-paper">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-        >
-          <LanguageProvider>
-            <SidebarProvider>
-              {/* Header */}
-              <Header isSearch={false} isAuth={false} isLogo={true} />
-
-              {/* 모바일 전용 Sidebar */}
-              <div className="md:hidden">
-                <AppSidebar />
-              </div>
-
-              {/* 페이지 내용 */}
-              <main className="w-full overflow-y-auto max-h-[calc(100svh-64px)] mt-16">
-                {children}
-              </main>
-
-              {/* <Toaster position="top-right" /> */}
-
-              {/* Scroll to Top 버튼 */}
-              <ScrollToTop />
-            </SidebarProvider>
-          </LanguageProvider>
+    <html lang="ko" suppressHydrationWarning>
+      <body className={`folio ${mono.variable} min-h-svh antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

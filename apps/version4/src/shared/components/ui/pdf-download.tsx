@@ -9,7 +9,13 @@ import { useLanguage } from "@/shared/contexts";
 import { heroKr, stacksKr, projectsKr, experiencesKr } from "@/module/portfolio/data/kr";
 import { heroEn, stacksEn, projectsEn, experiencesEn } from "@/module/portfolio/data/en";
 
-export function PdfDownload() {
+interface PdfDownloadProps {
+  /** 지정하면 아이콘 버튼 대신 텍스트 링크 스타일 버튼으로 렌더링 */
+  label?: string;
+  className?: string;
+}
+
+export function PdfDownload({ label, className }: PdfDownloadProps = {}) {
   const [isGenerating, setIsGenerating] = React.useState(false);
   const { language } = useLanguage();
 
@@ -48,6 +54,14 @@ export function PdfDownload() {
       setIsGenerating(false);
     }
   };
+
+  if (label) {
+    return (
+      <button type="button" className={className} onClick={handleDownload} disabled={isGenerating}>
+        {isGenerating ? "…" : label}
+      </button>
+    );
+  }
 
   return (
     <Button

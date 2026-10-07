@@ -1,88 +1,46 @@
 "use client";
 
-import {
-  SidebarTrigger,
-  LogoHorizontal,
-  LogoCompact,
-  Logo,
-  ThemeToggle,
-  LanguageToggle,
-  PdfDownload,
-} from "@/shared/components/ui";
 import Link from "next/link";
-import { useMenu } from "@/module/navigation/hooks";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { useLanguage } from "@/shared/contexts";
+
+const toolClass = "cursor-pointer text-[13px] text-ink-2 transition-colors hover:text-ink";
 
 interface HeaderProps {
-  children?: React.ReactNode;
-  isSearch?: boolean;
-  isAuth?: boolean;
-  isLogo?: boolean;
+  primaryName: string;
+  secondaryName?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ isLogo }) => {
-  const { navMain } = useMenu({ optionType: "side" });
+const Header: React.FC<HeaderProps> = ({ primaryName, secondaryName }) => {
+  const { resolvedTheme, setTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const isDark = resolvedTheme === "dark";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto grid h-16 max-w-5xl grid-cols-3 items-center px-4 text-sm text-foreground/90 md:px-6">
-        {/* Left : Logo + Mobile trigger */}
-        <div className="flex items-center gap-2">
-          <div className="md:hidden">
-            <SidebarTrigger />
-          </div>
-
-          {isLogo && (
-            <Link
-              href="/"
-              className="flex items-center hover:opacity-80 transition-opacity"
-            >
-              {/* <LogoHorizontal width={120} height={40} /> */}
-              {/* <LogoCompact width={120} height={40} /> */}
-              <Logo width={50} height={50} />
-            </Link>
-          )}
-        </div>
-
-        {/* Center : Navigation */}
-        <nav className="hidden items-center justify-center gap-6 md:flex">
-          {navMain?.map((group) =>
-            group.items?.length ? (
-              <div key={group.title} className="relative group cursor-pointer">
-                <span className="text-xs font-medium uppercase tracking-[0.12em] text-foreground/70 transition-colors group-hover:text-primary">
-                  {group.title}
-                </span>
-
-                {/* Dropdown */}
-                <div className="absolute left-1/2 top-full hidden min-w-40 -translate-x-1/2 rounded-md border border-border/80 bg-popover/95 py-2 text-sm shadow-lg group-hover:block">
-                  {group.items.map((item) => (
-                    <Link
-                      href={item.url}
-                      key={item.title}
-                      className="block px-4 py-1.5 text-foreground/80 hover:bg-accent hover:text-accent-foreground"
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={group.title}
-                href={group.url}
-                className="text-xs font-medium uppercase tracking-[0.12em] text-foreground/70 transition-colors hover:text-primary"
-              >
-                {group.title}
-              </Link>
-            )
-          )}
-        </nav>
-
-        {/* Right : Theme toggle, Language toggle, PDF Download, Search, Auth, etc. */}
-        <div className="col-start-3 flex items-center justify-end gap-2">
-          <LanguageToggle />
-          <ThemeToggle />
-          <PdfDownload />
-        </div>
+    <header className="mb-12 flex items-baseline justify-between">
+      <h1 className="text-[22px] font-semibold leading-tight tracking-[-0.02em]">
+        <Link href="/" className="transition-colors hover:text-amber">
+          {primaryName}
+        </Link>
+        {secondaryName && <small className="ml-2 text-[15px] font-normal text-ink-2">{secondaryName}</small>}
+      </h1>
+      <div className="flex gap-3.5">
+        <button type="button" className={toolClass} onClick={toggleLanguage} aria-label="Toggle language">
+          {language === "ko" ? "EN" : "KO"}
+        </button>
+        <button
+          type="button"
+          className={toolClass}
+          onClick={() => setTheme(isDark ? "light" : "dark")}
+          aria-label="Toggle theme"
+        >
+          {mounted ? (isDark ? "light" : "dark") : "theme"}
+        </button>
       </div>
     </header>
   );

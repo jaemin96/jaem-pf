@@ -5,11 +5,47 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("/fonts/Pretendard/web/variable/woff2/PretendardVariable.woff2") format("woff2-variations");
+  font-weight: 45 920;
+  font-display: swap;
+}
+
+/* ============================================
+   Folio tokens - 조용한 단일 컬럼 레이아웃용
+   light: 기본 / dark: html.dark
+   ============================================ */
+.folio {
+  --paper: #f6f3ec;
+  --ink: #1f1d1a;
+  --ink-2: #6b665b; /* muted */
+  --ink-3: #8f897d; /* faint */
+  --rule: #e1dccf;
+  --amber: #a8641a;
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+.dark .folio {
+  --paper: #1b1a19;
+  --ink: #e8e4dc;
+  --ink-2: #8f8a80;
+  --ink-3: #6b665c;
+  --rule: #2d2b28;
+  --amber: #d9a15b;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-amber: var(--amber);
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Consolas, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -53,6 +89,9 @@
     background-color: var(--background);
     color: var(--foreground);
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-sans);
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
@@ -117,3 +156,30 @@
     color: black !important;
   }
 }
+
+/* 스크롤바: 소개 탭(Brief/Story) 선택 색상(--amber)과 동일하게 */
+html {
+  --scroll-thumb: #a8641a;
+  --scroll-track: #f6f3ec;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+html.dark {
+  --scroll-thumb: #d9a15b;
+  --scroll-track: #1b1a19;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+html::-webkit-scrollbar-track,
+html.dark::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+html::-webkit-scrollbar-thumb,
+html.dark::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border: 2px solid var(--scroll-track);
+  border-radius: 5px;
+}
+html::-webkit-scrollbar-thumb:hover,
+html.dark::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--scroll-thumb) 85%, #fff 15%);
+}
+
