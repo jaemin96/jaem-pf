@@ -9,9 +9,10 @@ interface BioSectionProps {
   labels: Record<ViewMode, string>;
   mode: ViewMode;
   onModeChange: (mode: ViewMode) => void;
+  moreLabel: string;
 }
 
-export function BioSection({ hero, labels, mode, onModeChange }: BioSectionProps) {
+export function BioSection({ hero, labels, mode, onModeChange, moreLabel }: BioSectionProps) {
   return (
     <section>
       <div className="mb-3.5 flex gap-3.5 text-[13px]" role="group" aria-label="bio length">
@@ -36,11 +37,23 @@ export function BioSection({ hero, labels, mode, onModeChange }: BioSectionProps
             <Keywords text={p} />
           </p>
         ))}
-        {mode === "long" && hero.bioLong.map((p) => (
-            <p key={p}>
-              <Keywords text={p} />
-            </p>
-          ))}
+        {hero.bioLong.length > 0 && (
+          // key로 모드가 바뀔 때만 초기 상태를 재설정하고, 이후 수동 토글은 자유롭게 허용
+          <details key={mode} open={mode === "long"} className="group/more">
+            <summary className="w-max cursor-pointer list-none text-[13px] text-ink-3 transition-colors hover:text-amber [&::-webkit-details-marker]:hidden">
+              <span className="group-open/more:hidden">+ </span>
+              <span className="hidden group-open/more:inline">− </span>
+              {moreLabel}
+            </summary>
+            <div className="mt-3 space-y-3">
+              {hero.bioLong.map((p) => (
+                <p key={p}>
+                  <Keywords text={p} />
+                </p>
+              ))}
+            </div>
+          </details>
+        )}
       </div>
     </section>
   );

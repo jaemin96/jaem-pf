@@ -48,6 +48,7 @@ export default function Home() {
             labels={isKo ? { short: "요약", long: "상세" } : { short: "Brief", long: "Full" }}
             mode={mode}
             onModeChange={setMode}
+            moreLabel={isKo ? "자세히" : "More"}
           />
           <WorkSection projects={mainProjects} heading={isKo ? "대표 작업" : "Selected work"} isKo={isKo} mode={mode} />
           <ExperienceSection experiences={experiences} heading={isKo ? "경력" : "Experience"} mode={mode} />
