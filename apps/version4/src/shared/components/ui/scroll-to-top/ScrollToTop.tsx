@@ -115,7 +115,7 @@ export function ScrollToTop({
         "shadow-lg border border-border/50",
         "transition-all duration-300 ease-out",
         "hover:scale-110 hover:shadow-xl",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-amber",
         "cursor-pointer",
         isVisible
           ? "opacity-100 translate-y-0"
@@ -134,7 +134,7 @@ export function ScrollToTop({
           fill="none"
           stroke="currentColor"
           strokeWidth={strokeWidth}
-          className="text-muted-foreground/20"
+          className="text-ink-3/25"
         />
         {/* 프로그레스 링 */}
         <circle
@@ -147,12 +147,12 @@ export function ScrollToTop({
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
-          className="text-primary transition-all duration-150 ease-out"
+          className="text-amber transition-all duration-150 ease-out"
         />
       </svg>
 
       {/* 화살표 아이콘 */}
-      <ArrowUp className="h-5 w-5 text-foreground relative z-10" />
+      <ArrowUp className="h-5 w-5 text-ink relative z-10" />
     </button>
   );
 }
