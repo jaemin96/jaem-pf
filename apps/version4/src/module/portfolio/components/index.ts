@@ -4,3 +4,4 @@ export * from "./Keywords";
 export * from "./PortfolioSkeleton";
 export * from "./ContactLinks";
 export * from "./PortfolioPage";
+export * from "./demo";

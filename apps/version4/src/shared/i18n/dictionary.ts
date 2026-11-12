@@ -39,6 +39,13 @@ const ko = {
     resume: "이력서 PDF",
     footerCta: "함께 이야기 나누고 싶다면 편하게 연락 주세요.",
   },
+  demo: {
+    label: "데모",
+    rebuiltNote: "회사 코드가 아니라, 당시 맡았던 화면을 바탕으로 다시 만든 데모입니다.",
+    newTab: "새 탭에서 열기",
+    close: "데모 닫기",
+    loading: "데모 불러오는 중…",
+  },
   /** 재직 기간 표기 (예: 2년 4개월) */
   tenure: (years: number, months: number) =>
     [years && `${years}년`, months && `${months}개월`].filter(Boolean).join(" "),
@@ -84,6 +91,13 @@ const en: Dictionary = {
     copyAria: "Copy email address",
     resume: "Resume PDF",
     footerCta: "If you'd like to talk, feel free to reach out.",
+  },
+  demo: {
+    label: "Demos",
+    rebuiltNote: "Not company code: rebuilt from the screens I worked on there.",
+    newTab: "Open in new tab",
+    close: "Close demo",
+    loading: "Loading demo…",
   },
   tenure: (years, months) =>
     [years && `${years} yr${years > 1 ? "s" : ""}`, months && `${months} mo`].filter(Boolean).join(" "),

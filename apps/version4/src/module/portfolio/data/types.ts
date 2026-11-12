@@ -79,6 +79,14 @@ export interface PostItem {
   href: string;
 }
 
+/** 페이지 안 패널(넓은 화면) 또는 새 탭(좁은 화면)으로 여는 데모 링크 */
+export interface DemoLink {
+  label: string;
+  href: string;
+  /** 패널 제목 옆에 붙는 짧은 설명 */
+  desc?: string;
+}
+
 export interface ExperienceItem {
   org: string;
   period: string;
@@ -86,4 +94,6 @@ export interface ExperienceItem {
   /** 요약 모드에서도 항상 보이는 핵심 한 줄 */
   highlight?: string;
   bullets: string[];
+  /** 회사에서 맡았던 화면을 바탕으로 다시 만든 데모 (회사 코드 아님) */
+  demos?: DemoLink[];
 }

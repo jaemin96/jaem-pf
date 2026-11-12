@@ -9,12 +9,22 @@ import { recentPosts } from "../data/posts";
 import { BioSection, WorkSection, ExperienceSection, SkillsSection, WritingSection } from "./sections";
 import { ContactLinks } from "./ContactLinks";
 import { PortfolioSkeleton } from "./PortfolioSkeleton";
+import { DemoProvider, useDemo } from "./demo";
 
 const hasData = true;
 
 /** 포트폴리오 한 페이지 전체. 언어는 LanguageProvider(= 경로)에서 받는다. */
 export function PortfolioPage() {
+  return (
+    <DemoProvider>
+      <PortfolioContent />
+    </DemoProvider>
+  );
+}
+
+function PortfolioContent() {
   const { language, t } = useLanguage();
+  const demo = useDemo();
   const [mode, setMode] = useState<ViewMode>("short");
 
   const { hero, projects, experiences, stacks } = getPortfolioData(language);
@@ -26,7 +36,11 @@ export function PortfolioPage() {
 
   return (
     <>
-      <main className="mx-auto max-w-[600px] px-5 pb-28 pt-16 text-[15px] leading-[1.75] text-ink sm:pt-[72px]">
+      {/* 데모 패널이 열리면 본문 열이 왼쪽으로 비켜선다 (demo/DemoPanel.tsx) */}
+      <main
+        style={demo.mainStyle}
+        className="mx-auto max-w-[600px] px-5 pb-28 pt-16 text-[15px] leading-[1.75] text-ink sm:pt-[72px]"
+      >
         <Header primaryName={hero.primaryName} secondaryName={hero.secondaryName} />
 
         {hasData ? (
@@ -62,7 +76,10 @@ export function PortfolioPage() {
           </p>
         </footer>
       </main>
-      <ScrollToTop showAfter={600} size={40} strokeWidth={2} className="border-rule shadow-none" />
+      {/* 패널이 열려 있으면 오른쪽 아래 버튼이 패널을 가리므로 숨긴다 */}
+      {!demo.isOpen && (
+        <ScrollToTop showAfter={600} size={40} strokeWidth={2} className="border-rule shadow-none" />
+      )}
     </>
   );
 }

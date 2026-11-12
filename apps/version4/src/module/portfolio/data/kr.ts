@@ -121,7 +121,8 @@ export const stacksKr: StackItem[] = [
 
 export const projectsKr: ProjectItem[] = [
   {
-    // 회사 코드라 실제 화면 대신 같은 원리로 만든 딥줌 데모를 미디어 자리에 보여준다.
+    // 미디어 자리: 같은 원리로 만든 딥줌 축소판 (바로 만져볼 수 있게)
+    // 라이브 데모: 실제 업무 기능(어노테이션 등)을 넣어 따로 배포한 뷰어 데모
     // TODO: 실제 사용한 뷰어 라이브러리(OpenSeadragon 등)와 수치를 [[ ]] 자리에 채워주세요.
     name: "병리 이미지 뷰어 (WSI)",
     period: "2024.08 - 현재",
@@ -133,9 +134,10 @@ export const projectsKr: ProjectItem[] = [
     stack: ["React", "TypeScript", "Canvas"],
     tags: ["React", "TypeScript"],
     meta: "Humintec",
+    demo: "https://demos-slide.vercel.app/",
     interactive: "deepzoom",
     caption:
-      "회사 코드 대신, 같은 원리(줌 레벨별 타일 피라미드 + 보이는 영역만 지연 생성)로 직접 만든 축소판 데모입니다. 클릭 후 스크롤로 확대, 드래그로 이동해 보세요.",
+      "위 화면은 같은 원리(줌 레벨별 타일 피라미드 + 보이는 영역만 생성)로 만든 축소판입니다. 실제 업무에서 쓰는 어노테이션(사각형·폴리곤 그리기, 면적 표시)까지 넣은 뷰어는 아래 '라이브 데모'에서 바로 써볼 수 있어요.",
     details: [
       "슬라이드를 줌 레벨별 타일 피라미드로 나누고, 화면에 보이는 타일만 중심부터 우선순위대로 불러오도록 구성했습니다. ([[사용 라이브러리 / 직접 구현한 부분]])",
       "첫 화면 표시 시간을 [[N초 → M초]], 확대·이동 중 메모리 사용량을 [[N% ]] 줄였습니다.",
@@ -182,6 +184,7 @@ export const projectsKr: ProjectItem[] = [
     meta: "개인 프로젝트",
     thumbnail: "/projects/budget-book-banner.png",
     github: "https://github.com/jaemin96/Budget-book",
+    demo: "https://demos-pi-eight.vercel.app/",
     details: [
       "총자산, 가용 현금, 저축·투자·보류 금액을 계좌별로 나누어 집계합니다.",
       "NestJS GraphQL API의 타입과 DTO를 직접 정의해 프론트엔드와 같은 도메인 용어로 맞췄습니다.",
@@ -219,6 +222,18 @@ export const experiencesKr: ExperienceItem[] = [
       "실시간 시세와 자산 변동 내역을 차트로 시각화하고, Pending/Success/Fail 트랜잭션 상태를 WebSocket/Polling으로 화면에 실시간 반영했습니다.",
       "프론트엔드에 필요한 데이터 구조를 먼저 정의하고 백엔드와 RESTful API 규격·DB 스키마 설계에 함께 참여해, 개발 중 API 수정 요청을 줄였습니다.",
       "백오피스 화면을 공통 테이블·폼 컴포넌트로 모듈화해 신규 관리자 화면 개발 기간을 [[N일 → M일]]로 줄였습니다.",
+    ],
+    demos: [
+      {
+        label: "백오피스 어드민",
+        href: "https://demos-liquor.vercel.app/dashboard",
+        desc: "쇼핑몰 관리자 화면 (대시보드 · 상품 · 주문 · 회원)",
+      },
+      {
+        label: "NFT 커머스",
+        href: "https://demos-nft-psi.vercel.app/",
+        desc: "블록체인 쇼핑몰 (지갑 연결 · 드롭 · 구매)",
+      },
     ],
   },
 ];

@@ -228,6 +228,7 @@ interface PortfolioPDFProps {
     title: string;
     highlight?: string;
     bullets: string[];
+    demos?: { label: string; href: string }[];
   }[];
 }
 
@@ -278,6 +279,15 @@ export function PortfolioPDF({
                   • {bullet}
                 </Text>
               ))}
+              {exp.demos?.length ? (
+                <View style={[extraStyles.projectLinks, { flexDirection: "column", gap: 2 }]}>
+                  {exp.demos.map((d) => (
+                    <Link key={d.href} src={d.href} style={styles.link}>
+                      Demo · {d.label}: {d.href}
+                    </Link>
+                  ))}
+                </View>
+              ) : null}
             </View>
           ))}
         </View>

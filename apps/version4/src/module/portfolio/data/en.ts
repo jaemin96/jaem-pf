@@ -117,7 +117,8 @@ export const stacksEn: StackItem[] = [
 
 export const projectsEn: ProjectItem[] = [
   {
-    // Company code can't be shown, so the media slot shows a deep-zoom demo built on the same idea.
+    // Media slot: a deep-zoom miniature built on the same idea (hands-on right away)
+    // Live demo: a separately deployed viewer demo with the real work features (annotations, etc.)
     // TODO: fill in the viewer library actually used (e.g. OpenSeadragon) and the numbers in [[ ]].
     name: "Pathology Image Viewer (WSI)",
     period: "2024.08 - Present",
@@ -129,9 +130,10 @@ export const projectsEn: ProjectItem[] = [
     stack: ["React", "TypeScript", "Canvas"],
     tags: ["React", "TypeScript"],
     meta: "Humintec",
+    demo: "https://demos-slide.vercel.app/",
     interactive: "deepzoom",
     caption:
-      "Not the company code: a miniature I built on the same idea (a per-zoom-level tile pyramid, generating only visible tiles). Click, then scroll to zoom and drag to pan.",
+      "Above is a miniature built on the same idea (a per-zoom-level tile pyramid, generating only visible tiles). The full viewer, with the annotation tools I use at work (rectangle and polygon drawing, area readouts), is one click away under 'Live demo'.",
     details: [
       "Split slides into a per-zoom-level tile pyramid and load only on-screen tiles, prioritized from the center out. ([[library used / parts built in-house]])",
       "Cut first paint from [[N s → M s]] and memory use while zooming and panning by [[N%]].",
@@ -179,6 +181,7 @@ export const projectsEn: ProjectItem[] = [
     meta: "Personal project",
     thumbnail: "/projects/budget-book-banner.png",
     github: "https://github.com/jaemin96/Budget-book",
+    demo: "https://demos-pi-eight.vercel.app/",
     details: [
       "Aggregates total assets, available cash, and savings, investment, and pending amounts per account.",
       "Defined the NestJS GraphQL types and DTOs myself so the frontend shares the same domain terms.",
@@ -214,6 +217,18 @@ export const experiencesEn: ExperienceItem[] = [
       "Visualized real-time prices and asset history with charts, and reflected Pending/Success/Fail transaction states live via WebSocket/Polling.",
       "Defined the frontend's data needs first and worked with backend engineers on RESTful API specs and DB schema design, reducing API change requests mid-development.",
       "Modularized backoffice screens into shared table and form components, cutting new admin screen work from [[N days → M days]].",
+    ],
+    demos: [
+      {
+        label: "Backoffice admin",
+        href: "https://demos-liquor.vercel.app/dashboard",
+        desc: "Shop admin (dashboard · products · orders · members)",
+      },
+      {
+        label: "NFT commerce",
+        href: "https://demos-nft-psi.vercel.app/",
+        desc: "Blockchain shop (wallet connect · drops · checkout)",
+      },
     ],
   },
 ];

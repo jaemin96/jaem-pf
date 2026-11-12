@@ -6,6 +6,7 @@ import { SectionHeading } from "./SectionHeading";
 import { DeepZoomCanvas } from "./DeepZoomDemo";
 import { Keywords } from "../Keywords";
 import { useLanguage } from "@/shared/contexts";
+import { DemoLink } from "../demo";
 
 interface WorkSectionProps {
   projects: ProjectItem[];
@@ -89,9 +90,10 @@ export function WorkSection({ projects, heading, mode }: WorkSectionProps) {
             {(p.github || p.demo) && (
               <div className="mt-1.5 flex gap-3.5 text-[13px]">
                 {p.demo && (
-                  <a className={linkClass} href={p.demo} target="_blank" rel="noreferrer">
+                  // 넓은 화면: 페이지 안 패널로 열림 / 좁은 화면: 새 탭
+                  <DemoLink className={linkClass} href={p.demo} title={p.name} subtitle={p.meta}>
                     {t.work.liveDemo} ↗
-                  </a>
+                  </DemoLink>
                 )}
                 {p.github && (
                   <a className={linkClass} href={p.github} target="_blank" rel="noreferrer">

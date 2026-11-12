@@ -4,6 +4,7 @@ import type { ExperienceItem, ViewMode } from "../../data/types";
 import { SectionHeading } from "./SectionHeading";
 import { Keywords } from "../Keywords";
 import { useLanguage } from "@/shared/contexts";
+import { DemoLink } from "../demo";
 import type { Dictionary } from "@/shared/i18n";
 
 interface ExperienceSectionProps {
@@ -11,6 +12,9 @@ interface ExperienceSectionProps {
   heading: string;
   mode: ViewMode;
 }
+
+const demoLinkClass =
+  "underline decoration-ink-3 underline-offset-4 transition-colors hover:text-amber hover:decoration-amber";
 
 /** "2021.06 - 2023.09" / "2024.08 - 재직 중" 형태의 기간을 "2년 3개월"로 바꾼다. 형식이 다르면 null. */
 function tenure(period: string, format: Dictionary["tenure"]): string | null {
@@ -40,36 +44,58 @@ export function ExperienceSection({ experiences, heading, mode }: ExperienceSect
         {experiences.map((exp) => {
           const span = tenure(exp.period, t.tenure);
           return (
-            <details key={`${exp.org}-${mode}`} open={mode === "long"} className="group border-t border-rule py-3.5">
-              <summary className="grid cursor-pointer list-none grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-1 [&::-webkit-details-marker]:hidden">
-                <span className="font-semibold transition-colors group-hover:text-amber">
-                  {exp.org}
-                  <span className="ml-2 text-[12px] font-normal text-ink-3 group-open:hidden">+</span>
-                  <span className="ml-2 hidden text-[12px] font-normal text-ink-3 group-open:inline">−</span>
-                </span>
-                <span className="text-[13px] tabular-nums text-ink-2">{exp.period}</span>
-                <span className="text-[13px] text-ink-2">
-                  {exp.title}
-                  {span && <span className="text-ink-3"> · {span}</span>}
-                </span>
-                {exp.highlight && (
-                  // 요약 모드에서도 회사별 핵심 한 줄은 항상 보인다
-                  <span className="col-span-2 mt-1.5 text-sm leading-[1.7] text-ink/85">
-                    <Keywords text={exp.highlight} />
+            <div key={exp.org} className="border-t border-rule py-3.5">
+              <details key={mode} open={mode === "long"} className="group">
+                <summary className="grid cursor-pointer list-none grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-1 [&::-webkit-details-marker]:hidden">
+                  <span className="font-semibold transition-colors group-hover:text-amber">
+                    {exp.org}
+                    <span className="ml-2 text-[12px] font-normal text-ink-3 group-open:hidden">+</span>
+                    <span className="ml-2 hidden text-[12px] font-normal text-ink-3 group-open:inline">−</span>
                   </span>
-                )}
-              </summary>
-              <ul className="mt-3.5 space-y-2">
-                {exp.bullets.map((b) => (
-                  <li
-                    key={b}
-                    className="relative pl-4 text-sm leading-[1.7] text-ink/85 before:absolute before:left-0 before:text-ink-3 before:content-['–']"
-                  >
-                    <Keywords text={b} />
-                  </li>
-                ))}
-              </ul>
-            </details>
+                  <span className="text-[13px] tabular-nums text-ink-2">{exp.period}</span>
+                  <span className="text-[13px] text-ink-2">
+                    {exp.title}
+                    {span && <span className="text-ink-3"> · {span}</span>}
+                  </span>
+                  {exp.highlight && (
+                    // 요약 모드에서도 회사별 핵심 한 줄은 항상 보인다
+                    <span className="col-span-2 mt-1.5 text-sm leading-[1.7] text-ink/85">
+                      <Keywords text={exp.highlight} />
+                    </span>
+                  )}
+                </summary>
+                <ul className="mt-3.5 space-y-2">
+                  {exp.bullets.map((b) => (
+                    <li
+                      key={b}
+                      className="relative pl-4 text-sm leading-[1.7] text-ink/85 before:absolute before:left-0 before:text-ink-3 before:content-['–']"
+                    >
+                      <Keywords text={b} />
+                    </li>
+                  ))}
+                </ul>
+              </details>
+              {exp.demos?.length ? (
+                // 데모는 접힘 여부와 상관없이 보이게 둔다 (요약 모드에서도 바로 눌러볼 수 있게)
+                <div className="mt-2.5 text-[13px]">
+                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                    <span className="text-ink-3">{t.demo.label}</span>
+                    {exp.demos.map((d) => (
+                      <DemoLink
+                        key={d.href}
+                        href={d.href}
+                        title={`${exp.org} · ${d.label}`}
+                        subtitle={d.desc}
+                        className={demoLinkClass}
+                      >
+                        {d.label} ↗
+                      </DemoLink>
+                    ))}
+                  </div>
+                  <p className="mt-1 text-[12px] text-ink-3">{t.demo.rebuiltNote}</p>
+                </div>
+              ) : null}
+            </div>
           );
         })}
       </div>
