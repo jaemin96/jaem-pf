@@ -23,6 +23,10 @@ export interface HeroData {
   bioLong: string[];
   ctas: HeroCta[];
   stats: HeroStat[];
+  /** 연락용 이메일 (소개 영역 링크·복사 버튼에 사용) */
+  email: string;
+  /** 구직 상태 한 줄. 비워두면 표시하지 않는다. */
+  availability?: string;
 }
 
 export type TagVariant = "primary" | "secondary" | "accent" | "experienced" | "default";
@@ -57,6 +61,10 @@ export interface ProjectItem {
   video?: string;
   /** true면 대표 작업 목록이 아니라 페이지 하단 영역에 표시 */
   deferred?: boolean;
+  /** 썸네일 대신 보여줄 인터랙티브 데모 */
+  interactive?: "deepzoom";
+  /** 미디어 아래 작은 설명 (데모 사용법 등) */
+  caption?: string;
 }
 
 /** 페이지 전체 보기 모드. short면 상세가 모두 접히고, long이면 모두 펼쳐진다. */
@@ -73,5 +81,7 @@ export interface ExperienceItem {
   org: string;
   period: string;
   title: string;
+  /** 요약 모드에서도 항상 보이는 핵심 한 줄 */
+  highlight?: string;
   bullets: string[];
 }

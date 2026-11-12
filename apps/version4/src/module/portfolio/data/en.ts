@@ -1,20 +1,29 @@
 import type { ExperienceItem, HeroData, ProjectItem, StackItem } from "./types";
 
+/*
+ * ✏️ Placeholders: anything wrapped in [[ ... ]] is a blank to fill with a real number or example.
+ * It renders as a dashed box on the site and as [ ... ] in the PDF. Delete the [[ ]] part if you have no number.
+ */
+
 export const heroEn: HeroData = {
   primaryName: "Jaemin Kim",
   secondaryName: "김재민",
   role: "Frontend Engineer",
-  headline: "Working hard today to make tomorrow easier",
+  headline: "A developer who puts in the work yesterday, so today runs easy.",
   summary:
-    "4+ years building React-based web frontends.\nI save team time by solving repetitive tasks and inefficient processes through automation and modularization, and invest in building environments for performance optimization and smooth collaboration.\nI value continuously improving development workflows and creating better developer experiences.",
+    "4+ years building web frontends with React and TypeScript. Currently building a viewer for GB-scale pathology images (WSI) at Humintec.\nI turn repetitive work into tools, and I like cutting the time users spend waiting.\nPreviously at Harbor X, I owned async transaction UX and backoffice modularization for a crypto-asset service.",
   bioShort: [
-    "Frontend Engineer. Working hard today to make tomorrow easier.",
-    "4+ years building React · TypeScript web frontends. Currently at Humintec, bringing GB-scale pathology images (WSI) to the browser.",
+    "Frontend Engineer. I put in the work yesterday, so today runs easy.",
+    "4+ years building web frontends with React · TypeScript. Currently at Humintec, building a viewer that brings GB-scale pathology images (WSI) to the browser.",
   ],
   bioLong: [
-    "I save team time by solving repetitive tasks and inefficient processes through automation and modularization, and invest in building environments for performance optimization and smooth collaboration.",
-    "I value continuously improving development workflows and creating better developer experiences. Previously at Harbor X, I owned async transaction UX and backoffice modularization for a crypto-asset service.",
+    "I turn repetitive work into tools. I built [[e.g. a shared component library / deploy & QA automation scripts]] that saved the team [[N hours a week]], and this portfolio itself runs on a pnpm monorepo with shared config packages.",
+    "I like cutting the time users spend waiting. Large-image tiling and rendering only what is needed are the kind of problems I sink the most time into.",
+    "Previously at Harbor X, I owned async transaction UX and backoffice modularization for a crypto-asset service.",
   ],
+  email: "lemon__96@naver.com",
+  // One-line availability. Set to "" to hide it.
+  availability: "Open to new frontend roles.",
   ctas: [
     {
       label: "Blog",
@@ -30,9 +39,7 @@ export const heroEn: HeroData = {
   stats: [
     { label: "years", value: "4+" },
     { label: "skills", value: "React / TS" },
-    // { label: "Focus", value: "DX & Perf" },
     { label: "projects", value: "5+" },
-    // { label: "Companies", value: "2" },
   ],
 };
 
@@ -41,7 +48,7 @@ export const stacksEn: StackItem[] = [
     title: "Frontend",
     desc: "React-centered UI development with type safety as a baseline. Comfortable with component-driven architecture, and focused on separation of concerns and clear dependency direction.",
     tags: [
-      { name: "⭐React", variant: "primary" },
+      { name: "React", variant: "primary" },
       { name: "TypeScript", variant: "primary" },
       { name: "Next.js", variant: "secondary" },
     ],
@@ -90,7 +97,7 @@ export const stacksEn: StackItem[] = [
     ],
   },
   {
-    title: "Experience",
+    title: "Also used",
     desc: "Expanding technical spectrum by combining hands-on work experience with personal learning.",
     tags: [
       { name: "AWS", variant: "experienced" },
@@ -108,17 +115,45 @@ export const stacksEn: StackItem[] = [
 
 export const projectsEn: ProjectItem[] = [
   {
+    // Company code can't be shown, so the media slot shows a deep-zoom demo built on the same idea.
+    // TODO: fill in the viewer library actually used (e.g. OpenSeadragon) and the numbers in [[ ]].
+    name: "Pathology Image Viewer (WSI)",
+    period: "2024.08 - Present",
+    role: "Frontend",
+    summary:
+      "A diagnostic-support screen for viewing GB-scale pathology images (WSI) in the browser, annotating them, and consulting in real time.",
+    outcome:
+      "Shows GB-scale slides in the browser without stutter by loading only the visible tiles — first paint [[N s → M s]]",
+    stack: ["React", "TypeScript", "Canvas"],
+    tags: ["React", "TypeScript"],
+    meta: "Humintec",
+    interactive: "deepzoom",
+    caption:
+      "Not the company code: a miniature I built on the same idea (a per-zoom-level tile pyramid, generating only visible tiles). Click, then scroll to zoom and drag to pan.",
+    details: [
+      "Split slides into a per-zoom-level tile pyramid and load only on-screen tiles, prioritized from the center out. ([[library used / parts built in-house]])",
+      "Cut first paint from [[N s → M s]] and memory use while zooming and panning by [[N%]].",
+      "Designed the frontend structure for Annotation tools (measurement, region marking) and the real-time video consultation screen.",
+      "Built a dense data grid and filters for workflows handling tens of thousands of slides.",
+      "Designed state rules such as [[e.g. unsaved-change guards, slide mix-up prevention]] to reduce mistakes during diagnosis.",
+    ],
+  },
+  {
     name: "Picvora",
     period: "2026.01 - 2026.03",
     role: "Frontend / Backend",
     summary:
       "A photo-sharing service where uploads are enriched with shooting info and analysis results.",
-    outcome: "A full-stack service I designed and built alone, from upload and analysis to feed, notifications, and admin tools",
+    outcome:
+      "A full-stack service I designed and built alone, from upload and analysis to feed, notifications, and admin tools",
     stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Framer Motion"],
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Framer Motion"],
     meta: "Photo sharing",
     thumbnail: "/projects/picvora-thumbnail.png",
     github: "https://github.com/jaemin96/picvora",
+    // TODO: add the deployed URL to demo, and a ~5s silent loop (mp4) to video if you have one.
+    // demo: "https://",
+    // video: "/projects/picvora-loop.mp4",
     details: [
       "Defined access rules per account state up front and enforced them in Next.js App Router middleware.",
       "Uploads go through HEIC conversion, EXIF extraction, GPS correction, and cropping; the image and metadata then produce tags, mood, and shooting tips.",
@@ -126,6 +161,7 @@ export const projectsEn: ProjectItem[] = [
       "Built the feed and detail views with region filters, following feed, infinite scroll, likes, nested comments, sharing, and download.",
       "Follow, comment, and like events feed notifications through Supabase triggers, with an inbox and read status.",
       "Included what operating the service needs: profile editing, inquiries, admin approval, and account moderation.",
+      "Overall scope: [[N screens · N tables · N weeks]]",
     ],
   },
   {
@@ -134,7 +170,8 @@ export const projectsEn: ProjectItem[] = [
     role: "Frontend / Backend",
     summary:
       "A service for recording and managing personal finances by account and transaction.",
-    outcome: "A personal finance service where balances update together with each deposit, expense, and transfer",
+    outcome:
+      "A personal finance service where balances update together with each deposit, expense, and transfer",
     stack: ["React", "TypeScript", "NestJS", "GraphQL", "Prisma"],
     tags: ["React", "TypeScript", "SCSS", "Nest", "GraphQL", "Prisma"],
     meta: "Personal project",
@@ -148,25 +185,6 @@ export const projectsEn: ProjectItem[] = [
       "Cut input effort with frequent-transaction presets and auto-charge and expense scenarios.",
     ],
   },
-  {
-    // Shown in the bottom (deferred) area. To be replaced by a per-company detail UI.
-    // TODO: fill in a measurable outcome, the libraries actually used, and a loop video.
-    name: "Pathology Image Viewer",
-    period: "2024.08 - Present",
-    role: "Frontend",
-    summary:
-      "A diagnostic-support screen for viewing GB-scale pathology images (WSI) in the browser, annotating them, and consulting in real time.",
-    outcome: "Shows GB-scale slides in the browser without stutter using tiling and lazy loading",
-    stack: ["React", "TypeScript"],
-    tags: ["React", "TypeScript"],
-    meta: "Humintec",
-    deferred: true,
-    details: [
-      "Designed the frontend structure for annotation tools (measurement, region marking) and the video consultation screen.",
-      "Built a data grid and filtering for workflows handling tens of thousands of slides.",
-      "Designed state management to reduce mistakes during diagnosis.",
-    ],
-  },
 ];
 
 export const experiencesEn: ExperienceItem[] = [
@@ -174,22 +192,26 @@ export const experiencesEn: ExperienceItem[] = [
     org: "Humintec",
     period: "2024.08 - Present",
     title: "Frontend Engineer",
+    highlight:
+      "Frontend for a GB-scale pathology image (WSI) viewer, Annotation tools, and video consultation.",
     bullets: [
-      "Applied Tiling and Lazy Loading to render GB-scale pathology images (WSI) in the browser without latency, improving viewing performance.",
-      "Designed the frontend architecture for an Annotation tool (measurements, region marking, etc.) and a real-time video consultation system for pathologists.",
-      "Built a high-density data grid and intuitive filtering system to support medical workflows managing tens of thousands of slides.",
-      "Designed state management logic to prevent human errors during diagnosis and incorporated user feedback into iterative UI improvements.",
+      "Rendered GB-scale pathology images (WSI) with Tiling · Lazy Loading that fetches only visible tiles per zoom level, cutting first paint from [[N s → M s]].",
+      "Designed the frontend architecture for pathologists' Annotation tools (measurement, region marking) and a real-time video consultation system. (used by [[N institutions / N pathologists]])",
+      "Built a dense data grid and filters for sites managing tens of thousands ([[N0,000]]) of slides, cutting slide lookup time from [[N s → M s]].",
+      "Designed state rules that prevent human error during diagnosis ([[e.g. unsaved-change guards, slide mix-up prevention]]) and shipped [[N+]] rounds of field feedback.",
     ],
   },
   {
     org: "Harbor X",
     period: "2021.06 - 2023.09",
     title: "Frontend Engineer",
+    highlight:
+      "Wallet and transaction UX plus shared backoffice components for a crypto-asset service.",
     bullets: [
-      "Built an onboarding process that clearly communicates blockchain-specific async flows — wallet connection, transaction signing — in a user-friendly way.",
-      "Visualized real-time asset prices and transaction history with charts and graphs; implemented WebSocket/Polling logic to reflect Pending/Success/Fail transaction states in real time.",
-      "Defined the data structures needed on the frontend and collaborated with backend engineers on RESTful API specs and DB schema design to reduce unnecessary development overhead.",
-      "Developed backoffice features as modular components to cut the cost of repetitive admin UI work.",
+      "Designed and built a step-by-step onboarding for blockchain async flows — wallet connection, transaction signing — reducing [[onboarding drop-off / related inquiries by N%]].",
+      "Visualized real-time prices and asset history with charts, and reflected Pending/Success/Fail transaction states live via WebSocket/Polling.",
+      "Defined the frontend's data needs first and worked with backend engineers on RESTful API specs and DB schema design, reducing API change requests mid-development.",
+      "Modularized backoffice screens into shared table and form components, cutting new admin screen work from [[N days → M days]].",
     ],
   },
 ];

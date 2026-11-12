@@ -9,12 +9,16 @@ interface BioSectionProps {
   labels: Record<ViewMode, string>;
   mode: ViewMode;
   onModeChange: (mode: ViewMode) => void;
+  /** 토글 옆 설명 (페이지 전체에 적용된다는 안내) */
+  modeHint?: string;
+  children?: React.ReactNode;
 }
 
-export function BioSection({ hero, labels, mode, onModeChange }: BioSectionProps) {
+export function BioSection({ hero, labels, mode, onModeChange, modeHint, children }: BioSectionProps) {
   return (
     <section>
-      <div className="mb-3.5 flex gap-3.5 text-[13px]" role="group" aria-label="bio length">
+      <div className="mb-3.5 flex items-baseline gap-3.5 text-[13px]" role="group" aria-label="view mode">
+        {modeHint && <span className="text-[12px] text-ink-3">{modeHint}</span>}
         {(["short", "long"] as const satisfies readonly ViewMode[]).map((m) => (
           <button
             key={m}
@@ -42,6 +46,16 @@ export function BioSection({ hero, labels, mode, onModeChange }: BioSectionProps
             </p>
           ))}
       </div>
+      {hero.availability && (
+        <p className="mt-4 flex items-center gap-2 text-[13px] text-ink-2">
+          <span className="relative flex size-2" aria-hidden>
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500/60 motion-reduce:animate-none" />
+            <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+          </span>
+          {hero.availability}
+        </p>
+      )}
+      {children}
     </section>
   );
 }

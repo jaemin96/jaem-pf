@@ -10,8 +10,11 @@ const pattern = new RegExp(
 );
 const keywordSet = new Set(KEYWORDS);
 
-/** 텍스트 안의 기술 키워드만 모노스페이스 폰트로 감싼다. */
-export function Keywords({ text }: { text: string }) {
+/** [[ ... ]] 로 감싼 부분은 아직 채우지 않은 빈칸(수치·사례)이다. */
+const PLACEHOLDER = /(\[\[[^\]]+\]\])/g;
+const isPlaceholder = (s: string) => s.startsWith("[[") && s.endsWith("]]");
+
+function KeywordText({ text }: { text: string }) {
   return (
     <>
       {text.split(pattern).map((part, i) =>
@@ -21,6 +24,27 @@ export function Keywords({ text }: { text: string }) {
           </span>
         ) : (
           <Fragment key={i}>{part}</Fragment>
+        )
+      )}
+    </>
+  );
+}
+
+/** 텍스트 안의 기술 키워드는 모노스페이스로, [[빈칸]]은 점선 박스로 표시한다. */
+export function Keywords({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(PLACEHOLDER).map((part, i) =>
+        isPlaceholder(part) ? (
+          <mark
+            key={i}
+            title="채워야 할 빈칸"
+            className="rounded-sm border border-dashed border-amber/70 bg-amber/10 px-1 text-[0.92em] text-amber"
+          >
+            {part.slice(2, -2).trim()}
+          </mark>
+        ) : (
+          <KeywordText key={i} text={part} />
         )
       )}
     </>

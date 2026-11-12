@@ -2,27 +2,23 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/shared/contexts";
-import { PdfDownload } from "@/shared/components/ui";
+import { ScrollToTop } from "@/shared/components/ui";
 import { Header } from "@/layout";
-import { heroKr, projectsKr, experiencesKr } from "@/module/portfolio/data/kr";
+import { heroKr, projectsKr, experiencesKr, stacksKr } from "@/module/portfolio/data/kr";
 import type { ViewMode } from "@/module/portfolio/data/types";
 import { recentPosts } from "@/module/portfolio/data/posts";
-import { heroEn, projectsEn, experiencesEn } from "@/module/portfolio/data/en";
+import { heroEn, projectsEn, experiencesEn, stacksEn } from "@/module/portfolio/data/en";
 import {
   BioSection,
-  DeepZoomDemo,
   WorkSection,
   ExperienceSection,
+  SkillsSection,
   WritingSection,
+  ContactLinks,
   PortfolioSkeleton,
 } from "@/module/portfolio/components";
 
 const hasData = true;
-// 병리 뷰어 카드와 딥줌 데모 노출 여부 (회사별 상세 UI 완성 전까지 숨김)
-const SHOW_DEFERRED = false;
-
-const linkClass =
-  "underline decoration-ink-3 underline-offset-4 transition-colors hover:text-amber hover:decoration-amber";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -32,63 +28,69 @@ export default function Home() {
   const hero = isKo ? heroKr : heroEn;
   const projects = isKo ? projectsKr : projectsEn;
   const experiences = isKo ? experiencesKr : experiencesEn;
+  const stacks = isKo ? stacksKr : stacksEn;
+  // deferred: 아직 공개하지 않을 작업 (PDF에서도 같은 기준으로 빠진다)
   const mainProjects = projects.filter((p) => !p.deferred);
-  const deferredProjects = projects.filter((p) => p.deferred);
 
-  const href = (label: string) => hero.ctas.find((c) => c.label === label)?.href ?? "#";
+  const href = (label: string) => hero.ctas.find((c) => c.label === label)?.href;
+
+  const contact = (
+    <ContactLinks email={hero.email} github={href("GitHub")} blog={href("Blog")} isKo={isKo} />
+  );
 
   return (
-    <main className="mx-auto max-w-[600px] px-5 pb-28 pt-16 text-[15px] leading-[1.75] text-ink sm:pt-[72px]">
-      <Header primaryName={hero.primaryName} secondaryName={hero.secondaryName} />
+    <>
+      <main className="mx-auto max-w-[600px] px-5 pb-28 pt-16 text-[15px] leading-[1.75] text-ink sm:pt-[72px]">
+        <Header primaryName={hero.primaryName} secondaryName={hero.secondaryName} />
 
-      {hasData ? (
-        <div className="space-y-16">
-          <BioSection
-            hero={hero}
-            labels={isKo ? { short: "요약", long: "상세" } : { short: "Brief", long: "Full" }}
-            mode={mode}
-            onModeChange={setMode}
-          />
-          <WorkSection projects={mainProjects} heading={isKo ? "대표 작업" : "Selected work"} isKo={isKo} mode={mode} />
-          <ExperienceSection experiences={experiences} heading={isKo ? "경력" : "Experience"} mode={mode} />
-          <WritingSection
-            posts={recentPosts}
-            heading={isKo ? "글" : "Writing"}
-            moreLabel={isKo ? "전체 글 보기" : "All posts"}
-            moreHref={href("Blog")}
-          />
-
-          {/* 임시 하단 영역: 추후 회사별 상세 작업 UI로 고도화해 이쪽으로 옮길 예정. 지금은 숨김 */}
-          {SHOW_DEFERRED && (
-            <>
-            <WorkSection projects={deferredProjects} heading="Humintec" isKo={isKo} mode={mode} />
-            <DeepZoomDemo
-              heading="Deep zoom demo"
-              caption={
-                isKo
-                  ? "보이는 영역의 타일만 줌 레벨별로 지연 생성합니다. WSI 뷰어에서 쓰는 타일 피라미드 방식의 축소판이에요."
-                  : "Only the visible tiles are generated lazily per zoom level — a miniature of the tile-pyramid approach used in WSI viewers."
-              }
+        {hasData ? (
+          <div className="space-y-16">
+            <BioSection
+              hero={hero}
+              labels={isKo ? { short: "요약", long: "상세" } : { short: "Brief", long: "Full" }}
+              modeHint={isKo ? "보기" : "View"}
+              mode={mode}
+              onModeChange={setMode}
+            >
+              <div className="mt-4 text-[14px]">{contact}</div>
+            </BioSection>
+            <WorkSection
+              projects={mainProjects}
+              heading={isKo ? "대표 작업" : "Selected work"}
+              isKo={isKo}
+              mode={mode}
             />
-            </>
-          )}
-        </div>
-      ) : (
-        <PortfolioSkeleton />
-      )}
+            <ExperienceSection
+              experiences={experiences}
+              heading={isKo ? "경력" : "Experience"}
+              mode={mode}
+              isKo={isKo}
+            />
+            <SkillsSection stacks={stacks} heading={isKo ? "기술" : "Skills"} />
+            <WritingSection
+              posts={recentPosts}
+              heading={isKo ? "글" : "Writing"}
+              moreLabel={isKo ? "전체 글 보기" : "All posts"}
+              moreHref={href("Blog") ?? "#"}
+            />
+          </div>
+        ) : (
+          <PortfolioSkeleton />
+        )}
 
-      <footer className="mt-[72px] flex flex-wrap gap-x-5 gap-y-1.5">
-        <a className={linkClass} href={href("GitHub")} target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-        <a className={linkClass} href={href("Blog")} target="_blank" rel="noreferrer">
-          Blog
-        </a>
-        <a className={linkClass} href="mailto:lemon__96@naver.com">
-          Email
-        </a>
-        <PdfDownload label="PDF" className={`cursor-pointer ${linkClass}`} />
-      </footer>
-    </main>
+        <footer className="mt-[72px] border-t border-rule pt-8">
+          <p className="mb-3 text-[15px]">
+            {isKo
+              ? "함께 이야기 나누고 싶다면 편하게 연락 주세요."
+              : "If you'd like to talk, feel free to reach out."}
+          </p>
+          {contact}
+          <p className="mt-6 text-[12px] text-ink-3">
+            © {new Date().getFullYear()} {hero.primaryName}
+          </p>
+        </footer>
+      </main>
+      <ScrollToTop showAfter={600} size={40} strokeWidth={2} className="border-rule shadow-none" />
+    </>
   );
 }

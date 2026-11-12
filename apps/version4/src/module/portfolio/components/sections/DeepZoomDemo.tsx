@@ -60,10 +60,27 @@ function renderTile(level: number, tx: number, ty: number): HTMLCanvasElement {
   return canvas;
 }
 
-export function DeepZoomDemo({ heading, caption }: DeepZoomDemoProps) {
+interface DeepZoomCanvasProps {
+  /** 조작 전 우측 상단에 보이는 안내 문구 */
+  hint?: string;
+  resetLabel?: string;
+}
+
+const START = { cx: -0.6, cy: 0, scale: BASE * 1.6 };
+
+/**
+ * 타일 피라미드 딥줌 캔버스.
+ * 페이지 스크롤을 가로채지 않도록, 휠 확대는 캔버스를 클릭(포커스)했거나 Ctrl/⌘을 누른 상태에서만 동작한다.
+ */
+export function DeepZoomCanvas({
+  hint = "click, then scroll to zoom · drag to pan",
+  resetLabel = "reset",
+}: DeepZoomCanvasProps) {
   const boxRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hudRef = useRef<HTMLDivElement>(null);
+  const resetRef = useRef<() => void>(() => {});
+  const zoomRef = useRef<(factor: number) => void>(() => {});
 
   useEffect(() => {
     const box = boxRef.current!;
@@ -76,17 +93,26 @@ export function DeepZoomDemo({ heading, caption }: DeepZoomDemoProps) {
     let queue: { key: string; level: number; tx: number; ty: number }[] = [];
     let W = 0;
     let H = 0;
-    let cx = -0.6;
-    let cy = 0;
-    let scale = BASE * 1.6;
+    let cx = START.cx;
+    let cy = START.cy;
+    let scale = START.scale;
     const maxScale = BASE * 2 ** MAX_LEVEL;
     let raf = 0;
     let busy = false;
     let timer = 0;
+    let nudgeTimer = 0;
     let drag: { x: number; y: number } | null = null;
 
     const schedule = () => {
       if (!raf) raf = requestAnimationFrame(frame);
+    };
+
+    resetRef.current = () => {
+      cx = START.cx;
+      cy = START.cy;
+      scale = START.scale;
+      delete box.dataset.touched;
+      schedule();
     };
 
     const pump = () => {
@@ -172,7 +198,16 @@ export function DeepZoomDemo({ heading, caption }: DeepZoomDemoProps) {
       return [e.clientX - r.left, e.clientY - r.top] as const;
     };
 
+    zoomRef.current = (f: number) => zoomAt(W / 2, H / 2, f);
+
     const onWheel = (e: WheelEvent) => {
+      // 포커스 전에는 페이지 스크롤을 그대로 통과시킨다 (트랙패드 핀치는 ctrlKey로 들어온다)
+      if (!box.contains(document.activeElement) && !e.ctrlKey && !e.metaKey) {
+        box.dataset.nudge = "true";
+        window.clearTimeout(nudgeTimer);
+        nudgeTimer = window.setTimeout(() => delete box.dataset.nudge, 1200);
+        return;
+      }
       e.preventDefault();
       const [x, y] = local(e);
       zoomAt(x, y, Math.exp(-e.deltaY * 0.0018));
@@ -182,6 +217,7 @@ export function DeepZoomDemo({ heading, caption }: DeepZoomDemoProps) {
       zoomAt(x, y, 2.2);
     };
     const onDown = (e: PointerEvent) => {
+      box.focus({ preventScroll: true });
       cv.setPointerCapture(e.pointerId);
       drag = { x: e.clientX, y: e.clientY };
       box.dataset.touched = "true";
@@ -206,6 +242,8 @@ export function DeepZoomDemo({ heading, caption }: DeepZoomDemoProps) {
       else if (e.key === "ArrowRight") cx += step;
       else if (e.key === "ArrowUp") cy -= step;
       else if (e.key === "ArrowDown") cy += step;
+      else if (e.key === "0") return resetRef.current();
+      else if (e.key === "Escape") return box.blur();
       else return;
       e.preventDefault();
       box.dataset.touched = "true";
@@ -234,27 +272,49 @@ export function DeepZoomDemo({ heading, caption }: DeepZoomDemoProps) {
       box.removeEventListener("keydown", onKey);
       cancelAnimationFrame(raf);
       clearTimeout(timer);
+      clearTimeout(nudgeTimer);
     };
   }, []);
 
+  const ctrlClass =
+    "pointer-events-auto grid h-7 min-w-7 cursor-pointer place-items-center rounded border border-white/15 bg-black/55 px-1.5 text-[12px] text-[#d8d2c6] backdrop-blur-sm transition-colors hover:border-[#d9a15b] hover:text-[#d9a15b]";
+
+  return (
+    <div
+      ref={boxRef}
+      tabIndex={0}
+      aria-label="Deep zoom demo. Click, then scroll to zoom. Drag or arrow keys to pan, plus and minus to zoom, 0 to reset."
+      className="group/dz relative cursor-grab touch-pan-y overflow-hidden rounded-md border border-rule bg-[#0f0e0d] outline-none data-[drag=true]:cursor-grabbing focus:border-amber/70"
+    >
+      <canvas ref={canvasRef} className="block h-[280px] w-full" />
+      <div
+        ref={hudRef}
+        className="pointer-events-none absolute bottom-2.5 left-3 text-[11px] tabular-nums text-[#b9b3a6] [text-shadow:0_1px_2px_#000]"
+      />
+      <div className="pointer-events-none absolute right-3 top-2.5 text-[11px] text-[#b9b3a6] transition-opacity [text-shadow:0_1px_2px_#000] group-focus-within/dz:opacity-0 group-data-[touched=true]/dz:opacity-0 group-data-[nudge=true]/dz:!opacity-100 group-data-[nudge=true]/dz:text-[#d9a15b]">
+        {hint}
+      </div>
+      <div className="pointer-events-none absolute bottom-2 right-2 flex gap-1">
+        <button type="button" className={ctrlClass} aria-label="Zoom in" onClick={() => zoomRef.current(1.8)}>
+          +
+        </button>
+        <button type="button" className={ctrlClass} aria-label="Zoom out" onClick={() => zoomRef.current(1 / 1.8)}>
+          −
+        </button>
+        <button type="button" className={ctrlClass} onClick={() => resetRef.current()}>
+          {resetLabel}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/** 섹션 제목 + 캔버스 + 설명을 묶은 독립 데모 블록 */
+export function DeepZoomDemo({ heading, caption }: DeepZoomDemoProps) {
   return (
     <section>
       <SectionHeading>{heading}</SectionHeading>
-      <div
-        ref={boxRef}
-        tabIndex={0}
-        aria-label="Deep zoom demo. Scroll to zoom, drag to pan, plus and minus keys to zoom."
-        className="group/dz relative cursor-grab touch-none overflow-hidden rounded-md border border-rule bg-[#0f0e0d] data-[drag=true]:cursor-grabbing focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-amber"
-      >
-        <canvas ref={canvasRef} className="block h-[280px] w-full" />
-        <div
-          ref={hudRef}
-          className="pointer-events-none absolute bottom-2.5 left-3 text-[11px] tabular-nums text-[#b9b3a6] [text-shadow:0_1px_2px_#000]"
-        />
-        <div className="pointer-events-none absolute right-3 top-2.5 text-[11px] text-[#b9b3a6] transition-opacity [text-shadow:0_1px_2px_#000] group-data-[touched=true]/dz:opacity-0">
-          scroll to zoom · drag to pan
-        </div>
-      </div>
+      <DeepZoomCanvas />
       <p className="mt-2.5 text-[13px] leading-relaxed text-ink-2">{caption}</p>
     </section>
   );

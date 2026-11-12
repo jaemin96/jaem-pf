@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { ProjectItem, ViewMode } from "../../data/types";
 import { SectionHeading } from "./SectionHeading";
+import { DeepZoomCanvas } from "./DeepZoomDemo";
 import { Keywords } from "../Keywords";
 
 interface WorkSectionProps {
@@ -15,7 +16,16 @@ interface WorkSectionProps {
 const linkClass =
   "underline decoration-ink-3 underline-offset-4 transition-colors hover:text-amber hover:decoration-amber";
 
-function Media({ project }: { project: ProjectItem }) {
+function Media({ project, isKo }: { project: ProjectItem; isKo: boolean }) {
+  if (project.interactive === "deepzoom") {
+    return (
+      <DeepZoomCanvas
+        hint={isKo ? "클릭 후 스크롤로 확대 · 드래그로 이동" : "click, then scroll to zoom · drag to pan"}
+        resetLabel={isKo ? "처음으로" : "reset"}
+      />
+    );
+  }
+
   return (
     <div
       className={`relative overflow-hidden rounded-md border border-rule bg-black ${
@@ -57,15 +67,37 @@ export function WorkSection({ projects, heading, isKo, mode }: WorkSectionProps)
       <div className="space-y-10">
         {projects.map((p) => (
           <article key={p.name} className="group/work">
-            <Media project={p} />
+            <Media project={p} isKo={isKo} />
+            {p.caption && <p className="mt-2 text-[12px] leading-relaxed text-ink-3">{p.caption}</p>}
             <div className="mt-3.5 flex items-baseline justify-between gap-3">
-              <h3 className="text-[15px] font-semibold">{p.name}</h3>
+              <h3 className="text-[15px] font-semibold">
+                {p.name}
+                <span className="ml-2 text-[12px] font-normal text-ink-3">
+                  {p.meta} · {p.role}
+                </span>
+              </h3>
               <span className="whitespace-nowrap text-[13px] tabular-nums text-ink-2">{p.period}</span>
             </div>
             <p className="mb-1.5 mt-0.5 text-[15px] leading-[1.75]">
               <Keywords text={p.outcome ?? p.summary} />
             </p>
             <div className="font-mono text-[12px] text-ink-2">{(p.stack ?? p.tags).join(" · ")}</div>
+
+            {/* 링크는 접힘 여부와 상관없이 바로 보이게 둔다 */}
+            {(p.github || p.demo) && (
+              <div className="mt-1.5 flex gap-3.5 text-[13px]">
+                {p.demo && (
+                  <a className={linkClass} href={p.demo} target="_blank" rel="noreferrer">
+                    {isKo ? "라이브 데모" : "Live demo"} ↗
+                  </a>
+                )}
+                {p.github && (
+                  <a className={linkClass} href={p.github} target="_blank" rel="noreferrer">
+                    GitHub ↗
+                  </a>
+                )}
+              </div>
+            )}
 
             {p.details?.length ? (
               // key로 모드가 바뀔 때만 초기 상태를 재설정하고, 이후 수동 토글은 자유롭게 허용
@@ -86,20 +118,6 @@ export function WorkSection({ projects, heading, isKo, mode }: WorkSectionProps)
                       </li>
                     ))}
                   </ul>
-                  {(p.github || p.demo) && (
-                    <div className="mt-2.5 flex gap-3.5 text-[13px]">
-                      {p.github && (
-                        <a className={linkClass} href={p.github} target="_blank" rel="noreferrer">
-                          GitHub ↗
-                        </a>
-                      )}
-                      {p.demo && (
-                        <a className={linkClass} href={p.demo} target="_blank" rel="noreferrer">
-                          Demo ↗
-                        </a>
-                      )}
-                    </div>
-                  )}
                 </div>
               </details>
             ) : null}

@@ -4,3 +4,4 @@ export * from "./DeepZoomDemo";
 export * from "./WorkSection";
 export * from "./ExperienceSection";
 export * from "./WritingSection";
+export * from "./SkillsSection";
