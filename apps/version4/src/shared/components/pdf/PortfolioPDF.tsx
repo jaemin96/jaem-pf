@@ -192,13 +192,9 @@ const extraStyles = StyleSheet.create({
   },
 });
 
-const LABELS = {
-  ko: { experience: "경력", projects: "프로젝트", stacks: "기술 스택" },
-  en: { experience: "Experience", projects: "Projects", stacks: "Skills" },
-} as const;
-
 interface PortfolioPDFProps {
-  language: "ko" | "en";
+  /** 섹션 제목 (shared/i18n 사전의 pdf 항목) */
+  labels: { experience: string; projects: string; stacks: string };
   hero: {
     primaryName: string;
     secondaryName?: string;
@@ -236,13 +232,12 @@ interface PortfolioPDFProps {
 }
 
 export function PortfolioPDF({
-  language,
+  labels: t,
   hero,
   stacks,
   projects,
   experiences,
 }: PortfolioPDFProps) {
-  const t = LABELS[language];
   return (
     <Document title={`${hero.primaryName} — ${hero.role}`} author={hero.primaryName}>
       <Page size="A4" style={styles.page}>

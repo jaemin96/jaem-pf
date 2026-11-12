@@ -5,7 +5,7 @@ import { useLanguage } from "@/shared/contexts";
 import { Button } from "./button";
 
 export function LanguageToggle() {
-  const { language, toggleLanguage } = useLanguage();
+  const { language, t, toggleLanguage } = useLanguage();
 
   return (
     <Button
@@ -13,7 +13,7 @@ export function LanguageToggle() {
       size="icon"
       onClick={toggleLanguage}
       aria-label="Toggle language"
-      title={language === "ko" ? "Switch to English" : "한국어로 변경"}
+      title={t.header.switchLanguageAria}
     >
       {language === "ko" ? (
         <span className="text-base font-semibold">A</span>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { PdfDownload } from "@/shared/components/ui";
+import { useLanguage } from "@/shared/contexts";
 
 const linkClass =
   "underline decoration-ink-3 underline-offset-4 transition-colors hover:text-amber hover:decoration-amber";
@@ -10,12 +11,12 @@ interface ContactLinksProps {
   email: string;
   github?: string;
   blog?: string;
-  isKo: boolean;
   className?: string;
 }
 
 /** GitHub · Blog · Email(복사) · 이력서 PDF 링크 묶음. 소개 영역과 푸터에서 같이 쓴다. */
-export function ContactLinks({ email, github, blog, isKo, className }: ContactLinksProps) {
+export function ContactLinks({ email, github, blog, className }: ContactLinksProps) {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -47,13 +48,13 @@ export function ContactLinks({ email, github, blog, isKo, className }: ContactLi
         <button
           type="button"
           onClick={copy}
-          aria-label={isKo ? "이메일 주소 복사" : "Copy email address"}
+          aria-label={t.contact.copyAria}
           className="cursor-pointer text-[12px] text-ink-3 transition-colors hover:text-amber"
         >
-          <span aria-live="polite">{copied ? (isKo ? "복사됨 ✓" : "copied ✓") : isKo ? "복사" : "copy"}</span>
+          <span aria-live="polite">{copied ? t.contact.copied : t.contact.copy}</span>
         </button>
       </span>
-      <PdfDownload label={isKo ? "이력서 PDF" : "Resume PDF"} className={`cursor-pointer ${linkClass}`} />
+      <PdfDownload label={t.contact.resume} className={`cursor-pointer ${linkClass}`} />
     </div>
   );
 }

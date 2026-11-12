@@ -26,11 +26,13 @@ export const heroEn: HeroData = {
   availability: "Open to new frontend roles.",
   ctas: [
     {
+      id: "blog",
       label: "Blog",
       href: "https://jaemin96.github.io",
       variant: "default",
     },
     {
+      id: "github",
       label: "GitHub",
       href: "https://github.com/jaemin96",
       variant: "outline",

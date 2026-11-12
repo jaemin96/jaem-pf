@@ -5,23 +5,24 @@ import type { ProjectItem, ViewMode } from "../../data/types";
 import { SectionHeading } from "./SectionHeading";
 import { DeepZoomCanvas } from "./DeepZoomDemo";
 import { Keywords } from "../Keywords";
+import { useLanguage } from "@/shared/contexts";
 
 interface WorkSectionProps {
   projects: ProjectItem[];
   heading: string;
-  isKo: boolean;
   mode: ViewMode;
 }
 
 const linkClass =
   "underline decoration-ink-3 underline-offset-4 transition-colors hover:text-amber hover:decoration-amber";
 
-function Media({ project, isKo }: { project: ProjectItem; isKo: boolean }) {
+function Media({ project }: { project: ProjectItem }) {
+  const { t } = useLanguage();
   if (project.interactive === "deepzoom") {
     return (
       <DeepZoomCanvas
-        hint={isKo ? "클릭 후 스크롤로 확대 · 드래그로 이동" : "click, then scroll to zoom · drag to pan"}
-        resetLabel={isKo ? "처음으로" : "reset"}
+        hint={t.work.deepzoomHint}
+        resetLabel={t.work.deepzoomReset}
       />
     );
   }
@@ -60,14 +61,15 @@ function Media({ project, isKo }: { project: ProjectItem; isKo: boolean }) {
   );
 }
 
-export function WorkSection({ projects, heading, isKo, mode }: WorkSectionProps) {
+export function WorkSection({ projects, heading, mode }: WorkSectionProps) {
+  const { t } = useLanguage();
   return (
     <section>
       <SectionHeading>{heading}</SectionHeading>
       <div className="space-y-10">
         {projects.map((p) => (
           <article key={p.name} className="group/work">
-            <Media project={p} isKo={isKo} />
+            <Media project={p} />
             {p.caption && <p className="mt-2 text-[12px] leading-relaxed text-ink-3">{p.caption}</p>}
             <div className="mt-3.5 flex items-baseline justify-between gap-3">
               <h3 className="text-[15px] font-semibold">
@@ -88,7 +90,7 @@ export function WorkSection({ projects, heading, isKo, mode }: WorkSectionProps)
               <div className="mt-1.5 flex gap-3.5 text-[13px]">
                 {p.demo && (
                   <a className={linkClass} href={p.demo} target="_blank" rel="noreferrer">
-                    {isKo ? "라이브 데모" : "Live demo"} ↗
+                    {t.work.liveDemo} ↗
                   </a>
                 )}
                 {p.github && (
@@ -105,7 +107,7 @@ export function WorkSection({ projects, heading, isKo, mode }: WorkSectionProps)
                 <summary className="w-max cursor-pointer list-none text-[13px] text-ink-3 transition-colors hover:text-amber [&::-webkit-details-marker]:hidden">
                   <span className="group-open/more:hidden">+ </span>
                   <span className="hidden group-open/more:inline">− </span>
-                  {isKo ? "자세히" : "More"}
+                  {t.work.more}
                 </summary>
                 <div className="mt-3">
                   <ul className="space-y-2">

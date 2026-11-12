@@ -1,6 +1,8 @@
 export type CtaVariant = "default" | "outline" | "ghost";
 
 export interface HeroCta {
+  /** 링크 종류. 코드에서는 라벨 대신 이 값으로 링크를 찾는다. */
+  id: "github" | "blog";
   label: string;
   variant: CtaVariant;
   href?: string;

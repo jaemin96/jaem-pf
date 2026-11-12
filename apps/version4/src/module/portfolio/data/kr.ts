@@ -30,11 +30,13 @@ export const heroKr: HeroData = {
   availability: "새로운 프론트엔드 포지션에 열려 있습니다.",
   ctas: [
     {
+      id: "blog",
       label: "Blog",
       href: "https://jaemin96.github.io",
       variant: "default",
     },
     {
+      id: "github",
       label: "GitHub",
       href: "https://github.com/jaemin96",
       variant: "outline",

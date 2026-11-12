@@ -6,8 +6,7 @@ import { Button } from "./button";
 import { pdf } from "@react-pdf/renderer";
 import { PortfolioPDF } from "@/shared/components/pdf/PortfolioPDF";
 import { useLanguage } from "@/shared/contexts";
-import { heroKr, stacksKr, projectsKr, experiencesKr } from "@/module/portfolio/data/kr";
-import { heroEn, stacksEn, projectsEn, experiencesEn } from "@/module/portfolio/data/en";
+import { getPortfolioData } from "@/module/portfolio/data";
 
 /** 객체 안의 모든 문자열에서 [[ x ]] 빈칸 표시를 [ x ] 로 바꾼다. */
 function cleanPlaceholders<T>(value: T): T {
@@ -29,15 +28,13 @@ interface PdfDownloadProps {
 
 export function PdfDownload({ label, className }: PdfDownloadProps = {}) {
   const [isGenerating, setIsGenerating] = React.useState(false);
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   const handleDownload = async () => {
     setIsGenerating(true);
     try {
       // 언어별 데이터 선택. 사이트와 같은 기준으로 숨김 작업(deferred)은 빼고, [[빈칸]] 표시는 [ ] 로 바꾼다.
-      const raw = language === "ko"
-        ? { hero: heroKr, stacks: stacksKr, projects: projectsKr, experiences: experiencesKr }
-        : { hero: heroEn, stacks: stacksEn, projects: projectsEn, experiences: experiencesEn };
+      const raw = getPortfolioData(language);
       const data = cleanPlaceholders({
         ...raw,
         projects: raw.projects.filter((p) => !p.deferred),
@@ -50,7 +47,7 @@ export function PdfDownload({ label, className }: PdfDownloadProps = {}) {
       // PDF 생성
       const blob = await pdf(
         <PortfolioPDF
-          language={language}
+          labels={t.pdf}
           hero={data.hero}
           stacks={data.stacks}
           projects={data.projects}
@@ -59,9 +56,7 @@ export function PdfDownload({ label, className }: PdfDownloadProps = {}) {
       ).toBlob();
 
       // 파일 다운로드
-      const fileName = language === "ko"
-        ? "포트폴리오_김재민.pdf"
-        : "Portfolio_jaemin_kim.pdf";
+      const fileName = t.pdf.fileName;
 
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");

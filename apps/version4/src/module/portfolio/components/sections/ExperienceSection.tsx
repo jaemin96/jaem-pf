@@ -3,16 +3,17 @@
 import type { ExperienceItem, ViewMode } from "../../data/types";
 import { SectionHeading } from "./SectionHeading";
 import { Keywords } from "../Keywords";
+import { useLanguage } from "@/shared/contexts";
+import type { Dictionary } from "@/shared/i18n";
 
 interface ExperienceSectionProps {
   experiences: ExperienceItem[];
   heading: string;
   mode: ViewMode;
-  isKo: boolean;
 }
 
 /** "2021.06 - 2023.09" / "2024.08 - 재직 중" 형태의 기간을 "2년 3개월"로 바꾼다. 형식이 다르면 null. */
-function tenure(period: string, isKo: boolean): string | null {
+function tenure(period: string, format: Dictionary["tenure"]): string | null {
   const [start, end] = period.split("-").map((s) => s.trim());
   const parse = (s: string) => {
     const m = /^(\d{4})\.(\d{1,2})$/.exec(s);
@@ -27,17 +28,17 @@ function tenure(period: string, isKo: boolean): string | null {
   if (months <= 0) return null;
   const y = Math.floor(months / 12);
   const mo = months % 12;
-  if (isKo) return [y && `${y}년`, mo && `${mo}개월`].filter(Boolean).join(" ");
-  return [y && `${y} yr${y > 1 ? "s" : ""}`, mo && `${mo} mo`].filter(Boolean).join(" ");
+  return format(y, mo);
 }
 
-export function ExperienceSection({ experiences, heading, mode, isKo }: ExperienceSectionProps) {
+export function ExperienceSection({ experiences, heading, mode }: ExperienceSectionProps) {
+  const { t } = useLanguage();
   return (
     <section id="experience">
       <SectionHeading>{heading}</SectionHeading>
       <div className="border-b border-rule">
         {experiences.map((exp) => {
-          const span = tenure(exp.period, isKo);
+          const span = tenure(exp.period, t.tenure);
           return (
             <details key={`${exp.org}-${mode}`} open={mode === "long"} className="group border-t border-rule py-3.5">
               <summary className="grid cursor-pointer list-none grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-1 [&::-webkit-details-marker]:hidden">
