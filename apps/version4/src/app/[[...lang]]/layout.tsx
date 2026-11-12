@@ -11,8 +11,15 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-// TODO: 배포 주소를 NEXT_PUBLIC_SITE_URL 환경변수로 넣어주세요. (OG 이미지·언어별 주소를 절대 경로로 만들 때 필요)
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:12555";
+// 사이트 주소 (OG 이미지·언어별 주소를 절대 경로로 만들 때 필요)
+//  1) NEXT_PUBLIC_SITE_URL 환경변수 (커스텀 도메인을 붙이면 여기에)
+//  2) Vercel이 빌드 때 자동으로 넣어주는 프로덕션 주소 (예: jaem-portfolio.vercel.app)
+//  3) 로컬 개발 주소
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:12555");
 
 type Params = Promise<{ lang?: string[] }>;
 
