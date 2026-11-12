@@ -45,7 +45,8 @@ export function ExperienceSection({ experiences, heading, mode }: ExperienceSect
           const span = tenure(exp.period, t.tenure);
           const [keyResult, ...rest] = exp.bullets;
           return (
-            <div key={exp.org} className="border-t border-rule py-3.5">
+            // 첫 항목은 위쪽 선을 빼서 섹션 제목 선과 두 줄로 겹치지 않게 한다
+            <div key={exp.org} className="border-t border-rule py-3.5 first:border-t-0 first:pt-0">
               <details key={mode} open={mode === "long"} className="group">
                 <summary className="grid cursor-pointer list-none grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-1 [&::-webkit-details-marker]:hidden">
                   <span className="font-semibold transition-colors group-hover:text-amber">
