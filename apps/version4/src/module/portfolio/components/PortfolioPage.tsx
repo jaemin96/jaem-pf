@@ -49,6 +49,7 @@ function PortfolioContent() {
               hero={hero}
               labels={{ short: t.mode.short, long: t.mode.long }}
               modeHint={t.mode.hint}
+              moreLabel={t.work.more}
               mode={mode}
               onModeChange={setMode}
             >
