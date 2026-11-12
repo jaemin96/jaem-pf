@@ -64,6 +64,8 @@ interface DeepZoomCanvasProps {
   /** 조작 전 우측 상단에 보이는 안내 문구 */
   hint?: string;
   resetLabel?: string;
+  /** 왼쪽 위에 항상 보이는 짧은 설명 (예: "WSI 뷰어와 같은 타일 피라미드 구조") */
+  label?: string;
 }
 
 const START = { cx: -0.6, cy: 0, scale: BASE * 1.6 };
@@ -75,6 +77,7 @@ const START = { cx: -0.6, cy: 0, scale: BASE * 1.6 };
 export function DeepZoomCanvas({
   hint = "click, then scroll to zoom · drag to pan",
   resetLabel = "reset",
+  label,
 }: DeepZoomCanvasProps) {
   const boxRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -291,8 +294,16 @@ export function DeepZoomCanvas({
         ref={hudRef}
         className="pointer-events-none absolute bottom-2.5 left-3 text-[11px] tabular-nums text-[#b9b3a6] [text-shadow:0_1px_2px_#000]"
       />
-      <div className="pointer-events-none absolute right-3 top-2.5 text-[11px] text-[#b9b3a6] transition-opacity [text-shadow:0_1px_2px_#000] group-focus-within/dz:opacity-0 group-data-[touched=true]/dz:opacity-0 group-data-[nudge=true]/dz:!opacity-100 group-data-[nudge=true]/dz:text-[#d9a15b]">
-        {hint}
+      {/* 왼쪽 위: 이 데모가 무엇인지 (캡션을 안 읽어도 WSI 뷰어와 이어지게), 오른쪽 위: 조작 안내 */}
+      <div className="pointer-events-none absolute inset-x-3 top-2.5 flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
+        {label && (
+          <span className="rounded border border-white/10 bg-black/55 px-1.5 py-0.5 text-[11px] text-[#d9a15b] backdrop-blur-sm">
+            {label}
+          </span>
+        )}
+        <span className="ml-auto py-0.5 text-[11px] text-[#b9b3a6] transition-opacity [text-shadow:0_1px_2px_#000] group-focus-within/dz:opacity-0 group-data-[touched=true]/dz:opacity-0 group-data-[nudge=true]/dz:!opacity-100 group-data-[nudge=true]/dz:text-[#d9a15b]">
+          {hint}
+        </span>
       </div>
       <div className="pointer-events-none absolute bottom-2 right-2 flex gap-1">
         <button type="button" className={ctrlClass} aria-label="Zoom in" onClick={() => zoomRef.current(1.8)}>

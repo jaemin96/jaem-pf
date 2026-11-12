@@ -43,6 +43,7 @@ export function ExperienceSection({ experiences, heading, mode }: ExperienceSect
       <div className="border-b border-rule">
         {experiences.map((exp) => {
           const span = tenure(exp.period, t.tenure);
+          const [keyResult, ...rest] = exp.bullets;
           return (
             <div key={exp.org} className="border-t border-rule py-3.5">
               <details key={mode} open={mode === "long"} className="group">
@@ -63,9 +64,15 @@ export function ExperienceSection({ experiences, heading, mode }: ExperienceSect
                       <Keywords text={exp.highlight} />
                     </span>
                   )}
+                  {keyResult && (
+                    // 첫 번째 항목(핵심 성과)도 접힌 상태에서 바로 보이게 둔다. 리크루터는 대부분 펼쳐보지 않는다.
+                    <span className="relative col-span-2 mt-1 pl-4 text-sm leading-[1.7] text-ink before:absolute before:left-0 before:text-amber before:content-['–']">
+                      <Keywords text={keyResult} />
+                    </span>
+                  )}
                 </summary>
-                <ul className="mt-3.5 space-y-2">
-                  {exp.bullets.map((b) => (
+                <ul className="mt-2 space-y-2">
+                  {rest.map((b) => (
                     <li
                       key={b}
                       className="relative pl-4 text-sm leading-[1.7] text-ink/85 before:absolute before:left-0 before:text-ink-3 before:content-['–']"

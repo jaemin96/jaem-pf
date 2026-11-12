@@ -93,6 +93,7 @@ export interface ExperienceItem {
   title: string;
   /** 요약 모드에서도 항상 보이는 핵심 한 줄 */
   highlight?: string;
+  /** 첫 번째 항목은 대표 성과로, 접힌 상태에서도 보인다. 가장 강한 성과(수치)를 맨 앞에 둘 것. */
   bullets: string[];
   /** 회사에서 맡았던 화면을 바탕으로 다시 만든 데모 (회사 코드 아님) */
   demos?: DemoLink[];

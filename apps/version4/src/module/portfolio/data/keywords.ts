@@ -24,4 +24,7 @@ export const KEYWORDS = [
   "Tiling",
   "Lazy Loading",
   "Annotation",
+  "Oracle",
+  "MySQL",
+  "EMR",
 ];

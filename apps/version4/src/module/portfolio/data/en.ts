@@ -61,7 +61,7 @@ export const stacksEn: StackItem[] = [
     tags: [
       { name: "SCSS", variant: "primary" },
       { name: "Tailwind CSS", variant: "primary" },
-      { name: "Module CSS", variant: "secondary" },
+      { name: "CSS Modules", variant: "secondary" },
     ],
   },
   {
@@ -86,6 +86,7 @@ export const stacksEn: StackItem[] = [
       { name: "Prisma", variant: "secondary" },
       { name: "MySQL", variant: "secondary" },
       { name: "PostgreSQL", variant: "secondary" },
+      { name: "Oracle", variant: "secondary" },
     ],
   },
   {
@@ -94,7 +95,7 @@ export const stacksEn: StackItem[] = [
     tags: [
       { name: "Git", variant: "primary" },
       { name: "monorepo", variant: "primary" },
-      { name: "Git Actions", variant: "secondary" },
+      { name: "GitHub Actions", variant: "secondary" },
       { name: "Vercel", variant: "secondary" },
     ],
   },
@@ -103,13 +104,10 @@ export const stacksEn: StackItem[] = [
     desc: "Expanding technical spectrum by combining hands-on work experience with personal learning.",
     tags: [
       { name: "AWS", variant: "experienced" },
-      { name: "Shadcn/ui", variant: "experienced" },
-      { name: "Terraform", variant: "experienced" },
+      { name: "shadcn/ui", variant: "experienced" },
       { name: "Storybook", variant: "experienced" },
       { name: "Jest", variant: "experienced" },
       { name: "Docker", variant: "experienced" },
-      { name: "Jenkins", variant: "experienced" },
-      { name: "JSP", variant: "experienced" },
       { name: "antd", variant: "experienced" },
     ],
   },
@@ -204,6 +202,7 @@ export const experiencesEn: ExperienceItem[] = [
       "Designed the frontend architecture for pathologists' Annotation tools (measurement, region marking) and a real-time video consultation system. (used by [[N institutions / N pathologists]])",
       "Built a dense data grid and filters for sites managing tens of thousands ([[N0,000]]) of slides, cutting slide lookup time from [[N s → M s]].",
       "Designed state rules that prevent human error during diagnosis ([[e.g. unsaved-change guards, slide mix-up prevention]]) and shipped [[N+]] rounds of field feedback.",
+      "Also owned backend and deployment work at the hospital-infrastructure boundary: integrating the hospital EMR (Oracle) with the service DB (MySQL), deploying to air-gapped hospital networks, and running DB migrations.",
     ],
   },
   {

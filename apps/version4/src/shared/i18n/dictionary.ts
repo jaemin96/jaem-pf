@@ -29,6 +29,7 @@ const ko = {
   work: {
     deepzoomHint: "클릭 후 스크롤로 확대 · 드래그로 이동",
     deepzoomReset: "처음으로",
+    deepzoomLabel: "WSI 뷰어와 같은 타일 피라미드 구조",
     liveDemo: "라이브 데모",
     more: "자세히",
   },
@@ -82,6 +83,7 @@ const en: Dictionary = {
   work: {
     deepzoomHint: "click, then scroll to zoom · drag to pan",
     deepzoomReset: "reset",
+    deepzoomLabel: "Same tile-pyramid structure as the WSI viewer",
     liveDemo: "Live demo",
     more: "More",
   },

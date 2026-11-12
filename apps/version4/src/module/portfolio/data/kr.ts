@@ -65,7 +65,7 @@ export const stacksKr: StackItem[] = [
     tags: [
       { name: "SCSS", variant: "primary" },
       { name: "Tailwind CSS", variant: "primary" },
-      { name: "Module CSS", variant: "secondary" },
+      { name: "CSS Modules", variant: "secondary" },
     ],
   },
   {
@@ -90,6 +90,7 @@ export const stacksKr: StackItem[] = [
       { name: "Prisma", variant: "secondary" },
       { name: "MySQL", variant: "secondary" },
       { name: "PostgreSQL", variant: "secondary" },
+      { name: "Oracle", variant: "secondary" },
     ],
   },
   {
@@ -98,7 +99,7 @@ export const stacksKr: StackItem[] = [
     tags: [
       { name: "Git", variant: "primary" },
       { name: "monorepo", variant: "primary" },
-      { name: "Git Actions", variant: "secondary" },
+      { name: "GitHub Actions", variant: "secondary" },
       { name: "Vercel", variant: "secondary" },
     ],
   },
@@ -107,13 +108,10 @@ export const stacksKr: StackItem[] = [
     desc: "실무 경험과 개인 학습을 병행하며 기술 스펙트럼을 확장해나가고 있습니다.",
     tags: [
       { name: "AWS", variant: "experienced" },
-      { name: "Shadcn/ui", variant: "experienced" },
-      { name: "Terraform", variant: "experienced" },
+      { name: "shadcn/ui", variant: "experienced" },
       { name: "Storybook", variant: "experienced" },
       { name: "Jest", variant: "experienced" },
       { name: "Docker", variant: "experienced" },
-      { name: "Jenkins", variant: "experienced" },
-      { name: "JSP", variant: "experienced" },
       { name: "antd", variant: "experienced" },
     ],
   },
@@ -209,6 +207,7 @@ export const experiencesKr: ExperienceItem[] = [
       "병리 전문의가 쓰는 Annotation 도구(측정, 구역 표시 등)와 실시간 화상 자문 시스템의 프론트엔드 구조를 설계했습니다. ([[N개 기관 / 전문의 N명]] 사용)",
       "수만 장([[N만 장]])의 슬라이드를 관리하는 현장에 맞춰 정보 밀도가 높은 데이터 그리드와 필터를 구현해, 슬라이드를 찾는 시간을 [[N초 → M초]]로 줄였습니다.",
       "진단 중 휴먼 에러를 막는 상태 관리 규칙([[예: 저장 전 이탈 방지, 슬라이드 혼동 방지]])을 설계하고, 현장 피드백을 [[N회]] 이상 반영했습니다.",
+      "병원 EMR(Oracle)과 서비스 DB(MySQL) 연동, 외부망이 막힌 병원 폐쇄망 환경 배포, DB 마이그레이션 등 병원 인프라와 맞닿은 백엔드·배포 작업도 함께 맡았습니다.",
     ],
   },
   {

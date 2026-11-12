@@ -24,6 +24,7 @@ function Media({ project }: { project: ProjectItem }) {
       <DeepZoomCanvas
         hint={t.work.deepzoomHint}
         resetLabel={t.work.deepzoomReset}
+        label={t.work.deepzoomLabel}
       />
     );
   }
