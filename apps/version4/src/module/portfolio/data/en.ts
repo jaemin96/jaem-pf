@@ -17,7 +17,7 @@ export const heroEn: HeroData = {
     "4+ years building web frontends with React · TypeScript. Currently at Humintec, building a viewer that brings GB-scale pathology images (WSI) to the browser.",
   ],
   bioLong: [
-    "I turn repetitive work into tools. I built [[e.g. a shared component library / deploy & QA automation scripts]] that saved the team [[N hours a week]], and this portfolio itself runs on a pnpm monorepo with shared config packages.",
+    "I turn repetitive work into tools. This portfolio itself runs on a pnpm monorepo with shared config packages.",
     "I like cutting the time users spend waiting. Large-image tiling and rendering only what is needed are the kind of problems I sink the most time into.",
     "Previously at Harbor X, I owned async transaction UX and backoffice modularization for a crypto-asset service.",
   ],
@@ -126,7 +126,7 @@ export const projectsEn: ProjectItem[] = [
     summary:
       "A diagnostic-support screen for viewing GB-scale pathology images (WSI) in the browser, annotating them, and consulting in real time.",
     outcome:
-      "Shows GB-scale slides in the browser without stutter by loading only the visible tiles — first paint [[N s → M s]]",
+      "Shows GB-scale slides in the browser without stutter by loading only the visible tiles",
     stack: ["React", "TypeScript", "Canvas"],
     tags: ["React", "TypeScript"],
     meta: "Humintec",
@@ -135,11 +135,11 @@ export const projectsEn: ProjectItem[] = [
     caption:
       "Above is a miniature built on the same idea (a per-zoom-level tile pyramid, generating only visible tiles). The full viewer, with the annotation tools I use at work (rectangle and polygon drawing, area readouts), is one click away under 'Live demo'.",
     details: [
-      "Split slides into a per-zoom-level tile pyramid and load only on-screen tiles, prioritized from the center out. ([[library used / parts built in-house]])",
-      "Cut first paint from [[N s → M s]] and memory use while zooming and panning by [[N%]].",
+      "Split slides into a per-zoom-level tile pyramid and load only on-screen tiles, prioritized from the center out.",
+      "Cut first-paint time and memory use while zooming and panning.",
       "Designed the frontend structure for Annotation tools (measurement, region marking) and the real-time video consultation screen.",
       "Built a dense data grid and filters for workflows handling tens of thousands of slides.",
-      "Designed state rules such as [[e.g. unsaved-change guards, slide mix-up prevention]] to reduce mistakes during diagnosis.",
+      "Designed state rules to reduce mistakes during diagnosis.",
     ],
   },
   {
@@ -165,7 +165,6 @@ export const projectsEn: ProjectItem[] = [
       "Built the feed and detail views with region filters, following feed, infinite scroll, likes, nested comments, sharing, and download.",
       "Follow, comment, and like events feed notifications through Supabase triggers, with an inbox and read status.",
       "Included what operating the service needs: profile editing, inquiries, admin approval, and account moderation.",
-      "Overall scope: [[N screens · N tables · N weeks]]",
     ],
   },
   {
@@ -200,10 +199,10 @@ export const experiencesEn: ExperienceItem[] = [
     highlight:
       "Frontend for a GB-scale pathology image (WSI) viewer, Annotation tools, and video consultation.",
     bullets: [
-      "Rendered GB-scale pathology images (WSI) with Tiling · Lazy Loading that fetches only visible tiles per zoom level, cutting first paint from [[N s → M s]].",
-      "Designed the frontend architecture for pathologists' Annotation tools (measurement, region marking) and a real-time video consultation system. (used by [[N institutions / N pathologists]])",
-      "Built a dense data grid and filters for sites managing tens of thousands ([[N0,000]]) of slides, cutting slide lookup time from [[N s → M s]].",
-      "Designed state rules that prevent human error during diagnosis ([[e.g. unsaved-change guards, slide mix-up prevention]]) and shipped [[N+]] rounds of field feedback.",
+      "Rendered GB-scale pathology images (WSI) with Tiling · Lazy Loading that fetches only visible tiles per zoom level, cutting first-paint time.",
+      "Designed the frontend architecture for pathologists' Annotation tools (measurement, region marking) and a real-time video consultation system.",
+      "Built a dense data grid and filters for sites managing tens of thousands of slides, cutting slide lookup time.",
+      "Designed state rules that prevent human error during diagnosis, and kept shipping field feedback.",
     ],
   },
   {
@@ -213,10 +212,10 @@ export const experiencesEn: ExperienceItem[] = [
     highlight:
       "Wallet and transaction UX plus shared backoffice components for a crypto-asset service.",
     bullets: [
-      "Designed and built a step-by-step onboarding for blockchain async flows — wallet connection, transaction signing — reducing [[onboarding drop-off / related inquiries by N%]].",
+      "Designed and built a step-by-step onboarding for blockchain async flows — wallet connection, transaction signing.",
       "Visualized real-time prices and asset history with charts, and reflected Pending/Success/Fail transaction states live via WebSocket/Polling.",
       "Defined the frontend's data needs first and worked with backend engineers on RESTful API specs and DB schema design, reducing API change requests mid-development.",
-      "Modularized backoffice screens into shared table and form components, cutting new admin screen work from [[N days → M days]].",
+      "Modularized backoffice screens into shared table and form components, cutting the time to build new admin screens.",
     ],
     demos: [
       {
